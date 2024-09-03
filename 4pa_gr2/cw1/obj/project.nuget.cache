@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kxy703k16Uc=",
+  "dgSpecHash": "86HpFIiA3JA=",
   "success": true,
-  "projectFilePath": "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
+  "projectFilePath": "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\prof\\.nuget\\packages\\microsoft.data.sqlite\\8.0.8\\microsoft.data.sqlite.8.0.8.nupkg.sha512",
     "C:\\Users\\prof\\.nuget\\packages\\microsoft.data.sqlite.core\\8.0.8\\microsoft.data.sqlite.core.8.0.8.nupkg.sha512",

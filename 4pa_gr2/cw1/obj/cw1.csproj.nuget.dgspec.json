@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj": {}
+    "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj": {}
   },
   "projects": {
-    "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj": {
+    "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
+        "projectUniqueName": "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
         "projectName": "cw1",
-        "projectPath": "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
+        "projectPath": "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\cw1.csproj",
         "packagesPath": "C:\\Users\\prof\\.nuget\\packages\\",
-        "outputPath": "D:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\obj\\",
+        "outputPath": "d:\\zdalne\\kolejowe_2024_25\\4pa_gr2\\cw1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
