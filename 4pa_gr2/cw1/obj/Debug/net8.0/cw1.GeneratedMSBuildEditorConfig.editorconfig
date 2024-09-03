@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = d:\zdalne\kolejowe_2024_25\4pa_gr2\cw1
 build_property._RazorSourceGeneratorDebug = 
 
+[d:/zdalne/kolejowe_2024_25/4pa_gr2/cw1/Views/Home/AddNewBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGROZXdCb29rLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [d:/zdalne/kolejowe_2024_25/4pa_gr2/cw1/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

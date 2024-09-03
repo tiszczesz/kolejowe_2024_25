@@ -16,5 +16,9 @@ namespace cw1.Controllers
             return View(books);
         }
 
+        public IActionResult AddNewBook(){
+            return View();
+        }
+
     }
 }
