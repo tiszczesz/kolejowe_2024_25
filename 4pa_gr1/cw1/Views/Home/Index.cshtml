@@ -1,0 +1,24 @@
+@model List<cw1.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h1>Zbiór książek</h1>
+<table>
+    <tr>
+        <th>Lp</th>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Cena</th>
+    </tr>
+    @{int lp=0;}
+    @foreach(var book in Model){
+        lp++;
+        <tr>
+            <td>@lp</td>
+            <td>@book.Title</td>
+            <td>@book.Author</td>
+            <td>@book.Price</td>
+        </tr>
+    }
+</table>
