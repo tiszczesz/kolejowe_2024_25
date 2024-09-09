@@ -6,7 +6,7 @@ CREATE TABLE Products(
  price float
  )
 
- INSERT INTO Products (id, name, category, price) VALUES (1, 'Laptop', 'Electronics', 999.99);
+INSERT INTO Products (id, name, category, price) VALUES (1, 'Laptop', 'Electronics', 999.99);
 INSERT INTO Products (id, name, category, price) VALUES (2, 'Smartphone', 'Electronics', 499.99);
 INSERT INTO Products (id, name, category, price) VALUES (3, 'Tablet', 'Electronics', 299.99);
 INSERT INTO Products (id, name, category, price) VALUES (4, 'Headphones', 'Accessories', 79.99);
