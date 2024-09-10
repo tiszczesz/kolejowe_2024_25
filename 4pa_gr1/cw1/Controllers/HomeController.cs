@@ -11,6 +11,9 @@ namespace cw1.Controllers
             var books = BooksRepo.GetBooksList();
             return View(books);
         }
+        public IActionResult GetFromDb(){
+            return View();
+        }
 
     }
 }
