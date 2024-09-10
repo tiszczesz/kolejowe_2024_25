@@ -6,8 +6,9 @@ namespace cw1.Controllers
     public class HomeController : Controller
     {
         private readonly BooksRepo _booksRepo;
-        public HomeController(){
-            _booksRepo =new BooksRepo();
+        public HomeController(IConfiguration configuration)
+        {
+            _booksRepo = new BooksRepo(configuration);
         }
         // GET: HomeController
         public ActionResult Index()
@@ -16,7 +17,8 @@ namespace cw1.Controllers
             return View(books);
         }
 
-        public IActionResult AddNewBook(){
+        public IActionResult AddNewBook()
+        {
             return View();
         }
 
