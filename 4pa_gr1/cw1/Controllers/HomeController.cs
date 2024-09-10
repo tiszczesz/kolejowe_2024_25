@@ -5,6 +5,11 @@ namespace cw1.Controllers
 {
     public class HomeController : Controller
     {
+        private BooksRepo _repo;
+        public HomeController(IConfiguration configuration)
+        {
+            _repo = new BooksRepo(configuration);
+        }
         // GET: HomeController
         public ActionResult Index()
         {
@@ -12,7 +17,8 @@ namespace cw1.Controllers
             return View(books);
         }
         public IActionResult GetFromDb(){
-            return View();
+           var books =  _repo.GetBooksListFromDb();
+            return View(books);
         }
 
     }
