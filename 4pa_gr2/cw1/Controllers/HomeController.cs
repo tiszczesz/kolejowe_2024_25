@@ -21,6 +21,21 @@ namespace cw1.Controllers
         {
             return View();
         }
+        public IActionResult OrderedBoks(string? sort)
+        {
+            List<Book> books;
+            if (sort == "asc")
+            {
+                books = _booksRepo.GetBooks().OrderBy(x => x.Title).ToList();
+            }
+            else
+            {
+                books = _booksRepo.GetBooks().OrderByDescending(x => x.Title).ToList();
+            }
+
+            ViewBag.Sort = sort == "asc" ? "desc" : "asc";
+            return View("Index", books);
+        }
 
     }
 }

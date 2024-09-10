@@ -1,6 +1,7 @@
 @model List<cw1.Models.Book>
 @{
     ViewData["Title"] = "Index";
+    ViewBag.Sort = ViewBag.Sort ?? "asc";
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +20,10 @@
     <table class="table table-striped">
         <tr>
             <th>Lp</th>
-            <th>Tytuł</th>
+            <th>
+                <a asp-action="OrderedBoks" asp-route-sort="@ViewBag.Sort"> Tytuł</a>
+
+            </th>
             <th>Autor</th>
             <th>Cena</th>
         </tr>
