@@ -8,7 +8,8 @@ void cw1()
 }
 void cw2()
 {
-    Console.Write("Podaj a: ");
+    try{
+        Console.Write("Podaj a: ");
     double a = Convert.ToDouble(Console.ReadLine());
     Console.Write("Podaj b: ");
     double b = Convert.ToDouble(Console.ReadLine());
@@ -22,8 +23,31 @@ void cw2()
         Console.WriteLine($"{a} / {b}: BRAK WYNIKU");
     Console.WriteLine($"{a} / {b}: " 
              + (b != 0 ? (a / b) : "BRAK WYNIKU"));
+    }catch(FormatException ex){
+        Console.WriteLine(ex.Message);
+    }
+    
 }
 
-
+void cw3(){
+    //podaj liczbe
+    //sprawdz czy nieujemna
+    //podaj wynik Math.Sqrt()
+    //lub napisz ze brak wyniku
+}
+void cw4(){
+    //oblicz pierwiaski funkcji kwadratowej
+    //podaj a
+    //podaj b
+    //podaj c
+    //a x^2 + b x + c = 0
+    //x = (-b +- sqrt(b^2 - 4ac) ) / 2a
+    //Math.Pow(2, 2);
+    //x^2-9
+    // if()
+    // else if()
+    // else
+}
 //cw1();
 cw2();
+//cw3();
