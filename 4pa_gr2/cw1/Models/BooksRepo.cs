@@ -5,8 +5,11 @@ namespace cw1.Models;
 
 public class BooksRepo
 {
-    private string connString="Data Source=books.db";
-
+    private string? connString;
+    public BooksRepo(IConfiguration configuration)
+    {
+        connString = configuration.GetConnectionString("BooksDb");
+    }
     public List<Book> GetBooks(){
         List<Book> books = new List<Book>();
         using var conn = new SqliteConnection(connString);

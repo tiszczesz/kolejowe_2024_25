@@ -6,8 +6,9 @@ namespace cw1.Controllers
     public class HomeController : Controller
     {
         private readonly BooksRepo _booksRepo;
-        public HomeController(){
-            _booksRepo =new BooksRepo();
+        public HomeController(IConfiguration configuration)
+        {
+            _booksRepo = new BooksRepo(configuration);
         }
         // GET: HomeController
         public ActionResult Index()
@@ -16,8 +17,24 @@ namespace cw1.Controllers
             return View(books);
         }
 
-        public IActionResult AddNewBook(){
+        public IActionResult AddNewBook()
+        {
             return View();
+        }
+        public IActionResult OrderedBoks(string? sort)
+        {
+            List<Book> books;
+            if (sort == "asc")
+            {
+                books = _booksRepo.GetBooks().OrderBy(x => x.Title).ToList();
+            }
+            else
+            {
+                books = _booksRepo.GetBooks().OrderByDescending(x => x.Title).ToList();
+            }
+
+            ViewBag.Sort = sort == "asc" ? "desc" : "asc";
+            return View("Index", books);
         }
 
     }

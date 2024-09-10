@@ -1,9 +1,14 @@
 using System;
-
+using Microsoft.Data.Sqlite;
 namespace cw1.Models;
 
 public class BooksRepo
 {
+    private string? _connectionString;
+    public BooksRepo(IConfiguration configuration)
+    {
+        _connectionString = configuration.GetConnectionString("sqlite");
+    }
     public static List<Book> GetBooksList()
     {
         return new List<Book>()
@@ -14,5 +19,29 @@ public class BooksRepo
             new Book(){Id=4,Title="JavaScript",Author="Bob",Price=39.99m},
             new Book(){Id=5,Title="C++",Author="David",Price=29.99m},
         };
+    }
+    public List<Book> GetBooksListFromDb()
+    {
+        var books = new List<Book>();
+        using (SqliteConnection conn = new SqliteConnection(_connectionString))
+        {
+            SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "SELECT * FROM Books";
+            conn.Open();
+            SqliteDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                books.Add(new Book()
+                {
+                    Id = reader.GetInt32(0),
+                    Title = reader.GetString(1),
+                    Author = reader.GetString(2),
+                    Price = reader.GetDecimal(3)
+                }
+                    );
+            }
+        }
+        return books;
     }
 }

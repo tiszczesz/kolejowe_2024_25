@@ -5,10 +5,19 @@ namespace cw1.Controllers
 {
     public class HomeController : Controller
     {
+        private BooksRepo _repo;
+        public HomeController(IConfiguration configuration)
+        {
+            _repo = new BooksRepo(configuration);
+        }
         // GET: HomeController
         public ActionResult Index()
         {
             var books = BooksRepo.GetBooksList();
+            return View(books);
+        }
+        public IActionResult GetFromDb(){
+           var books =  _repo.GetBooksListFromDb();
             return View(books);
         }
 
