@@ -21,14 +21,14 @@ public class HomeController : Controller {
     [HttpPost]
     public IActionResult AddProduct(Product product) { //aby odebrać dane z formularza
         if(ModelState.IsValid) {
-            _productsRepo.AddProduct(product);
+            _productsRepo.AddProduct(product);//dodanie produktu do bazy
             return RedirectToAction("Index");
         }
         return View();
     }
     public IActionResult IndexSort(string? sort) {
-        var products = _productsRepo.GetProducts();
-        switch (sort)
+        var products = _productsRepo.GetProducts();//pobranie produktów z bazy
+        switch (sort)//wybór sposobu sortowania
         {
             case "name":
                 products = products.OrderBy(p => p.Name).ToList();
@@ -39,6 +39,6 @@ public class HomeController : Controller {
             case "price":
                 products = products.OrderBy(p => p.Price).ToList();
                 break;
-        }    return View("Index", products);
+        }    return View("Index", products);//przekazanie posortowanej listy do widoku Index
     }
 }
