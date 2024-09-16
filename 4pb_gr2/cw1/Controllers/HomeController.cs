@@ -13,4 +13,17 @@ public class HomeController : Controller {
         var products = _productsRepo.GetProducts();
         return View(products);
     }
+
+    [HttpGet]
+    public IActionResult AddProduct() {
+        return View();//aby wyświetlić formularz
+    }
+    [HttpPost]
+    public IActionResult AddProduct(Product product) { //aby odebrać dane z formularza
+        if(ModelState.IsValid) {
+            _productsRepo.AddProduct(product);
+            return RedirectToAction("Index");
+        }
+        return View();
+    }
 }

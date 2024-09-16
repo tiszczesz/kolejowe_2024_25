@@ -27,4 +27,18 @@ public class ProductsRepo
         }
         return products;
     }
+
+    public void AddProduct(Product product)
+    {
+        using var conn = new SqliteConnection(_connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "INSERT INTO Products (Name, Category, Price)"
+               +" VALUES (@Name, @Category, @Price)";
+        cmd.Parameters.AddWithValue("@Name", product.Name);
+        cmd.Parameters.AddWithValue("@Category", product.Category);
+        cmd.Parameters.AddWithValue("@Price", product.Price);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
 }
