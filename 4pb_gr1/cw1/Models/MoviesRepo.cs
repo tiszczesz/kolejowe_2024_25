@@ -35,14 +35,12 @@ public class MoviesRepo
 
     public void AddMovie(Movie movie)
     {
-        using (SqliteConnection conn = new SqliteConnection(_connString))
-        {
-            SqliteCommand command = conn.CreateCommand();
-            command.CommandText = $"INSERT INTO Movies(Title, Director, Year)" +
-                $" VALUES('{movie.Title}', '{movie.Director}', {movie.Year})";
-            conn.Open();
-            command.ExecuteNonQuery();
-            conn.Close();
-        }
+        using SqliteConnection conn = new SqliteConnection(_connString);
+        SqliteCommand command = conn.CreateCommand();
+        command.CommandText = $"INSERT INTO Movies(Title, Director, Year)" +
+            $" VALUES('{movie.Title}', '{movie.Director}', {movie.Year})";
+        conn.Open();
+        command.ExecuteNonQuery();
+        conn.Close();
     }
 }
