@@ -32,11 +32,13 @@ public class ProductsRepo
     {
         using var conn = new SqliteConnection(_connString);
         SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "INSERT INTO Products (Name, Category, Price)"
-               +" VALUES (@Name, @Category, @Price)";
-        cmd.Parameters.AddWithValue("@Name", product.Name);
-        cmd.Parameters.AddWithValue("@Category", product.Category);
-        cmd.Parameters.AddWithValue("@Price", product.Price);
+        cmd.CommandText = $"INSERT INTO Products (Name, Category, Price) "
+        +$"VALUES ('{product.Name}', '{product.Category}', {product.Price})";
+        // cmd.CommandText = "INSERT INTO Products (Name, Category, Price)"
+        //        +" VALUES (@Name, @Category, @Price)";
+        // cmd.Parameters.AddWithValue("@Name", product.Name);
+        // cmd.Parameters.AddWithValue("@Category", product.Category);
+        // cmd.Parameters.AddWithValue("@Price", product.Price);
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
