@@ -28,7 +28,12 @@ namespace cw1.Controllers
         [HttpPost]
         public IActionResult Create(Movie movie)
         {
-            return View();//zapamiętaj dane do bazy
+            if (ModelState.IsValid)//sprawdź czy dane są poprawne
+            {
+                _repo.AddMovie(movie);//zapamiętaj film do sqlite
+                return RedirectToAction("Index");//przekieruj na stronę główną Lista filmów
+            }
+            return View();//wróć do formularza gdy niepoprawne dane
         }
     }
 }

@@ -15,7 +15,7 @@ public class Movie  //DTO
     [Required(ErrorMessage = "Musisz podać reżysera")]
     public string? Director { get; set; }
     
-    [Range(1900, 2021, ErrorMessage = "Rok musi być z zakresu 1900-2021")]
+    [Range(1900, 2100, ErrorMessage = "Rok musi być z zakresu 1900-2100")]
     [Required(ErrorMessage = "Musisz podać rok produkcji")]
     public int? Year { get; set; }
 }
