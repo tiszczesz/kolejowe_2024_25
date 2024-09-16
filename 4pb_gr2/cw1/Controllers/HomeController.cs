@@ -26,4 +26,19 @@ public class HomeController : Controller {
         }
         return View();
     }
+    public IActionResult IndexSort(string? sort) {
+        var products = _productsRepo.GetProducts();
+        switch (sort)
+        {
+            case "name":
+                products = products.OrderBy(p => p.Name).ToList();
+                break;
+            case "category":
+                products = products.OrderBy(p => p.Category).ToList();
+                break;
+            case "price":
+                products = products.OrderBy(p => p.Price).ToList();
+                break;
+        }    return View("Index", products);
+    }
 }
