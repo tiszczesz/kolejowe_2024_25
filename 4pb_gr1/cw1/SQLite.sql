@@ -15,3 +15,4 @@ INSERT INTO Movies (id, title, director, year) VALUES (7, 'Fight Club', 'David F
 INSERT INTO Movies (id, title, director, year) VALUES (8, 'Forrest Gump', 'Robert Zemeckis', 1994);
 INSERT INTO Movies (id, title, director, year) VALUES (9, 'The Shawshank Redemption', 'Frank Darabont', 1994);
 INSERT INTO Movies (id, title, director, year) VALUES (10, 'The Lord of the Rings: The Return of the King', 'Peter Jackson', 2003);
+INSERT INTO Movies (id, title, director, year) VALUES (null, 'testowy: ', 'Peter Jackson', 2034);
