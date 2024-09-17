@@ -37,5 +37,13 @@ namespace cw1.Controllers
             }
             return View();
         }
+        public IActionResult DeleteBook(int? id)
+        {
+            if(id != null)
+            {
+                _repo.DeleteBook(id);                
+            }
+            return RedirectToAction("GetFromDb");
+        }
     }
 }

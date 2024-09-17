@@ -26,6 +26,7 @@
                 <th>Tytuł</th>
                 <th>Autor</th>
                 <th>Cena</th>
+                <th> --- </th>
             </tr>
             @{
                 int lp = 0;
@@ -34,10 +35,13 @@
             {
                 lp++;
                 <tr>
-                    <th>@lp</th>
-                    <th>@book.Title</th>
-                    <th>@book.Author</th>
-                    <th class="text-end">@book.Price</th>
+                    <td>@lp</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td class="text-end">@book.Price</td>
+                    <td class="text-end">
+                        <a asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-danger">Usuń</a>
+                    </td>
                 </tr>
             }
         </table>

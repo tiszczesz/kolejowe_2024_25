@@ -50,8 +50,18 @@ public class BooksRepo
     {
         using SqliteConnection conn = new SqliteConnection(_connectionString);
         SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = $"INSERT INTO Books (Title, Author, Price)"+
+        cmd.CommandText = $"INSERT INTO Books (Title, Author, Price)" +
         $" VALUES ('{book.Title}', '{book.Author}', {book.Price?.ToString(CultureInfo.InvariantCulture)})";
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+
+    public void DeleteBook(int? id)
+    {
+        using SqliteConnection conn = new SqliteConnection(_connectionString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = $"DELETE FROM Books WHERE Id = {id}";
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
