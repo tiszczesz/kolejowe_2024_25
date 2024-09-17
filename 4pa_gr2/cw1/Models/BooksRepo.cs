@@ -34,10 +34,15 @@ public class BooksRepo
     {
         using SqliteConnection conn = new SqliteConnection(connString);
         SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "INSERT INTO books (title, author, price) VALUES "+
-        $" ('{book.Title}', '{book.Author}', {book.Price?.ToString(CultureInfo.InvariantCulture)})";
+        // cmd.CommandText = "INSERT INTO books (title, author, price) VALUES "+
+        // $" ('{book.Title}', '{book.Author}', {book.Price?.ToString(CultureInfo.InvariantCulture)})";
+        cmd.CommandText = "INSERT INTO books (title, author, price) VALUES (@title, @author, @price)";
+        cmd.Parameters.AddWithValue("@title", book.Title);
+        cmd.Parameters.AddWithValue("@author", book.Author);
+        cmd.Parameters.AddWithValue("@price", book.Price);
         conn.Open();
         cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }
 
