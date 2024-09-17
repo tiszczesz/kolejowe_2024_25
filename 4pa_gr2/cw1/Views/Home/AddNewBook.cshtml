@@ -17,11 +17,24 @@
 
 <body>
     <h1>Dodawanie nowej książki</h1>
-    <form asp-action="AddNewBook">
-        <div class="row">
-            <label class="col-3" asp-for="Title"></label>
+    <form asp-action="AddNewBook" method="post">
+        <div class="row m-3">
+            <label class="col-3 text-end" asp-for="Title"></label>
             <input class="col-6" type="text" asp-for="Title">
-            <span class="col-3">ffff</span>
+            <span asp-validation-for="Title" class="col-3 text-danger"></span>
+        </div>
+        <div class="row m-3">
+            <label class="col-3 text-end" asp-for="Author"></label>
+            <input class="col-6" type="text" asp-for="Author">
+            <span asp-validation-for="Author" class="col-3 text-danger"></span>
+        </div>
+        <div class="row m-3">
+            <label class="col-3 text-end" asp-for="Price"></label>
+            <input class="col-6" type="number" asp-for="Price" step="0.01">
+            <span asp-validation-for="Price" class="col-3 text-danger"></span>
+        </div>
+        <div class="row m-3">
+            <input type="submit" value="Dodaj książkę" class="col-6 offset-3 btn btn-primary">
         </div>
     </form>
     <a asp-action="Index">Do listy książek</a>

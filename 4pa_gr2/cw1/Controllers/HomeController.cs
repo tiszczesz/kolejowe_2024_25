@@ -17,8 +17,18 @@ namespace cw1.Controllers
             return View(books);
         }
 
+        [HttpGet]
         public IActionResult AddNewBook()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult AddNewBook(Book book)
+        {
+            if(ModelState.IsValid){
+                _booksRepo.AddBook(book);
+                return RedirectToAction("Index");
+            }
             return View();
         }
         public IActionResult OrderedBoks(string? sort)

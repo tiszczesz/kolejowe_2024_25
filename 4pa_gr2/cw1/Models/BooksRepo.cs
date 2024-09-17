@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Microsoft.Data.Sqlite;
 
 namespace cw1.Models;
@@ -27,6 +28,16 @@ public class BooksRepo
         }
         conn.Close();
         return books;
+    }
+
+    public void AddBook(Book book)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "INSERT INTO books (title, author, price) VALUES "+
+        $" ('{book.Title}', '{book.Author}', {book.Price?.ToString(CultureInfo.InvariantCulture)})";
+        conn.Open();
+        cmd.ExecuteNonQuery();
     }
 }
 
