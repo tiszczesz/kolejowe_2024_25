@@ -44,5 +44,15 @@ public class BooksRepo
         cmd.ExecuteNonQuery();
         conn.Close();
     }
+
+    public void DeleteBook(int id)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = $"DELETE FROM books WHERE id = {id}";
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
 }
 

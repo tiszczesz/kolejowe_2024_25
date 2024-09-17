@@ -33,6 +33,11 @@ namespace cw1.Controllers
         }
 
 
+        public IActionResult DeleteBook(int id)
+        {
+            _booksRepo.DeleteBook(id);
+            return RedirectToAction("Index");
+        }
         
         public IActionResult OrderedBoks(string? sort)
         {
