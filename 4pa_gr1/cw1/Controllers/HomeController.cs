@@ -41,9 +41,9 @@ namespace cw1.Controllers
         {
             if(id != null)
             {
-                _repo.DeleteBook(id);                
+                _repo.DeleteBook(id);//usuwanie ksiazki z bazy                
             }
-            return RedirectToAction("GetFromDb");
+            return RedirectToAction("GetFromDb");//przekierowanie do akcji GetFromDb
         }
     }
 }

@@ -40,7 +40,9 @@
                     <td>@book.Author</td>
                     <td class="text-end">@book.Price</td>
                     <td class="text-end">
-                        <a asp-action="DeleteBook" asp-route-id="@book.Id" class="btn btn-danger">Usuń</a>
+                        <a asp-controller="Home"
+                        asp-action="DeleteBook" asp-route-id="@book.Id"
+                           class="btn btn-danger">Usuń</a>
                     </td>
                 </tr>
             }
