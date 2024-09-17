@@ -61,7 +61,13 @@ public class BooksRepo
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "UPDATE books "+
         " SET title = @title, author = @author, price = @price WHERE id = @id";
-        cmd.Parameters.AddWithValue("@title", toUpdate.Title);
+        cmd.Parameters.AddWithValue("@title", toUpdate.Title);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@author", toUpdate.Author);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@price", toUpdate.Price);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@id", toUpdate.Id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }
 
