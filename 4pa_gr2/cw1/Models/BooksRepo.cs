@@ -54,5 +54,14 @@ public class BooksRepo
         cmd.ExecuteNonQuery();
         conn.Close();
     }
+
+    public  void UpdateBook(Book toUpdate)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "UPDATE books "+
+        " SET title = @title, author = @author, price = @price WHERE id = @id";
+        cmd.Parameters.AddWithValue("@title", toUpdate.Title);
+    }
 }
 
