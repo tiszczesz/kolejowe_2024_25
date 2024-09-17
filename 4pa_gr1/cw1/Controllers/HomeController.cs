@@ -30,6 +30,11 @@ namespace cw1.Controllers
         [HttpPost]
         public IActionResult InsertBook(Book book)
         {
+            if(ModelState.IsValid)
+            {
+                 _repo.InsertBook(book);
+                 return RedirectToAction("GetFromDb");               
+            }
             return View();
         }
     }
