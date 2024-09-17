@@ -71,3 +71,8 @@ int[] generDivBy(int size,int div){
 }
 ShowTable(generDivBy(10,7));
 //tablica Person
+Person[] persons = new Person[3];
+persons[0] = new Person("Jan", "Kowalski", 30);
+persons[1] = new Person("Anna", "Nowak", 25);
+persons[2] = new Person("Roman", "Nowak", 21);
+ShowTable(persons);
