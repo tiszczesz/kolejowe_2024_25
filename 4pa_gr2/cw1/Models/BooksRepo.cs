@@ -39,7 +39,7 @@ public class BooksRepo
         cmd.CommandText = "INSERT INTO books (title, author, price) VALUES (@title, @author, @price)";
         cmd.Parameters.AddWithValue("@title", book.Title);
         cmd.Parameters.AddWithValue("@author", book.Author);
-        cmd.Parameters.AddWithValue("@price", book.Price);
+        cmd.Parameters.AddWithValue("@price", book.Price?.ToString(CultureInfo.InvariantCulture));
         conn.Open();
         cmd.ExecuteNonQuery();
         conn.Close();
@@ -63,7 +63,7 @@ public class BooksRepo
         " SET title = @title, author = @author, price = @price WHERE id = @id";
         cmd.Parameters.AddWithValue("@title", toUpdate.Title);//ustawienie parametru
         cmd.Parameters.AddWithValue("@author", toUpdate.Author);//ustawienie parametru
-        cmd.Parameters.AddWithValue("@price", toUpdate.Price);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@price", toUpdate.Price?.ToString(CultureInfo.InvariantCulture));//ustawienie parametru
         cmd.Parameters.AddWithValue("@id", toUpdate.Id);
         conn.Open();
         cmd.ExecuteNonQuery();
