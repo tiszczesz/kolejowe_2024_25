@@ -26,6 +26,7 @@
             </th>
             <th>Autor</th>
             <th>Cena</th>
+            <th> ---- </th>
         </tr>
         @{
             int lp = 0;
@@ -39,6 +40,12 @@
                 <td>@book.Title</td>
                 <td>@book.Author</td>
                 <td>@book.Price</td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeleteBook" 
+                    asp-route-id="@book.Id">Usuń</a>
+                    <a class="btn btn-warning" asp-action="UpdateBook" 
+                    asp-route-id="@book.Id">Edytuj</a>
+                </td>
             </tr>
         }
     </table>

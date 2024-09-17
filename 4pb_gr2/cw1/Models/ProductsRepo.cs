@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Microsoft.Data.Sqlite;
 namespace cw1.Models;
 
@@ -9,14 +10,16 @@ public class ProductsRepo
     {
         _connString = configuration.GetConnectionString("sqlite");
     }
-    public List<Product> GetProducts(){
+    public List<Product> GetProducts()
+    {
         var products = new List<Product>();
         using var conn = new SqliteConnection(_connString);
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT * FROM Products";
         conn.Open();
         SqliteDataReader reader = cmd.ExecuteReader();
-        while (reader.Read()){
+        while (reader.Read())
+        {
             products.Add(new Product
             {
                 Id = reader.GetInt32(0),
@@ -26,5 +29,21 @@ public class ProductsRepo
             });
         }
         return products;
+    }
+
+    public void AddProduct(Product product)
+    {
+        using var conn = new SqliteConnection(_connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        // cmd.CommandText = $"INSERT INTO Products (Name, Category, Price) "
+        // + $"VALUES ('{product.Name}', '{product.Category}', {product.Price?.ToString(CultureInfo.InvariantCulture)})";
+        cmd.CommandText = "INSERT INTO Products (Name, Category, Price)"
+               +" VALUES (@Name, @Category, @Price)";
+        cmd.Parameters.AddWithValue("@Name", product.Name);
+        cmd.Parameters.AddWithValue("@Category", product.Category);
+        cmd.Parameters.AddWithValue("@Price", product.Price);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }

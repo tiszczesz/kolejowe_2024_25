@@ -14,12 +14,23 @@
 <body>
     <div class="container">
         <h1>Lista produktów</h1>
+        <div>
+            <a asp-action="AddProduct" class="btn btn-outline-secondary">Dodaj produkt</a>
+        </div>
         <table class="table table-striped">
             <tr>
-                <th>Lp</th>
-                <th>Nazwa</th>
-                <th>Kategoria</th>
-                <th>Cena</th>
+                <th>
+                    Lp
+                </th>
+                <th>
+                    <a asp-action="IndexSort" asp-route-sort="name">Nazwa</a>
+                </th>
+                <th>
+                    <a asp-action="IndexSort" asp-route-sort="category">Kategoria</a>
+                </th>
+                <th>
+                    <a asp-action="IndexSort" asp-route-sort="price">Cena</a>
+                </th>
             </tr>
             @{
                 int lp = 0;

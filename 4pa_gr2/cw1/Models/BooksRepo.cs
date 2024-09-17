@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using Microsoft.Data.Sqlite;
 
 namespace cw1.Models;
@@ -27,6 +28,46 @@ public class BooksRepo
         }
         conn.Close();
         return books;
+    }
+
+    public void AddBook(Book book)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        // cmd.CommandText = "INSERT INTO books (title, author, price) VALUES "+
+        // $" ('{book.Title}', '{book.Author}', {book.Price?.ToString(CultureInfo.InvariantCulture)})";
+        cmd.CommandText = "INSERT INTO books (title, author, price) VALUES (@title, @author, @price)";
+        cmd.Parameters.AddWithValue("@title", book.Title);
+        cmd.Parameters.AddWithValue("@author", book.Author);
+        cmd.Parameters.AddWithValue("@price", book.Price?.ToString(CultureInfo.InvariantCulture));
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+
+    public void DeleteBook(int id)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = $"DELETE FROM books WHERE id = {id}";
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+
+    public  void UpdateBook(Book toUpdate)
+    {
+        using SqliteConnection conn = new SqliteConnection(connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "UPDATE books "+
+        " SET title = @title, author = @author, price = @price WHERE id = @id";
+        cmd.Parameters.AddWithValue("@title", toUpdate.Title);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@author", toUpdate.Author);//ustawienie parametru
+        cmd.Parameters.AddWithValue("@price", toUpdate.Price?.ToString(CultureInfo.InvariantCulture));//ustawienie parametru
+        cmd.Parameters.AddWithValue("@id", toUpdate.Id);
+        conn.Open();
+        cmd.ExecuteNonQuery();
+        conn.Close();
     }
 }
 

@@ -13,4 +13,32 @@ public class HomeController : Controller {
         var products = _productsRepo.GetProducts();
         return View(products);
     }
+
+    [HttpGet]
+    public IActionResult AddProduct() {
+        return View();//aby wyświetlić formularz
+    }
+    [HttpPost]
+    public IActionResult AddProduct(Product product) { //aby odebrać dane z formularza
+        if(ModelState.IsValid) {
+            _productsRepo.AddProduct(product);//dodanie produktu do bazy
+            return RedirectToAction("Index");
+        }
+        return View();
+    }
+    public IActionResult IndexSort(string? sort) {
+        var products = _productsRepo.GetProducts();//pobranie produktów z bazy
+        switch (sort)//wybór sposobu sortowania
+        {
+            case "name":
+                products = products.OrderBy(p => p.Name).ToList();
+                break;
+            case "category":
+                products = products.OrderBy(p => p.Category).ToList();
+                break;
+            case "price":
+                products = products.OrderBy(p => p.Price).ToList();
+                break;
+        }    return View("Index", products);//przekazanie posortowanej listy do widoku Index
+    }
 }

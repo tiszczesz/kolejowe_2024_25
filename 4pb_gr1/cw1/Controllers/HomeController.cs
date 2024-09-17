@@ -16,9 +16,24 @@ namespace cw1.Controllers
             var movies = _repo.GetMovies();
             return View(movies);
         }
-        public ActionResult Kolejowe(){
+        public ActionResult Kolejowe()
+        {
             return View();
         }
-
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();//pokaż formularz
+        }
+        [HttpPost]
+        public IActionResult Create(Movie movie)
+        {
+            if (ModelState.IsValid)//sprawdź czy dane są poprawne
+            {
+                _repo.AddMovie(movie);//zapamiętaj film do sqlite
+                return RedirectToAction("Index");//przekieruj na stronę główną Lista filmów
+            }
+            return View();//wróć do formularza gdy niepoprawne dane
+        }
     }
 }
