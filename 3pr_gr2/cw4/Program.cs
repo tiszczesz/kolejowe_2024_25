@@ -58,7 +58,17 @@ Console.WriteLine(getMax(numbers)-getMin(numbers));
 //wyszukac amplitude tablicy (roznica miedzy najwiekszym i najmniejszym)
 //Console.WriteLine(getMax(numbers)-getMin(numbers));
 //znajdź sumę elementów tablicy getSum(int[] tab) -> int
+int getSum(int[] tab){
+    int sum = 0;
+    for (int i=0; i<tab.Length; i++){
+        sum += tab[i];
+    }
+    return sum;
+}
 //znajdź średnią arytmetyczną elementów tablicy getAvg(int[] tab) -> double
+double getAvg(int[] tab){
+    return (double)getSum(tab)/tab.Length;
+}
 //funkcja generujaca liczby losowe podzielne przez dana liczbe
 //generDivBy(int size, int div) -> int[]
 //generDivBy(10, 3) -> [3, 6, 9, 12, 15, 18, 21, 24, 27, 30]
