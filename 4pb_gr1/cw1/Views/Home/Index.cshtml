@@ -22,6 +22,7 @@
                 <th>Tytuł</th>
                 <th>Reżyser</th>
                 <th>Rok produkcji</th>
+                <th>Operacje</th>
             </tr>
             @foreach (var movie in Model)
             {
@@ -29,6 +30,12 @@
                     <td>@movie.Title</td>
                     <td>@movie.Director</td>
                     <td>@movie.Year</td>
+                    <td>
+                        <a asp-action="DeleteMovie" asp-route-id="@movie.Id"
+                        class="btn btn-danger">Usuń</a>
+                         <a asp-action="UpdateMovie" asp-route-id="@movie.Id"
+                        class="btn btn-secondary">Zmień</a>
+                    </td>
                 </tr>
             }
         </table>
