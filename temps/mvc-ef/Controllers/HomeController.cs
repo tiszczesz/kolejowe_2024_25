@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using mvc_ef.Models;
 
 namespace mvc_ef.Controllers;
@@ -16,9 +17,10 @@ public class HomeController : Controller
     }
 
 
-    public IActionResult Index()
+    public async Task< IActionResult> Index()
     {
-        return View();
+        var games =await _context.Games.ToListAsync();
+        return View(games);
     }
 
     public IActionResult Privacy()

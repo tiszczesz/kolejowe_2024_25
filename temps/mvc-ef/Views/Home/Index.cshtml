@@ -1,8 +1,25 @@
-﻿@{
+﻿@model List<mvc_ef.Models.Game>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <h1>Lista gier</h1>
+    <table class="table table-striped">
+        <tr>
+            <th>Tytuł</th>
+            <th>Rodzaj</th>
+            <th>Cena</th>
+            <th>Data wydania</th>
+        </tr>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>@game.Title</td>
+                <td>@game.Genre</td>
+                <td>@game.Price</td>
+                <td>@game.ReDate</td>
+            </tr>
+        }
+    </table>
 </div>
