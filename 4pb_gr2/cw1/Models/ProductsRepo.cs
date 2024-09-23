@@ -81,6 +81,8 @@ public class ProductsRepo
     {
         using var conn = new SqliteConnection(_connString);
         SqliteCommand cmd = conn.CreateCommand();
+        //zamiana przecinka na kropkę
+        //var toDBPrice = product.Price?.ToString(CultureInfo.InvariantCulture);
         cmd.CommandText = $"UPDATE Products SET Name = @Name, Category = @Category, Price = @Price WHERE Id = @Id";
         cmd.Parameters.AddWithValue("@Name", product.Name);
         cmd.Parameters.AddWithValue("@Category", product.Category);
