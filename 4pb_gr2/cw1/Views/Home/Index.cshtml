@@ -48,6 +48,7 @@
                     <td class="text-end">@product.Price</td>
                     <td>
                         <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-outline-danger">Usuń</a>
+                        <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-outline-primary">Edytuj</a>
                     </td>
                 </tr>
             }

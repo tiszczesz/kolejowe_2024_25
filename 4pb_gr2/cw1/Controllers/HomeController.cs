@@ -55,5 +55,25 @@ public class HomeController : Controller
         await _productsRepo.DeleteProductFromDB(id);
         return RedirectToAction("Index");
     }
+    [HttpGet]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var product = await _productsRepo.GetProductById(id);
+        if(product == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(product);
+    }
+    [HttpPost]
+    public async Task<IActionResult> Edit(Product product)
+    {
+        if (ModelState.IsValid)
+        {
+            await _productsRepo.EditProduct(product);
+            return RedirectToAction("Index");
+        }
+        return View();
+    }
 
 }
