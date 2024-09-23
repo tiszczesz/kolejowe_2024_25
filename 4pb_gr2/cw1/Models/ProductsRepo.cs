@@ -38,12 +38,22 @@ public class ProductsRepo
         // cmd.CommandText = $"INSERT INTO Products (Name, Category, Price) "
         // + $"VALUES ('{product.Name}', '{product.Category}', {product.Price?.ToString(CultureInfo.InvariantCulture)})";
         cmd.CommandText = "INSERT INTO Products (Name, Category, Price)"
-               +" VALUES (@Name, @Category, @Price)";
+               + " VALUES (@Name, @Category, @Price)";
         cmd.Parameters.AddWithValue("@Name", product.Name);
         cmd.Parameters.AddWithValue("@Category", product.Category);
         cmd.Parameters.AddWithValue("@Price", product.Price);
         conn.Open();
         cmd.ExecuteNonQuery();
+        conn.Close();
+    }
+
+    public async Task DeleteProductFromDB(int id)
+    {
+        using var conn = new SqliteConnection(_connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = $"DELETE FROM Products WHERE Id = {id}";
+        conn.Open();
+        await cmd.ExecuteNonQueryAsync();
         conn.Close();
     }
 }

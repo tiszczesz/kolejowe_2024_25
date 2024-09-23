@@ -31,6 +31,9 @@
                 <th>
                     <a asp-action="IndexSort" asp-route-sort="price">Cena</a>
                 </th>
+                <th>
+                    --------
+                </th>
             </tr>
             @{
                 int lp = 0;
@@ -43,6 +46,9 @@
                     <td>@product.Name</td>
                     <td>@product.Category</td>
                     <td class="text-end">@product.Price</td>
+                    <td>
+                        <a asp-action="Delete" asp-route-id="@product.Id" class="btn btn-outline-danger">Usuń</a>
+                    </td>
                 </tr>
             }
         </table>
