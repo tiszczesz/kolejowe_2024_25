@@ -45,7 +45,7 @@ app.get('/users', async (req: Request, res: Response) => {
         res.status(500).json({ error: 'Failed to fetch users' });
     }
 });
-app.post('/users', async (req, res) => {
+app.post('/users', async (req: Request, res: Response) => {
     try {
         const db = await initDb();
         const { name } = req.body;
@@ -58,7 +58,7 @@ app.post('/users', async (req, res) => {
         res.status(500).json({ error: 'Failed to create user' });
     }
 });
-app.get('/users/:id', async (req, res) => {
+app.get('/users/:id', async (req: Request, res: Response) => {
     try {
         const db = await initDb();
         const { id } = req.params;
@@ -71,7 +71,7 @@ app.get('/users/:id', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch user' });
     }
 });
-app.put('/users/:id', async (req, res) => {
+app.put('/users/:id', async (req: Request, res: Response) => {
     try {
         const db: Database = await initDb();
         const { id } = req.params;
@@ -88,7 +88,7 @@ app.put('/users/:id', async (req, res) => {
         res.status(500).json({ error: 'Failed to update user' });
     }
 });
-app.delete('/users/:id', async (req, res) => {
+app.delete('/users/:id', async (req: Request, res: Response) => {
     try {
         const db = await initDb();
         const { id } = req.params;
