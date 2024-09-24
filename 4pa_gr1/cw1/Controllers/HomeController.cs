@@ -30,20 +30,39 @@ namespace cw1.Controllers
         [HttpPost]
         public IActionResult InsertBook(Book book)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                 _repo.InsertBook(book);
-                 return RedirectToAction("GetFromDb");               
+                _repo.InsertBook(book);
+                return RedirectToAction("GetFromDb");
             }
             return View();
         }
         public IActionResult DeleteBook(int? id)
         {
-            if(id != null)
+            if (id != null)
             {
                 _repo.DeleteBook(id);//usuwanie ksiazki z bazy                
             }
             return RedirectToAction("GetFromDb");//przekierowanie do akcji GetFromDb
+        }
+        [HttpGet]
+        public IActionResult Edit(int? id)
+        {
+            if (id == null) return RedirectToAction("GetFromDb");
+            var book = _repo.GetBookById(id);
+            if(book == null) return RedirectToAction("GetFromDb");
+            return View(book);//wyswietlenie widoku z ksiazka do edycji
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                _repo.UpdateBook(book);
+                return RedirectToAction("GetFromDb");
+            }
+            return View(book);
         }
     }
 }
