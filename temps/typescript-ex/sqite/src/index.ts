@@ -1,11 +1,11 @@
 import express, { Request, Response } from 'express';
 import sqlite3 from 'sqlite3';
- import { Database } from 'sqlite';
+import { Database } from 'sqlite';
 import { open } from 'sqlite';
 import cors from 'cors';
 
 const app = express();
-const port = 3000;
+const port = 5000;
 type User = {
     id: number;
     name: string;
@@ -17,7 +17,7 @@ app.use(cors());
 
 // Initialize SQLite database
 async function initDb() {
-    const db:Database<sqlite3.Database, sqlite3.Statement> = await open({
+    const db: Database<sqlite3.Database, sqlite3.Statement> = await open({
         filename: './database.db',
         driver: sqlite3.Database
     });
