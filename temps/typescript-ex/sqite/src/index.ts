@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import sqlite3 from 'sqlite3';
-import { Database } from 'sqlite';
+ import { Database } from 'sqlite';
 import { open } from 'sqlite';
 import cors from 'cors';
 
@@ -17,7 +17,7 @@ app.use(cors());
 
 // Initialize SQLite database
 async function initDb() {
-    const db:Database = await open({
+    const db:Database<sqlite3.Database, sqlite3.Statement> = await open({
         filename: './database.db',
         driver: sqlite3.Database
     });

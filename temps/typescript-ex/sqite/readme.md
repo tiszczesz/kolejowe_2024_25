@@ -25,6 +25,9 @@ Setup TypeScript Configuration:
 ```console
 # Step 3: Setup TypeScript configuration
 npx tsc --init
+npm install sqlite
+npm install @types/sqlite3 --save-dev
+npm install cors
 ```
 
 Create a tsconfig.json file to configure TypeScript.
