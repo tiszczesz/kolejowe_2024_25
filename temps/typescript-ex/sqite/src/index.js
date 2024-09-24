@@ -16,19 +16,24 @@ const express_1 = __importDefault(require("express"));
 const sqlite3_1 = __importDefault(require("sqlite3"));
 const sqlite_1 = require("sqlite");
 const cors_1 = __importDefault(require("cors"));
+const fs_1 = __importDefault(require("fs"));
 const app = (0, express_1.default)();
-const port = 3000;
+const port = 5000;
 // Middleware to parse JSON
 app.use(express_1.default.json());
 app.use((0, cors_1.default)());
 // Initialize SQLite database
 function initDb() {
     return __awaiter(this, void 0, void 0, function* () {
+        const dbFile = './database.db';
+        const dbExists = fs_1.default.existsSync(dbFile);
         const db = yield (0, sqlite_1.open)({
-            filename: './database.db',
+            filename: dbFile,
             driver: sqlite3_1.default.Database
         });
-        yield db.exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+        if (!dbExists) {
+            yield db.exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+        }
         return db;
     });
 }

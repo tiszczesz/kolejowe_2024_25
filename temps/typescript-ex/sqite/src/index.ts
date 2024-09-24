@@ -3,6 +3,7 @@ import sqlite3 from 'sqlite3';
 import { Database } from 'sqlite';
 import { open } from 'sqlite';
 import cors from 'cors';
+import fs from 'fs';
 
 const app = express();
 const port = 5000;
@@ -17,12 +18,18 @@ app.use(cors());
 
 // Initialize SQLite database
 async function initDb() {
+    const dbFile = './database.db';
+    const dbExists = fs.existsSync(dbFile);
+
     const db: Database<sqlite3.Database, sqlite3.Statement> = await open({
-        filename: './database.db',
+        filename: dbFile,
         driver: sqlite3.Database
     });
 
-    await db.exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+    if (!dbExists) {
+        await db.exec('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)');
+    }
+
     return db;
 }
 
