@@ -7,14 +7,19 @@ namespace cw2.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly GamesRepo _gamesRepo;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,IConfiguration configuration)
     {
         _logger = logger;
+        _gamesRepo = new GamesRepo(configuration);
     }
+    
     public IActionResult Games()
     {
-        return View();
+        List<Game> games = _gamesRepo.GetGames();
+        
+        return View(games);
     }
 
     public IActionResult Index()
