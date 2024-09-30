@@ -1,2 +1,27 @@
-﻿
+﻿@model IEnumerable<Game>
 <h1>Lista gier</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Nazwa</th>
+            <th>Opis</th>
+            <th>Cena</th>
+            <th> ---- </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp =0;}
+        @foreach (var game in Model)
+        {
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@game.Id</td>
+                <td>@game.Title</td>
+                <td>@game.Description</td>
+                <td>@game.Price</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
