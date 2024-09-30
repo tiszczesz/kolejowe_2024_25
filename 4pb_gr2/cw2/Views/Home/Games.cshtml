@@ -22,7 +22,10 @@
                 <td>@game.Title</td>
                 <td>@game.Description</td>
                 <td>@game.Price</td>
-                <td></td>
+                <td>
+                    <a class="btn btn-primary p-1" asp-action="EditGame" asp-route-id="@game.Id">Edytuj</a>
+                    <a class="btn btn-danger p-1" asp-action="DeleteGame" asp-route-id="@game.Id">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>

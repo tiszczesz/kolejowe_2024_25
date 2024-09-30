@@ -57,5 +57,10 @@ public class HomeController : Controller
         }
         return View(game);
     }
+    public IActionResult DeleteGame(int id)
+    {
+        _gamesRepo.DeleteGame(id);
+        return RedirectToAction("Games");
+    }
 }
 

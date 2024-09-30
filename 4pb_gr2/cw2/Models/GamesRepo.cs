@@ -68,4 +68,15 @@ public class GamesRepo
         command.ExecuteNonQuery();
         connection.Close();
     }
+
+    public void DeleteGame(int id)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM Games WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
+    }
 }
