@@ -7,15 +7,19 @@ namespace cw2.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly ProductsRepo _productsRepo;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,
+        IConfiguration configuration)
     {
         _logger = logger;
+        _productsRepo = new ProductsRepo(configuration);
     }
 
     public IActionResult Index()
     {
-        return View();
+        var products = _productsRepo.GetProducts();
+        return View(products);
     }
 
     public IActionResult Privacy()
