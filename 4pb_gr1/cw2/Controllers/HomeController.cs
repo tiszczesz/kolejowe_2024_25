@@ -32,4 +32,16 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [HttpGet]
+    public IActionResult AddProduct()
+    {
+        ViewBag.Genres = _productsRepo.GetGenres();
+        return View();
+    }
+    [HttpPost]
+    public IActionResult AddProduct(Product product)
+    {
+        return View();
+    }
 }

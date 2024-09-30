@@ -30,5 +30,23 @@ public class ProductsRepo
         }  
         connection.Close();
         return products;
-    }      
+    }
+
+    public  List<Genre> GetGenres()
+    {
+        List<Genre> genres = new List<Genre>();
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM genres";
+        connection.Open();
+        MySqlDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            Genre genre = new Genre();
+            genre.Id = reader.GetInt32("id");
+            genre.Name = reader.GetString("name");
+            genres.Add(genre);
+        }
+        return genres;
+    }
 }
