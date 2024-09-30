@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 
 namespace cw2.Models;
@@ -48,5 +49,22 @@ public class ProductsRepo
             genres.Add(genre);
         }
         return genres;
+    }
+
+    public void AddProduct(Product product)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "INSERT INTO products (name, description, price, genre_id) "+
+           "VALUES (@name, @description, @price, @genre_id)";
+        command.Parameters.AddWithValue("@name", product.Name);
+        command.Parameters.AddWithValue("@description", product.Description);
+        command.Parameters.AddWithValue("@price",
+                product.Price?.ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@genre_id", product.GenreId);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
+        
     }
 }

@@ -42,6 +42,13 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult AddProduct(Product product)
     {
-        return View();
+        ViewBag.Genres = _productsRepo.GetGenres();
+        if (ModelState.IsValid)
+        {
+            // Add product to database
+            _productsRepo.AddProduct(product);
+            return RedirectToAction("Index");
+        }
+        return View(product);
     }
 }
