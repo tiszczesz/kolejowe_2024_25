@@ -37,4 +37,25 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [HttpGet]
+    public IActionResult AddGame()
+    {
+        var genres = _gamesRepo.GetGenres();
+        ViewBag.Genres = genres;
+        return View();
+    }
+      [HttpPost]
+    public IActionResult AddGame(Game game)
+    {
+        var genres = _gamesRepo.GetGenres();
+         ViewBag.Genres = genres;
+        if (ModelState.IsValid)
+        {
+            _gamesRepo.AddGame(game);
+            return RedirectToAction("Games");
+        }
+        return View(game);
+    }
 }
+

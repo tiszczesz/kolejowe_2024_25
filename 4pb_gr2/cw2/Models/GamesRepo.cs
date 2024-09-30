@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using MySql.Data.MySqlClient;
 namespace cw2.Models;
 
@@ -32,5 +33,39 @@ public class GamesRepo
         connection.Close();
         return games;
     }
+    public List<Genre> GetGenres()
+    {
+        List<Genre> genres = new List<Genre>();
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Genres";
+        connection.Open();
+        using MySqlDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            genres.Add(new Genre
+            {
+                Id = reader.GetInt32("id"),
+                Name = reader.GetString("name"),
+                Description = reader.GetString("description")
+            });
+        }
+        connection.Close();
+        return genres;
+    }
 
+    public void AddGame(Game game)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "INSERT INTO Games (title, genre_id, price, description)"
+            +" VALUES (@title, @genre_id, @price, @description)";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre_id", game.GenreId);
+        command.Parameters.AddWithValue("@price", game.Price?.ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@description", game.Description);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
+    }
 }

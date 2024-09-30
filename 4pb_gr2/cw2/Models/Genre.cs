@@ -11,7 +11,7 @@ public class Genre
     
     [DisplayName("Nazwa")]
     [Required(ErrorMessage = "Pole jest wymagane")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
     
     [DisplayName("Opis")]
     public string? Description { get; set; }
