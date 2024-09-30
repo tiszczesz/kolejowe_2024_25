@@ -30,3 +30,7 @@
         <input type="submit" value="Dodaj" class="btn btn-primary offset-3 col-6"/>
     </div>
 </form>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
