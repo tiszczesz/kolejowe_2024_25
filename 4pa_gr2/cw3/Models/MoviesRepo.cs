@@ -48,7 +48,8 @@ public class MoviesRepo
         command.ExecuteNonQuery();
         connection.Close();
     }
-    public List<Genre> GetGenres(){
+    public List<Genre> GetGenres()
+    {
         var genres = new List<Genre>();
         using var connection = new MySqlConnection(_connectionString);
         MySqlCommand command = connection.CreateCommand();
@@ -66,5 +67,57 @@ public class MoviesRepo
         }
         connection.Close();
         return genres;
+    }
+
+    public Movie? GetMovie(int id)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM movies WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        using var reader = command.ExecuteReader();
+        reader.Read();
+        if (reader.HasRows)
+        {
+            return new Movie
+            {
+                Id = reader.GetInt32("id"),
+                Title = reader.GetString("title"),
+                Director = reader.GetString("director"),
+                Price = reader.GetDecimal("price"),
+                GenreId = reader.GetInt32("genre_id")
+            };
+        }
+        return null;
+    }
+
+    public async Task DeleteMovie(int id)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM movies WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        await command.ExecuteNonQueryAsync();
+        connection.Close();
+    }
+
+    public void EditMovie(Movie movie)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE movies SET " +
+        "title = @title, director = @director, price = @price, genre_id = @genre_id " +
+        "WHERE id = @id";
+        command.Parameters.AddWithValue("@title", movie.Title);
+        command.Parameters.AddWithValue("@director", movie.Director);
+        command.Parameters.AddWithValue("@price",
+             movie.Price?.ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@genre_id", movie.GenreId);
+        command.Parameters.AddWithValue("@id", movie.Id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 }

@@ -18,18 +18,23 @@
         </tr>
     </thead>
     <tbody>
-        @{int lp = 0;}
-        @foreach(var movie in Model){
+        @{
+            int lp = 0;
+        }
+        @foreach (var movie in Model)
+        {
             lp++;
             <tr>
                 <td>@lp</td>
                 <td>@movie.Title</td>
                 <td>@movie.Director</td>
                 <td>@movie.Price</td>
-                <td> </td>
+                <td>
+                    <a asp-action="EditMovie" asp-route-id="@movie.Id" class="btn btn-outline-primary">Edytuj</a>
+                    <a asp-action="DeleteMovie" asp-route-id="@movie.Id" class="btn btn-outline-danger">Usuń</a>
+                </td>
             </tr>
         }
-      
+
     </tbody>
 </table>
-

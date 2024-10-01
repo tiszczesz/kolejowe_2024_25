@@ -31,6 +31,29 @@ public class HomeController : Controller
         }
         return View(movie);
     }
+    public async Task<IActionResult> DeleteMovie(int id)
+    {
+        await _moviesRepo.DeleteMovie(id);
+        return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public IActionResult EditMovie(int id)
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        var movie = _moviesRepo.GetMovie(id);
+        return View(movie);
+    }
+
+    [HttpPost]
+       public IActionResult EditMovie( Movie movie)
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        if(ModelState.IsValid){
+            _moviesRepo.EditMovie(movie);
+            return RedirectToAction("Index");
+        }
+        return View(movie);
+    }
     public IActionResult Index()
     {
         var movies = _moviesRepo.GetMovies();
