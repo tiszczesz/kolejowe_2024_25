@@ -7,17 +7,34 @@ namespace cw2.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MoviesRepo _moviesRepo;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,IConfiguration configuration)
     {
         _logger = logger;
+        _moviesRepo = new MoviesRepo(configuration);//tworzymy obiekt klasy MoviesRepo
     }
-
+  
     public IActionResult Index()
     {
+        var movies = _moviesRepo.GetMovies();//pobieramy listę filmów
+        return View(movies);//zwracamy widok z listą filmów
+    }
+    [HttpGet]
+    public IActionResult InsertMovie(){
+        ViewBag.Genres = _moviesRepo.GetGenres();
         return View();
     }
 
+    [HttpPost]
+    public IActionResult InsertMovie(Movie movie){
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        if(ModelState.IsValid){
+            _moviesRepo.InsertMovie(movie);
+            return RedirectToAction("Index");
+        }
+        return View(movie);
+    }
     public IActionResult Privacy()
     {
         return View();

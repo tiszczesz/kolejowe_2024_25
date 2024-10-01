@@ -22,5 +22,7 @@ public class Movie
     [Required(ErrorMessage = "Cena jest wymagana")]
     [Range(0, 1000, ErrorMessage = "Cena musi być z przedziału od 0 do 1000")]
     public decimal? Price { get; set; }
+    
+    [DisplayName("Gatunek")]
     public int GenreId { get; set; }
 }
