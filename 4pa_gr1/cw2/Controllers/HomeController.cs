@@ -45,4 +45,9 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    public async Task<IActionResult> DeleteMovie(int id)
+    {
+        await _moviesRepo.DeleteMovie(id);
+        return RedirectToAction("Index");
+    }
 }

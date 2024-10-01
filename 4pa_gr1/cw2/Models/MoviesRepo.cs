@@ -68,14 +68,15 @@ public class MoviesRepo
         command.ExecuteNonQuery();
         connection.Close();
     }
-    public void DeleteMovie(int id)
+    public async     Task
+DeleteMovie(int id)
     {
         using var connection = new MySqlConnection(_connectionString);
         MySqlCommand command = connection.CreateCommand();
         command.CommandText = "DELETE FROM movies WHERE id = @id";
         command.Parameters.AddWithValue("@id", id);
         connection.Open();
-        command.ExecuteNonQuery();
+        await command.ExecuteNonQueryAsync();
         connection.Close();
     }
 }

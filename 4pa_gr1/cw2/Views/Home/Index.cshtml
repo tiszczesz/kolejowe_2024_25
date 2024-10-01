@@ -12,6 +12,7 @@
             <th>Tytuł</th>
             <th>Reżyser</th>
             <th>Cena</th>
+            <th> ----- </th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,12 @@
                 <td>@movie.Title</td>
                 <td>@movie.Director</td>
                 <td>@movie.Price</td>
+                <td>
+                    <a asp-action="EditMovie" asp-route-id="@movie.Id" 
+                         class="btn btn-outline-primary p-2">Edytuj</a>
+                    <a asp-action="DeleteMovie" asp-route-id="@movie.Id" 
+                         class="btn btn-outline-danger p-2">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>
