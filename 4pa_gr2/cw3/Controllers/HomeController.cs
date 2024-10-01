@@ -7,15 +7,18 @@ namespace cw3.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly MoviesRepo _moviesRepo;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,IConfiguration configuration)
     {
         _logger = logger;
+        _moviesRepo = new MoviesRepo(configuration);
     }
 
     public IActionResult Index()
     {
-        return View();
+        var movies = _moviesRepo.GetMovies();
+        return View(movies);
     }
 
     public IActionResult Privacy()

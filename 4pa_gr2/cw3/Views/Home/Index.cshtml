@@ -1,8 +1,32 @@
-﻿@{
+﻿@model List<Movie>
+
+@{
     ViewData["Title"] = "Home Page";
 }
+<h1>Lista filmów</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Tytuł</th>
+            <th>Reżyser</th>
+            <th>Cena</th>
+            <th> ----- </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach(var movie in Model){
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@movie.Title</td>
+                <td>@movie.Director</td>
+                <td>@movie.Price</td>
+                <td> </td>
+            </tr>
+        }
+      
+    </tbody>
+</table>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
