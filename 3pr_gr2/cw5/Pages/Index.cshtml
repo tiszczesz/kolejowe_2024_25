@@ -16,9 +16,10 @@
     <ul>
         @foreach (var item in Model.Persons)
         {
-            <li>@item.FirstName @item.LastName</li>
+            <li>@item.FirstName @item.LastName wiek: @item.Age</li>
         }
     </ul>
+    <div>@Model.FajnyTekst</div>
     <div id="root"></div>
     <script src="~/index.js" defer></script>
 </body>

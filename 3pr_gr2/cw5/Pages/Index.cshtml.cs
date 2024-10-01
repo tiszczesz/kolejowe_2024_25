@@ -7,6 +7,7 @@ namespace cw5.Pages
     public class IndexModel : PageModel
     {
         public List<Person> Persons { get; set; }
+        public string FajnyTekst { get; set; }="Fajny tekst";
         public void OnGet()
         {
             Persons = GetPersons();
