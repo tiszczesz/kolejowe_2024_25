@@ -14,7 +14,23 @@ public class HomeController : Controller
         _logger = logger;
         _moviesRepo = new MoviesRepo(configuration);
     }
+    [HttpGet]
+    public IActionResult Create()
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        return View();
+    }
 
+    [HttpPost]
+    public IActionResult Create(Movie movie)
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        if(ModelState.IsValid){
+            _moviesRepo.InsertMovie(movie);
+            return RedirectToAction("Index");
+        }
+        return View(movie);
+    }
     public IActionResult Index()
     {
         var movies = _moviesRepo.GetMovies();
