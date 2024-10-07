@@ -67,4 +67,15 @@ public class ProductsRepo
         connection.Close();
         
     }
+
+    public async Task DeleteProduct(int id)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM products WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        await command.ExecuteNonQueryAsync();
+        connection.Close();
+    }
 }

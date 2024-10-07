@@ -51,4 +51,9 @@ public class HomeController : Controller
         }
         return View(product);
     }
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        await _productsRepo.DeleteProduct(id);
+        return RedirectToAction("Index");
+    }
 }
