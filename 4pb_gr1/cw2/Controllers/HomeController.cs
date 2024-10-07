@@ -56,4 +56,15 @@ public class HomeController : Controller
         await _productsRepo.DeleteProduct(id);
         return RedirectToAction("Index");
     }
+    [HttpGet]
+    public IActionResult EditProduct(int id)
+    {
+        ViewBag.Genres = _productsRepo.GetGenres();
+        Product? product = _productsRepo.GetProduct(id);
+        if(product == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(product);
+    }
 }

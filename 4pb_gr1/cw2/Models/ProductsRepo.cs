@@ -78,4 +78,29 @@ public class ProductsRepo
         await command.ExecuteNonQueryAsync();
         connection.Close();
     }
+
+    internal Product? GetProduct(int id)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM products WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        MySqlDataReader reader = command.ExecuteReader();
+        reader.Read();
+        Product? result;
+        if(reader.HasRows)
+        {
+            result = new Product();
+            result.Id = reader.GetInt32("id");
+            result.Name = reader.GetString("name");
+            result.Description = reader.GetString("description");
+            result.Price = reader.GetDecimal("price");
+            result.GenreId = reader.GetInt32("genre_id");            
+        }else{
+            result = null;
+        }
+        connection.Close();
+        return result;
+    }
 }
