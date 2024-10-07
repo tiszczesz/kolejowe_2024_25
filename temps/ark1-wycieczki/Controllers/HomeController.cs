@@ -14,6 +14,7 @@ namespace ark1_wycieczki.Controllers
         public IActionResult Index()
         {
             var pictures =  _picturesRepo.GetPictures().ToList();
+            
             return View(pictures);
         }
 

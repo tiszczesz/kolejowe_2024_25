@@ -10,7 +10,8 @@ public class PicturesRepo
     {
         _connString = configuration.GetConnectionString("MysqlConn");
     }
-    public List<Picture> GetPictures(){
+    public List<Picture> GetPictures()
+    {
         using var conn = new MySqlConnection(_connString);
         MySqlCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT * FROM zdjecia";
@@ -29,6 +30,15 @@ public class PicturesRepo
         conn.Close();
         return pictures;
     }
+    public List<Trip> GetTraps()
+    {
+        List<Trip> traps = new List<Trip>();
+        using var conn = new MySqlConnection(_connString);
+        MySqlCommand cmd = conn.CreateCommand();
+       
+        return traps;
+
+    }
 }
-    
-    
+
+
