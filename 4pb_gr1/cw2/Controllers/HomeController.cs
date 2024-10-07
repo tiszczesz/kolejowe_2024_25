@@ -67,4 +67,14 @@ public class HomeController : Controller
         }
         return View(product);
     }
+    [HttpPost]
+    public IActionResult EditProduct(Product product){    
+        ViewBag.Genres = _productsRepo.GetGenres();
+        if (ModelState.IsValid)
+        {
+            _productsRepo.EditProduct(product);
+            return RedirectToAction("Index");
+        }
+        return View(product);
+    }
 }
