@@ -50,4 +50,25 @@ public class HomeController : Controller
         await _moviesRepo.DeleteMovie(id);
         return RedirectToAction("Index");
     }
+    [HttpGet]
+    public IActionResult EditMovie(int id)
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        var movie = _moviesRepo.GetMovie(id);
+        if(movie == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(movie);
+    }
+     [HttpPost]
+    public IActionResult EditMovie(Movie movie)
+    {
+        ViewBag.Genres = _moviesRepo.GetGenres();
+        if(ModelState.IsValid){
+            _moviesRepo.UpdateMovie(movie);//aktualizujemy film w DB
+            return RedirectToAction("Index");//przekierowujemy do akcji Index
+        }
+        return View(movie);//zwracamy widok z formularzem z błędami
+    }
 }

@@ -79,4 +79,44 @@ public class GamesRepo
         command.ExecuteNonQuery();
         connection.Close();
     }
+
+    public Game? GetGame(int id)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Games WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        using MySqlDataReader reader = command.ExecuteReader();
+        reader.Read();
+        if(reader.HasRows)
+        {
+            return new Game
+            {
+                Id = reader.GetInt32("id"),
+                Title = reader.GetString("title"),
+                GenreId = reader.GetInt32("genre_id"),
+                Price = reader.GetDecimal("price"),
+                Description = reader.GetString("description")
+            };
+        }
+        return null;
+    }
+
+    public void EditGame(Game game)
+    {
+        using MySqlConnection connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE Games SET title = @title, genre_id = @genre_id,"+
+                   " price = @price, description = @description"
+            +" WHERE id = @id";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre_id", game.GenreId);
+        command.Parameters.AddWithValue("@price", game.Price?.ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@description", game.Description);
+        command.Parameters.AddWithValue("@id", game.Id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
+    }
 }

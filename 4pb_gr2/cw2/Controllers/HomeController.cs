@@ -62,5 +62,29 @@ public class HomeController : Controller
         _gamesRepo.DeleteGame(id);
         return RedirectToAction("Games");
     }
+    [HttpGet]
+    public IActionResult EditGame(int id)
+    {
+        var game = _gamesRepo.GetGame(id);
+        if (game == null)
+        {
+            return RedirectToAction("Games");
+        }
+        var genres = _gamesRepo.GetGenres();
+        ViewBag.Genres = genres;
+        return View(game);
+    }
+    [HttpPost]
+    public IActionResult EditGame(Game game)
+    {
+        var genres = _gamesRepo.GetGenres();
+        ViewBag.Genres = genres;
+        if (ModelState.IsValid)
+        {
+            _gamesRepo.EditGame(game);
+            return RedirectToAction("Games");
+        }
+        return View(game);
+    }
 }
 

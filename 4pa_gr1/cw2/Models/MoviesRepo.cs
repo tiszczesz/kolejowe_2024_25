@@ -33,7 +33,8 @@ public class MoviesRepo
         connection.Close();
         return movies;
     }
-    public List<Genre> GetGenres(){
+    public List<Genre> GetGenres()
+    {
         List<Genre> genres = new();
         using var connection = new MySqlConnection(_connectionString);
         MySqlCommand command = connection.CreateCommand();
@@ -55,13 +56,13 @@ public class MoviesRepo
 
     public void InsertMovie(Movie movie)
     {
-       using var connection = new MySqlConnection(_connectionString);
+        using var connection = new MySqlConnection(_connectionString);
         MySqlCommand command = connection.CreateCommand();
         command.CommandText = "INSERT INTO movies (title, director, price, genre_id) "
-        +"VALUES (@title, @director, @price, @genre_id)";
+        + "VALUES (@title, @director, @price, @genre_id)";
         command.Parameters.AddWithValue("@title", movie.Title);
         command.Parameters.AddWithValue("@director", movie.Director);
-        command.Parameters.AddWithValue("@price", 
+        command.Parameters.AddWithValue("@price",
                   movie.Price?.ToString(CultureInfo.InvariantCulture));
         command.Parameters.AddWithValue("@genre_id", movie.GenreId);
         connection.Open();
@@ -76,6 +77,49 @@ public class MoviesRepo
         command.Parameters.AddWithValue("@id", id);
         connection.Open();
         await command.ExecuteNonQueryAsync();
+        connection.Close();
+    }
+
+    public Movie? GetMovie(int id)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM movies WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        using var reader = command.ExecuteReader();
+        Movie? movie = null;
+        if (reader.HasRows)
+        {
+            reader.Read();
+            movie = new Movie
+            {
+                Id = reader.GetInt32("id"),
+                Title = reader.GetString("title"),
+                Director = reader.GetString("director"),
+                Price = reader.GetDecimal("price"),
+                GenreId = reader.GetInt32("genre_id")
+            };
+        }
+        connection.Close();
+        return movie;
+    }
+
+    public void UpdateMovie(Movie movie)
+    {
+        using var connection = new MySqlConnection(_connectionString);
+        MySqlCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE movies SET title = @title, " +
+            " director = @director, price = @price, genre_id = @genre_id " +
+            "WHERE id = @id";
+        command.Parameters.AddWithValue("@title", movie.Title);
+        command.Parameters.AddWithValue("@director", movie.Director);
+        command.Parameters.AddWithValue("@price",
+                  movie.Price?.ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@genre_id", movie.GenreId);
+        command.Parameters.AddWithValue("@id", movie.Id);
+        connection.Open();
+        command.ExecuteNonQuery();//wykonujemy zapytanie
         connection.Close();
     }
 }

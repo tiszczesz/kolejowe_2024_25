@@ -1,0 +1,33 @@
+﻿@model Game
+
+<h1>Edytuj grę</h1>
+<form asp-action="EditGame" method="post">
+    <div class="row m-2">
+        <input asp-for="Id" type="hidden" />
+        <label asp-for="Title" class="col-3"></label>
+        <input asp-for="Title" class="col-6" type="text" />
+        <span asp-validation-for="Title" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="Description" class="col-3"></label>
+        <input asp-for="Description" class="col-6" type="text" />
+        <span asp-validation-for="Description" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="Price" class="col-3"></label>
+        <input asp-for="Price" class="col-6" type="number" step="0.01" />
+        <span asp-validation-for="Price" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="GenreId" class="col-3"></label>
+        <select asp-for="GenreId" class="col-6">
+            @foreach (var genre in ViewBag.Genres)
+            {
+                <option value="@genre.Id">@genre.Name</option>
+            }
+        </select>
+    </div>
+    <div class="row m-2">
+        <input type="submit" value="Zapisz zmiany" class="btn btn-primary offset-3 col-6" />
+    </div>
+</form>

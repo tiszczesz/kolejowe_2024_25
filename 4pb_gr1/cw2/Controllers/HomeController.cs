@@ -51,4 +51,30 @@ public class HomeController : Controller
         }
         return View(product);
     }
+    public async Task<IActionResult> DeleteProduct(int id)
+    {
+        await _productsRepo.DeleteProduct(id);
+        return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public IActionResult EditProduct(int id)
+    {
+        ViewBag.Genres = _productsRepo.GetGenres();
+        Product? product = _productsRepo.GetProduct(id);
+        if(product == null)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(product);
+    }
+    [HttpPost]
+    public IActionResult EditProduct(Product product){    
+        ViewBag.Genres = _productsRepo.GetGenres();
+        if (ModelState.IsValid)
+        {
+            _productsRepo.EditProduct(product);
+            return RedirectToAction("Index");
+        }
+        return View(product);
+    }
 }

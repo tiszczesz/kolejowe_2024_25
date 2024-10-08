@@ -1,0 +1,63 @@
+﻿@model List<ark1_wycieczki.Models.Picture>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/style.css">
+    <title>Poznaj Europę</title>
+</head>
+
+<body>
+    <header>
+        <h1>BIURO PODRÓŻY</h1>
+    </header>
+    <main>
+        <div id="left">
+            <h2>Promocje</h2>
+            <table>
+                <tr>
+                    <td>Warszawa</td>
+                    <td>od 600 zł</td>                    
+                </tr>
+                 <tr>
+                    <td>Wenecja</td>
+                    <td>od 1200 zł</td>                    
+                </tr>
+                 <tr>
+                    <td>Paryż</td>
+                    <td>od 1200 zł</td>                    
+                </tr>
+            </table>
+        </div>
+        <div id="mid">
+            <h2>W tym roku jedziemy do...</h2>
+            @foreach (var picture in Model)
+            {
+                <img src="~/@picture.FileName" 
+                alt="@picture.FileName" title="@picture.Signature">
+
+            }
+        </div>
+        <div id="right">
+            <h2>Kontakt</h2>
+            <a href="mailto:adada@hhhh">adadad@adad.pl</a>
+            <p>Telefon: 2424242423</p>
+        </div>
+    </main>
+    <article id="dane">
+        <h3>W poprzednich latach byliśmy</h3>
+        <ol>
+            @foreach(var trip in ViewBag.Trips)
+            {
+                <li>Dnia @trip.TrapDate pojechaliśmy do @trip.Target</li>
+            }
+        </ol>
+    </article>
+    <footer>
+        <p>Wszelkie prawa zastrzeżone</p>
+    </footer>
+</body>
+
+</html>
