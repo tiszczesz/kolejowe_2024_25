@@ -1,0 +1,33 @@
+﻿@model Movie
+
+<h1>Edycja filmu</h1>
+<form asp-action="EditMovie" method="post">
+    <div class="row m-2">
+        <input type="hidden" asp-for="Id">
+        <label class="col-3" asp-for="Title"></label>
+        <input type="text" asp-for="Title" class="col-6">
+        <span asp-validation-for="Title" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="Director"></label>
+        <input type="text" asp-for="Director" class="col-6">
+        <span asp-validation-for="Director" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="col-6" step="0.01">
+        <span asp-validation-for="Price" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="GenreId"></label>
+        <select asp-for="GenreId" class="col-6">
+            @foreach (var genre in ViewBag.Genres)
+            {
+                <option value="@genre.Id">@genre.Name</option>
+            }
+        </select>       
+    </div>
+    <div class="row m-2">
+        <input type="submit" value="Zapisz zmiany" class="btn btn-primary col-6 offset-3">
+    </div>
+</form>

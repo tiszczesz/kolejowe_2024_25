@@ -35,7 +35,22 @@ public class PicturesRepo
         List<Trip> traps = new List<Trip>();
         using var conn = new MySqlConnection(_connString);
         MySqlCommand cmd = conn.CreateCommand();
-       
+        cmd.CommandText = "SELECT * FROM wycieczki WHERE dostepna = 0";
+        conn.Open();
+        using var reader = cmd.ExecuteReader();
+        while (reader.Read())
+        {
+            traps.Add(new Trip
+            {
+                Id = reader.GetInt32("id"),
+                PictureId =  reader.GetInt32("zdjecia_id"),
+                TrapDate =  DateOnly .FromDateTime(reader.GetDateTime("dataWyjazdu")),
+                Target =  reader.GetString("cel"),
+                Price =  reader.GetDecimal("cena"),
+                IsExists =  reader.GetBoolean("dostepna")
+            });
+        }
+        conn.Close();   
         return traps;
 
     }

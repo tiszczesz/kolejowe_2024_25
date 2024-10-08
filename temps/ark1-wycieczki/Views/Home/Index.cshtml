@@ -49,7 +49,10 @@
     <article id="dane">
         <h3>W poprzednich latach byliśmy</h3>
         <ol>
-
+            @foreach(var trip in ViewBag.Trips)
+            {
+                <li>Dnia @trip.TrapDate pojechaliśmy do @trip.Target</li>
+            }
         </ol>
     </article>
     <footer>
