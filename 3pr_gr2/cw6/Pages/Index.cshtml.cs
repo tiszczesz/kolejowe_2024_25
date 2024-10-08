@@ -15,7 +15,7 @@ namespace cw6.Pages
         public void OnGet()
         {
             
-           // Movies = _repo.GetMovies();
+            Movies = _repo.Movies ?? new List<Movie>();
         }
     }
 }
