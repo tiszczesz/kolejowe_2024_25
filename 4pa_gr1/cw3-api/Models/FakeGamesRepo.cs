@@ -33,8 +33,8 @@ public class FakeGamesRepo : IGamesRepo
         throw new NotImplementedException();
     }
 
-    public List<Game> GetGames()
+    public List<Game>? GetGames()
     {
-        throw new NotImplementedException();
+        return Games;
     }
 }
