@@ -1,0 +1,27 @@
+﻿@page
+@model cw6.Pages.SimpleFormModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Prosty formularz</h1>
+     <form asp-page="SimpleForm" method="post">
+        <input type="text" name="firstname" placeholder="Podaj imie"> <br />
+        <input type="number" name="age" placeholder="Podaj wiek"><br />
+        <input type="submit" value="Wyślij">
+     </form>
+     @* @if(ViewData["firstname"] != null && ViewData["age"] != null){
+         <p>Witaj, @ViewData["firstname"]</p>
+         <p>Twój wiek: @ViewData["age"]</p>
+     } *@
+
+    @if(ViewData["method"] != null && ViewData["method"] == "POST"){
+         <p>Witaj, @Request.Form["firstname"]</p>
+         <p>Twój wiek: @Request.Form["age"]</p>
+}
+</body>
+</html>
