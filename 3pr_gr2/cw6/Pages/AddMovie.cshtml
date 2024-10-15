@@ -14,22 +14,22 @@
         <div class="row m-3">
             <label class="col-3" asp-for="@Model.MyMovie.Title"></label>
             <input class="col-6" asp-for="@Model.MyMovie.Title" />
-            <span asp-validation-for="@Model.MyMovie.Title" class="text-danger"></span>
+            <span asp-validation-for="@Model.MyMovie.Title" class="text-danger col-3"></span>
         </div>
         <div class="row m-3">
             <label class="col-3" asp-for="@Model.MyMovie.Director"></label>
             <input class="col-6" asp-for="@Model.MyMovie.Director" />
-            <span asp-validation-for="@Model.MyMovie.Director" class="text-danger"></span>
+            <span asp-validation-for="@Model.MyMovie.Director" class="text-danger col-3"></span>
         </div>
         <div class="row m-3">
             <label class="col-3" asp-for="@Model.MyMovie.ReleaseDate"></label>
             <input type="date" class="col-6" asp-for="@Model.MyMovie.ReleaseDate" />
-            <span asp-validation-for="@Model.MyMovie.ReleaseDate" class="text-danger"></span>
+            <span asp-validation-for="@Model.MyMovie.ReleaseDate" class="text-danger col-3"></span>
         </div>
         <div class="row m-3">
             <label class="col-3" asp-for="@Model.MyMovie.Price"></label>
             <input type="number" class="col-6" asp-for="@Model.MyMovie.Price" step="0.01" />
-            <span asp-validation-for="@Model.MyMovie.Price" class="text-danger"></span>
+            <span asp-validation-for="@Model.MyMovie.Price" class="text-danger col-3"></span>
         </div>
         <div class="row m-3">
             <input type="submit" value="Dodaj" class="offset-3 col-6 btn btn-primary" />
