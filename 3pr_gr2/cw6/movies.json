@@ -1,0 +1,90 @@
+[
+    {
+        "Id": 1,
+        "Title": "Inception",
+        "Director": "Christopher Nolan",
+        "ReleaseDate": "2010-07-16",
+        "Genre": "Sci-Fi",
+        "Price": 9.99
+    },
+    {
+        "Id": 2,
+        "Title": "The Matrix",
+        "Director": "Lana Wachowski, Lilly Wachowski",
+        "ReleaseDate": "1999-03-31",
+        "Genre": "Action",
+        "Price": 8.99
+    },
+    {
+        "Id": 3,
+        "Title": "Interstellar",
+        "Director": "Christopher Nolan",
+        "ReleaseDate": "2014-11-07",
+        "Genre": "Sci-Fi",
+        "Price": 10.99
+    },
+    {
+        "Id": 4,
+        "Title": "The Godfather",
+        "Director": "Francis Ford Coppola",
+        "ReleaseDate": "1972-03-24",
+        "Genre": "Crime",
+        "Price": 7.99
+    },
+    {
+        "Id": 5,
+        "Title": "Pulp Fiction",
+        "Director": "Quentin Tarantino",
+        "ReleaseDate": "1994-10-14",
+        "Genre": "Crime",
+        "Price": 8.49
+    },
+    {
+        "Id": 6,
+        "Title": "The Shawshank Redemption",
+        "Director": "Frank Darabont",
+        "ReleaseDate": "1994-09-23",
+        "Genre": "Drama",
+        "Price": 9.49
+    },
+    {
+        "Id": 7,
+        "Title": "The Dark Knight",
+        "Director": "Christopher Nolan",
+        "ReleaseDate": "2008-07-18",
+        "Genre": "Action",
+        "Price": 9.99
+    },
+    {
+        "Id": 8,
+        "Title": "Fight Club",
+        "Director": "David Fincher",
+        "ReleaseDate": "1999-10-15",
+        "Genre": "Drama",
+        "Price": 7.99
+    },
+    {
+        "Id": 9,
+        "Title": "Forrest Gump",
+        "Director": "Robert Zemeckis",
+        "ReleaseDate": "1994-07-06",
+        "Genre": "Drama",
+        "Price": 8.99
+    },
+    {
+        "Id": 10,
+        "Title": "The Lord of the Rings: The Fellowship of the Ring",
+        "Director": "Peter Jackson",
+        "ReleaseDate": "2001-12-19",
+        "Genre": "Fantasy",
+        "Price": 10.49
+    },
+    {
+        "Id": 11,
+        "Title": "dgdfgdfgdgdg dowship of the Ring",
+        "Director": "Peter Jackson",
+        "ReleaseDate": "2001-12-19",
+        "Genre": "Fantasy",
+        "Price": 10.49
+    }
+]
