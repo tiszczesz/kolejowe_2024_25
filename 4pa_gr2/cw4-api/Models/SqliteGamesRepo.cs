@@ -24,7 +24,25 @@ public class SqliteGamesRepo : IGameRepo
 
     public Game? GetGameById(int id)
     {
-        throw new NotImplementedException();
+        using SqliteConnection conn = new SqliteConnection(_connString);
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "SELECT * FROM Games WHERE id = @id";
+        cmd.Parameters.AddWithValue("@id", id);
+        conn.Open();
+        using SqliteDataReader reader = cmd.ExecuteReader();
+        if(!reader.HasRows) return null;
+        reader.Read();
+        Game game = new Game
+        {
+            Id = reader.GetInt32("id"),
+            Title = reader.GetString("title"),
+            Genre = reader.GetString("genre"),
+            ReleaseDate = DateOnly.
+                FromDateTime(reader.GetDateTime("releaseDate")),
+            Price = reader.GetDecimal("price")
+        };
+        conn.Close();
+        return game;
     }
 
     public List<Game> GetGames()
