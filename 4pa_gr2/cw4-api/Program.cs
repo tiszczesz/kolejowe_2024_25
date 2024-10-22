@@ -18,4 +18,14 @@ app.MapPost("/games",(IGameRepo repo,Game game)=>{
     repo.AddGame(game);
     return Results.Created($"/games/{game.Id}",game);
 });
+app.MapDelete("/games/{id}",(IGameRepo repo,int id)=>{
+    repo.DeleteGame(id);
+    return Results.NoContent();
+});
+app.MapPut("/games/{id}",(IGameRepo repo,int id,Game game)=>{
+    if(repo.GetGameById(id) == null) return Results.NotFound();
+    game.Id = id;
+    repo.UpdateGame(game);
+    return Results.NoContent();
+});
 app.Run();
