@@ -46,7 +46,16 @@ app.MapPost("/games", (Game game) =>
     return Results.Created($"/games/{game.Id}", game);
 });
 
-
+app.MapPut("/games/{id}", (Game game, int id) =>
+{
+    if (repo.GetGameById(id) == null)
+    {
+        return Results.NotFound();
+    }
+    game.Id = id;
+    repo.UpdateGame(game);
+    return Results.NoContent();
+});
 app.Run();
 
 //gdy jest wstrzykiwanie zależności

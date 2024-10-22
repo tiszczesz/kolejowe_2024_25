@@ -89,6 +89,20 @@ public class SqliteGameRepo : IGamesRepo
 
     public void UpdateGame(Game game)
     {
-        throw new NotImplementedException();
+        using var connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE games SET title = @title, genre = @genre, "+
+            "editDate = @editDate, price = @price WHERE id = @id";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre", game.Genre);
+        command.Parameters.AddWithValue("@editDate", 
+               game.EditDate.ToString("yyyy-MM-dd"));
+        command.Parameters.AddWithValue("@price", game.Price?
+        .ToString(CultureInfo.InvariantCulture));
+        command.Parameters.AddWithValue("@id", game.Id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
+        
     }
 }
