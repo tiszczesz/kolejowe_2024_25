@@ -31,9 +31,26 @@
             <input type="number" class="col-6" asp-for="@Model.MyMovie.Price" step="0.01" />
             <span asp-validation-for="@Model.MyMovie.Price" class="text-danger col-3"></span>
         </div>
+
+        <div class="row m-3">
+            <label class="col-3 text-end" asp-for="@Model.MyMovie.Genre"></label>
+            <select class="col-6" asp-for="@Model.MyMovie.Genre" >
+                @foreach(var genre in ViewData["Genres"] as List<string>)
+                {
+                    <option value="@genre">@genre</option>
+                }
+            </select>
+        </div>
         <div class="row m-3">
             <input type="submit" value="Dodaj" class="offset-3 col-6 btn btn-primary" />
         </div>
     </form>
+    <div>
+        <a class="btn btn-primary" asp-page="Index">Powrót do listy filmów</a>
+    </div>
+    <hr>
+    <div>
+        @ViewData["Message"]
+    </div>
 </body>
 </html>
