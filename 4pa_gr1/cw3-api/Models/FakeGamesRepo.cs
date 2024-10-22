@@ -28,13 +28,23 @@ public class FakeGamesRepo : IGamesRepo
         throw new NotImplementedException();
     }
 
-    public Game GetGameById(int id)
+    public Game? GetGameById(int id)
     {
-        throw new NotImplementedException();
+        return Games?.FirstOrDefault(g => g.Id == id);
     }
 
     public List<Game>? GetGames()
     {
         return Games;
+    }
+
+    public void UpdateGame(Game game)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteGame(int id)
+    {
+        throw new NotImplementedException();
     }
 }
