@@ -22,6 +22,16 @@ app.MapGet("/games/{id}", ( int id) =>{
     var result =  repo.GetGameById(id);
     return result != null ? Results.Ok(result) : Results.NotFound();
     });
+app.MapDelete("/games/{id}", (int id) =>{
+    repo.DeleteGame(id);
+    return Results.NoContent();
+    });
+app.MapPost("/games", (Game game) =>{
+    repo.AddGame(game);
+    return Results.Created($"/games/{game.Id}", game);
+    });
+
+    
 app.Run();
 
 //gdy jest wstrzykiwanie zależności
@@ -30,5 +40,9 @@ app.Run();
 // app.MapGet("/games/{id}", (IGamesRepo repo, int id) =>{
 //     var result =  repo.GetGameById(id);
 //     return result != null ? Results.Ok(result) : Results.NotFound();
+//     });
+// app.MapDelete("/games/{id}", (IGamesRepo repo,int id) =>{
+//     repo.DeleteGame(id);
+//     return Results.NoContent();
 //     });
 // app.Run();

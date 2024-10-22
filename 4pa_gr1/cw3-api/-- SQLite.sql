@@ -18,3 +18,6 @@ INSERT INTO "games" (id, title, genre, editDate, price) VALUES
 (8, 'Among Us', 'Party', '2023-08-15', 4.99),
 (9, 'Cyberpunk 2077', 'RPG', '2023-09-10', 59.99),
 (10, 'Animal Crossing: New Horizons', 'Simulation', '2023-10-05', 59.99);
+
+INSERT INTO "games" (id, title, genre, editDate, price) VALUES 
+(10, 'Animal Crossing: New Horizons', 'Simulation', '2023-10-05', 59.99);

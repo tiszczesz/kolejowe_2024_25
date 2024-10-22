@@ -1,5 +1,6 @@
 using System;
 using System.Data;
+using System.Globalization;
 using Microsoft.Data.Sqlite;
 
 namespace cw3_api.Models;
@@ -13,12 +14,30 @@ public class SqliteGameRepo : IGamesRepo
     }
     public void AddGame(Game game)
     {
-        throw new NotImplementedException();
+        using var connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "INSERT INTO games (title, genre, editDate, price)"+
+            " VALUES (@title, @genre, @editDate, @price)";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre", game.Genre);
+        command.Parameters.AddWithValue("@editDate", 
+               game.EditDate.ToString("yyyy-MM-dd"));
+        command.Parameters.AddWithValue("@price", game.Price?
+              .ToString(CultureInfo.InvariantCulture));
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 
     public void DeleteGame(int id)
     {
-        throw new NotImplementedException();
+        using var connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM games WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();        
     }
 
     public Game? GetGameById(int id)
