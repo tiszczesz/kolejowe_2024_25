@@ -1,29 +1,47 @@
 using cw4_api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+//koniguracja CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll",
+    builder => builder
+        .AllowAnyOrigin()
+        .AllowAnyMethod()
+        .AllowAnyHeader());
+});
+
+
 //wstrzykiwanie zależności
 //builder.Services.AddScoped<IGameRepo,FakeGamesRepo>();
-builder.Services.AddScoped<IGameRepo,SqliteGamesRepo>();
+builder.Services.AddScoped<IGameRepo, SqliteGamesRepo>();
 //IGameRepo repo = new SqliteGamesRepo(builder.Configuration);
 var app = builder.Build();
+
+app.UseCors("AllowAll");//uzycie konfiguracji CORS
+
 // var colors = new List<string> { "Red", "Green", "Blue" };
 app.MapGet("/", () => "Hello World!");
 // app.MapGet("/colors", () => colors);
-app.MapGet("/games",(IGameRepo repo) =>repo.GetGames());
-app.MapGet("/games/{id}",((IGameRepo repo,int id)=>{
+app.MapGet("/games", (IGameRepo repo) => repo.GetGames());
+app.MapGet("/games/{id}", ((IGameRepo repo, int id) =>
+{
     var game = repo.GetGameById(id);
-    return game!=null ? Results.Ok(game) : Results.NotFound();
+    return game != null ? Results.Ok(game) : Results.NotFound();
 }));
-app.MapPost("/games",(IGameRepo repo,Game game)=>{
+app.MapPost("/games", (IGameRepo repo, Game game) =>
+{
     repo.AddGame(game);
-    return Results.Created($"/games/{game.Id}",game);
+    return Results.Created($"/games/{game.Id}", game);
 });
-app.MapDelete("/games/{id}",(IGameRepo repo,int id)=>{
+app.MapDelete("/games/{id}", (IGameRepo repo, int id) =>
+{
     repo.DeleteGame(id);
     return Results.NoContent();
 });
-app.MapPut("/games/{id}",(IGameRepo repo,int id,Game game)=>{
-    if(repo.GetGameById(id) == null) return Results.NotFound();
+app.MapPut("/games/{id}", (IGameRepo repo, int id, Game game) =>
+{
+    if (repo.GetGameById(id) == null) return Results.NotFound();
     game.Id = id;
     repo.UpdateGame(game);
     return Results.NoContent();
