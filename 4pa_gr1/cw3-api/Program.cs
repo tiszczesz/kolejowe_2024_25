@@ -1,8 +1,20 @@
 using cw3_api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddScoped<IGamesRepo, FakeGamesRepo>();//wstrzykiwanie zależności
+//konstruktor wstrzykiwany bez argumentów
+builder.Services.AddScoped<IGamesRepo, SqliteGameRepo>();//wstrzykiwanie zależności
+// Konfiguracja wstrzykiwania zależności z argumentem
+// builder.Services.AddScoped<IGamesRepo>(provider =>
+// {
+//     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+//     return new GamesRepo(connectionString);
+// });
+
+
 var app = builder.Build();
+
+
+
 
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/games", (IGamesRepo repo) => repo.GetGames());
