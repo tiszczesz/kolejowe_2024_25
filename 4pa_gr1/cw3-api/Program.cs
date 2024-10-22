@@ -27,7 +27,7 @@ var app = builder.Build();
 // uzycie CORS
 app.UseCors("MyPolicy");
 
-//bez wstrzykiwania zależności
+// bez wstrzykiwania zależności
 // app.MapGet("/", () => "Hello World!");
 // app.MapGet("/games", () => repo.GetGames());
 // app.MapGet("/games/{id}", (int id) =>
