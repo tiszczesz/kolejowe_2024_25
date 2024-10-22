@@ -2,7 +2,8 @@ using cw4_api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 //wstrzykiwanie zależności
-builder.Services.AddScoped<IGameRepo,FakeGamesRepo>();
+//builder.Services.AddScoped<IGameRepo,FakeGamesRepo>();
+builder.Services.AddScoped<IGameRepo,SqliteGamesRepo>();
 
 var app = builder.Build();
 // var colors = new List<string> { "Red", "Green", "Blue" };
