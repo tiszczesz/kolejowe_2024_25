@@ -7,11 +7,12 @@ namespace cw3_api.Models;
 
 public class SqliteGameRepo : IGamesRepo
 {
-    private readonly string _connectionString;
-    public SqliteGameRepo()
+    private readonly string? _connectionString;
+    public SqliteGameRepo(IConfiguration configuration)
     {
-        _connectionString = "Data Source=Games.db";
+        _connectionString = configuration.GetConnectionString("Sqlite");
     }
+  
     public void AddGame(Game game)
     {
         using var connection = new SqliteConnection(_connectionString);
