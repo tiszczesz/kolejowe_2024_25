@@ -19,5 +19,10 @@ builder.Services.AddScoped<IMoviesRepo, FakeMoviesRepo>();
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
-
+app.MapGet("/api/movies", (IMoviesRepo moviesRepo) => moviesRepo.GetMovies());
+app.MapGet("/api/movies/{id}", (IMoviesRepo moviesRepo, int id) => {
+    var movie = moviesRepo.GetMovieById(id);
+    return movie != null ? Results.Ok(movie) 
+          : Results.NotFound();
+});
 app.Run();
