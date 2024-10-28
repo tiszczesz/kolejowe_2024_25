@@ -86,6 +86,20 @@ public class SqliteGamesRepo : IGameRepo
 
     public void UpdateGame(Game game)
     {
-        throw new NotImplementedException();
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "UPDATE Games SET title = @title,"
+         +" genre = @genre, year = @year, platform = @platform WHERE id = @id";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre", game.Genre);
+        command.Parameters.AddWithValue("@year", game.Year);
+        command.Parameters.AddWithValue("@platform", game.Platform);
+        command.Parameters.AddWithValue("@id", game.Id);
+        //  command.CommandText = $"UPDATE Games SET title = {game.Title},"
+        //  +$" genre = {game.Genre}, year = {game.Year}, platform = {game.Platform}"
+        //  +$" WHERE id ={game.Id}";
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 }
