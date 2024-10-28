@@ -29,7 +29,13 @@ public class SqliteMoviesRepo : IMoviesRepo
 
     public void DeleteMovie(int id)
     {
-        throw new NotImplementedException();
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        var command = connection.CreateCommand();
+        command.CommandText = "DELETE FROM Movies WHERE id = @Id";
+        command.Parameters.AddWithValue("@Id", id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 
     public Movie? GetMovieById(int id)
