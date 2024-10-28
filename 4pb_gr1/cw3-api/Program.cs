@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 //wstrzykiwanie zależności IMoviesRepo jako FakeMoviesRepo
 //builder.Services.AddTransient<IMoviesRepo, FakeMoviesRepo>();
-builder.Services.AddScoped<IMoviesRepo, FakeMoviesRepo>();
+builder.Services.AddScoped<IMoviesRepo, SqliteMoviesRepo>();
 //builder.Services.AddSingleton<IMoviesRepo, FakeMoviesRepo>();
 
 
@@ -25,4 +25,12 @@ app.MapGet("/api/movies/{id}", (IMoviesRepo moviesRepo, int id) => {
     return movie != null ? Results.Ok(movie) 
           : Results.NotFound();
 });
+app.MapPost("/api/movies",(IMoviesRepo repo,Movie movie)=>{
+    repo.AddMovie(movie);
+    //return Results.Ok();
+    //sprawdzic czy dodano film
+    return Results.Created($"/api/movies/{movie.Id}",movie);
+});
+
+
 app.Run();
