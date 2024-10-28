@@ -29,7 +29,14 @@ public class SqliteGamesRepo : IGameRepo
 
     public void DeleteGame(int id)
     {
-        throw new NotImplementedException();
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+      //  command.CommandText = $"DELETE FROM Games WHERE id = {id}";
+        command.CommandText = "DELETE FROM Games WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 
     public Game? GetGameById(int id)
