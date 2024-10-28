@@ -27,12 +27,12 @@ public class FakeMoviesRepo : IMoviesRepo
 
     public Movie? GetMovieById(int id)
     {
-        throw new NotImplementedException();
+        return Movies.FirstOrDefault(m => m.Id == id);
     }
 
     public List<Movie> GetMovies()
     {
-        throw new NotImplementedException();
+        return Movies;
     }
 
     public void UpdateMovie(Movie movie)
