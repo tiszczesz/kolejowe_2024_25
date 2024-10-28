@@ -1,0 +1,74 @@
+using System;
+using System.Data;
+using Microsoft.Data.Sqlite;
+
+namespace cw3_api.Models;
+
+public class SqliteGamesRepo : IGameRepo
+{
+    private string? _connectionString;
+    public SqliteGamesRepo(IConfiguration configuration)
+    {
+        _connectionString = configuration.GetConnectionString("Sqlite");
+    }
+
+    public void AddGame(Game game)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void DeleteGame(int id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Game? GetGameById(int id)
+    {
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Games WHERE id = @id";
+        command.Parameters.AddWithValue("@id", id);
+        connection.Open();
+        using SqliteDataReader reader = command.ExecuteReader();
+        if (reader.Read())  //if(reader.HasRows)
+        {
+            return new Game
+            {
+                Id = reader.GetInt32("id"),
+                Title = reader.GetString("title"),
+                Genre = reader.GetString("genre"),
+                Year = reader.GetInt32("year"),
+                Platform = reader.GetString("platform")
+            };
+        }
+        return null;
+    }
+
+    public List<Game> GetGames()
+    {
+        List<Game> games = new List<Game>();
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        SqliteCommand command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Games";
+        connection.Open();
+        using SqliteDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            games.Add(new Game
+            {
+                Id = reader.GetInt32("id"),
+                Title = reader.GetString("title"),
+                Genre = reader.GetString("genre"),
+                Year = reader.GetInt32("year"),
+                Platform = reader.GetString("platform")
+            });
+        }
+
+        return games;
+    }
+
+    public void UpdateGame(Game game)
+    {
+        throw new NotImplementedException();
+    }
+}

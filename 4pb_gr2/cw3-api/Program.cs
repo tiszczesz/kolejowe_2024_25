@@ -4,7 +4,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Dependency injection for the FakeGamesRepo
 
-builder.Services.AddScoped<IGameRepo,FakeGamesRepo>();
+//builder.Services.AddScoped<IGameRepo,FakeGamesRepo>();
+builder.Services.AddScoped<IGameRepo,SqliteGamesRepo>();
+
 //builder.Services.AddSingleton<IGameRepo,FakeGamesRepo>();
 //builder.Services.AddTransient<IGameRepo,FakeGamesRepo>();
 var app = builder.Build();
