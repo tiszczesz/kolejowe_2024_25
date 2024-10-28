@@ -14,7 +14,17 @@ public class SqliteGamesRepo : IGameRepo
 
     public void AddGame(Game game)
     {
-        throw new NotImplementedException();
+        using SqliteConnection conn = new SqliteConnection(_connectionString);
+        SqliteCommand command = conn.CreateCommand();
+        command.CommandText = "INSERT INTO Games (title, genre, year, platform)"
+              +" VALUES (@title, @genre, @year, @platform)";
+        command.Parameters.AddWithValue("@title", game.Title);
+        command.Parameters.AddWithValue("@genre", game.Genre);
+        command.Parameters.AddWithValue("@year", game.Year);
+        command.Parameters.AddWithValue("@platform", game.Platform);
+        conn.Open();
+        command.ExecuteNonQuery();
+        conn.Close(); 
     }
 
     public void DeleteGame(int id)

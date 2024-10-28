@@ -17,5 +17,15 @@ app.MapGet("/games/{id}", (IGameRepo repo, int id) => {
     var game = repo.GetGameById(id);
     return game != null ? Results.Ok(game) : Results.NotFound();
 });
+app.MapPost("/games", (IGameRepo repo, Game game) => {
+    repo.AddGame(game);//wstawienie do bazy danych
+    //to co pobrano z body requesta
+    return Results.Created($"/games/{game.Id}", game);
+
+});
+app.MapDelete("/games/{id}", (IGameRepo repo,int id)=>{
+    repo.DeleteGame(id);
+    return Results.NoContent();
+});
 
 app.Run();
