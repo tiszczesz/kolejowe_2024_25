@@ -90,6 +90,17 @@ public class SqliteMoviesRepo : IMoviesRepo
 
     public void UpdateMovie(Movie movie)
     {
-        throw new NotImplementedException();
+        using SqliteConnection connection = new SqliteConnection(_connectionString);
+        var command = connection.CreateCommand();
+        command.CommandText = "UPDATE Movies SET title = @Title, director = @Director,"
+            +" releaseYear = @ReleaseYear, genre = @Genre WHERE id = @Id";
+        command.Parameters.AddWithValue("@Title", movie.Title);
+        command.Parameters.AddWithValue("@Director", movie.Director);
+        command.Parameters.AddWithValue("@ReleaseYear", movie.ReleaseYear);
+        command.Parameters.AddWithValue("@Genre", movie.Genre);
+        command.Parameters.AddWithValue("@Id", movie.Id);
+        connection.Open();
+        command.ExecuteNonQuery();
+        connection.Close();
     }
 }
