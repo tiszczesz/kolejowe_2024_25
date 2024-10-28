@@ -1,0 +1,61 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\1.jpg",
+      "PackagePath": "staticwebassets\\1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\2.jpg",
+      "PackagePath": "staticwebassets\\2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\3.jpg",
+      "PackagePath": "staticwebassets\\3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\4.jpg",
+      "PackagePath": "staticwebassets\\4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\5.jpg",
+      "PackagePath": "staticwebassets\\5.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\6.jpg",
+      "PackagePath": "staticwebassets\\6.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\7.jpg",
+      "PackagePath": "staticwebassets\\7.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\8.jpg",
+      "PackagePath": "staticwebassets\\8.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\9.jpg",
+      "PackagePath": "staticwebassets\\9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\React\\Documents\\GitHub\\repos\\kolejowe_2024_25\\4pb_gr1\\ark1\\ark1-wycieczki\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ark1-wycieczki.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ark1-wycieczki.props",
+      "PackagePath": "build\\ark1-wycieczki.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ark1-wycieczki.props",
+      "PackagePath": "buildMultiTargeting\\ark1-wycieczki.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ark1-wycieczki.props",
+      "PackagePath": "buildTransitive\\ark1-wycieczki.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
