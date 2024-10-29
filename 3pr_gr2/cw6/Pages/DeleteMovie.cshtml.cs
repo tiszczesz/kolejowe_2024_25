@@ -12,7 +12,10 @@ namespace cw6.Pages
             if (id != null)
             {
                 Movie? movie = _repo.GetById(id);
+                if(movie != null)
+                     _repo.DeleteMovie(movie);
             }
+            return RedirectToPage("Index");
            
         }
     }

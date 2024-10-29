@@ -20,7 +20,7 @@ public class MoviesRepo
     }
     private void SaveChanges()
     {
-         var options = new JsonSerializerOptions
+        var options = new JsonSerializerOptions
         {
             WriteIndented = true
         };
@@ -41,8 +41,10 @@ public class MoviesRepo
         _movies.Add(movie);
         SaveChanges();
     }
-    public void DeleteMovie(Movie movie){
-        if (_movies == null){
+    public void DeleteMovie(Movie movie)
+    {
+        if (_movies == null)
+        {
             return;
         }
         Movies?.Remove(movie);
@@ -51,6 +53,8 @@ public class MoviesRepo
 
     public Movie? GetById(int? id)
     {
-        return Movies!=null ? Movies.FirstOrDefault(m => m.Id == id):null;
+        return Movies != null
+              ? Movies.FirstOrDefault(m => m.Id == id)
+              : null;
     }
 }
