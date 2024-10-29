@@ -8,7 +8,7 @@ public class MoviesRepo
     private string _filePath;
     private List<Movie>? _movies;
 
-    public MoviesRepo(string filePath)
+    public MoviesRepo(string filePath = "movies.json")
     {
         _filePath = filePath;
         string content = File.ReadAllText(_filePath);
@@ -40,5 +40,17 @@ public class MoviesRepo
         movie.Id = GetNextId();
         _movies.Add(movie);
         SaveChanges();
+    }
+    public void DeleteMovie(Movie movie){
+        if (_movies == null){
+            return;
+        }
+        Movies?.Remove(movie);
+        SaveChanges();
+    }
+
+    public Movie? GetById(int? id)
+    {
+        return Movies!=null ? Movies.FirstOrDefault(x => x.Id == id):null;
     }
 }

@@ -110,5 +110,13 @@
     "ReleaseDate": "2012-07-08",
     "Genre": "Crime",
     "Price": 45.9
+  },
+  {
+    "Id": 15,
+    "Title": "Nowy film 2024",
+    "Director": "wqewqe we",
+    "ReleaseDate": "2007-09-09",
+    "Genre": "Comedy",
+    "Price": 56.9
   }
 ]
