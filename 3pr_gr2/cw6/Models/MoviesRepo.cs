@@ -51,6 +51,6 @@ public class MoviesRepo
 
     public Movie? GetById(int? id)
     {
-        return Movies!=null ? Movies.FirstOrDefault(x => x.Id == id):null;
+        return Movies!=null ? Movies.FirstOrDefault(m => m.Id == id):null;
     }
 }
