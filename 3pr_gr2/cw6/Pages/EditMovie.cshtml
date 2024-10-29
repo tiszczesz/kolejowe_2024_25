@@ -12,6 +12,7 @@
     <h1>Dodaj nowy film</h1>
     <form asp-page="AddMovie" method="post">
         <div class="row m-3">
+            <input type="hidden" asp-for="@Model.MyMovie.Id"/>
             <label class="col-3 text-end" asp-for="@Model.MyMovie.Title"></label>
             <input class="col-6" asp-for="@Model.MyMovie.Title" />
             <span asp-validation-for="@Model.MyMovie.Title" class="text-danger col-3"></span>

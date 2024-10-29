@@ -29,5 +29,14 @@ namespace cw6.Pages
                 MyMovie = movieToEdit;
             }
         }
+        public IActionResult OnPost(){
+            if(ModelState.IsValid){
+                var movie = MyMovie;
+                //TODO zapisywanie do pliku
+                return RedirectToPage("Index");
+            }
+            return Page();
+            
+        }
     }
 }
