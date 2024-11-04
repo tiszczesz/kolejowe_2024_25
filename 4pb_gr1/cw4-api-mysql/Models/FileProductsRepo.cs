@@ -20,7 +20,8 @@ public class FileProductsRepo : IProductsRepo
     }
     public void SaveProducts()
     {
-        string json = JsonSerializer.Serialize(_products);
+        string json = JsonSerializer.Serialize(_products,
+                    new JsonSerializerOptions { WriteIndented = true });
         File.WriteAllText(_filePath, json);
     }
 
