@@ -57,4 +57,9 @@ public class MoviesRepo
               ? Movies.FirstOrDefault(m => m.Id == id)
               : null;
     }
+
+    internal void UpdateMovie(Movie movie)
+    {
+        
+    }
 }

@@ -33,6 +33,7 @@ namespace cw6.Pages
             if(ModelState.IsValid){
                 var movie = MyMovie;
                 //TODO zapisywanie do pliku
+                _repo.UpdateMovie(movie);
                 return RedirectToPage("Index");
             }
             return Page();
