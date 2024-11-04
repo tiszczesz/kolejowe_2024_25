@@ -21,7 +21,7 @@
 import "reflect-metadata";
 import { AppDataSource } from "./data-source.js";
 import { User } from "./entity/User.js";
-import { QueryRunner, Table } from "typeorm";
+import {  QueryRunner, Table } from "typeorm";
 import { createConnection } from "mysql2/promise";
 async function ensureDatabaseExists() {
     const connection = await createConnection({
@@ -36,41 +36,39 @@ async function ensureDatabaseExists() {
     await connection.end();
 }
 
-async function main() {
-    await ensureDatabaseExists();
-    AppDataSource.initialize().then(async () => {
-        console.log("Checking if the 'User' table exists...");
-
-        const queryRunner = AppDataSource.createQueryRunner();
-        const tableExists = await queryRunner.hasTable("user");
-        console.log("tableExists: ", tableExists);
-
-        if (!tableExists) {
-            console.log("The 'User' table does not exist. Creating the table...");
-            await createTable(queryRunner);
-            console.log("The 'User' table has been created.");
-
-            console.log("Inserting new users into the database...");
-
-            await addUsersToTable();
-
-            console.log("Loading users from the database...");
-            const loadedUsers = await AppDataSource.manager.find(User);
-            console.log("Loaded users: ", loadedUsers);
-        }
-        else {
-            console.log("The 'User' table already exists.");
-            await queryRunner.dropTable("user");
-            console.log("recreate the 'User' table...");
-            await createTable(queryRunner);
-            await addUsersToTable();
-        }
 
 
-        await queryRunner.release();
-    }).catch(error => console.log(error));
+AppDataSource.initialize().then(async () => {
+    console.log("Checking if the 'User' table exists...");
 
-}
+    const queryRunner = AppDataSource.createQueryRunner();
+    const tableExists = await queryRunner.hasTable("user");
+    console.log("tableExists: ", tableExists);
+
+    if (!tableExists) {
+        console.log("The 'User' table does not exist. Creating the table...");
+        await createTable(queryRunner);
+        console.log("The 'User' table has been created.");
+
+        console.log("Inserting new users into the database...");
+
+        await addUsersToTable();
+
+        console.log("Loading users from the database...");
+        const loadedUsers = await AppDataSource.manager.find(User);
+        console.log("Loaded users: ", loadedUsers);
+    }
+    else {
+        console.log("The 'User' table already exists.");
+        await queryRunner.dropTable("user");
+        console.log("recreate the 'User' table...");
+        await createTable(queryRunner);
+        await addUsersToTable();
+    }
+
+
+    await queryRunner.release();
+}).catch(error => console.log(error));
 
 async function createTable(queryRunner: QueryRunner) {
     await queryRunner.createTable(
@@ -122,5 +120,3 @@ const addUsersToTable = async () => {
     await AppDataSource.manager.save(userEntities);
     console.log("Saved new users");
 }
-
-main();
