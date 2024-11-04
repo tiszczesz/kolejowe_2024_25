@@ -5,3 +5,10 @@
  ```
 
  2. Korzystając z Mysql stworzyć Api: get getById post delete put
+
+ 3. Do Mysql connString:
+ ```console
+    "server=localhost;database=nazwaBazy;user=root;password=;"
+    Mysql.Data
+
+ ```
