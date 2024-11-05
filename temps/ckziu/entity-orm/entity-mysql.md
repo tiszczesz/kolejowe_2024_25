@@ -64,11 +64,7 @@ Edytuj plik `appsettings.json`, aby dodać łańcuch połączenia do MySQL:
 // appsettings.json
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database
-
-=my
-
-webapp;User=root;Password=yourpassword;"
+    "DefaultConnection": "Server=localhost;Database=mywebapp;User=root;Password=yourpassword;"
   },
   "Logging": {
     "LogLevel": {
