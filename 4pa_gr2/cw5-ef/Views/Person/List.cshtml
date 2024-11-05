@@ -1,1 +1,23 @@
 ﻿<h1>Lista kontaktów</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Data urodzenia</th>
+        </tr>
+    </thead>
+ <tbody>
+    @{int lp = 0;}
+    @foreach(var p in Model){
+        lp++;
+        <tr>
+            <td>@lp</td>
+            <td>@p.FirstName</td>
+            <td>@p.LastName</td>
+            <td>@p.BirthDate</td>
+        </tr>
+    }
+ </tbody>
+</table>
