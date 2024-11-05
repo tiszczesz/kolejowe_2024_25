@@ -16,6 +16,19 @@ namespace cw4_ef.Controllers
             var products = _context.Products.ToList();
             return View(products);
         }
+        [HttpGet]
+        public IActionResult AddProduct(){
+            return View();
+        }
+          [HttpPost]
+        public IActionResult AddProduct(Product product){
+            if(ModelState.IsValid){
+                _context.Products.Add(product);
+                _context.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(product);
+        }
 
     }
 }
