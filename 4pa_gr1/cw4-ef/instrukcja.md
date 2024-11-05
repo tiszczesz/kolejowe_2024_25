@@ -51,4 +51,4 @@ namespace cw4_ef.Controllers
 7. W Shared tworzymy _Layout.cshtml
 8. W Views tworzymy _ViewImports.cshtml i _ViewStart.cshtml
 9. W Views/Shop dodajemy widok List.cshtml
-10. W Models tworzymy klasę Product.cs i ShopDbContex.cs 
+10. W Models tworzymy klasę Product.cs i ShopDbContext.cs 
