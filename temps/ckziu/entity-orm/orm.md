@@ -76,4 +76,3 @@ ORM pozwala na:
 
 Jednak ORM może również wprowadzać pewne narzuty wydajnościowe i komplikacje, szczególnie w przypadku bardziej złożonych zapytań SQL.
 
-Similar code found with 1 license type
