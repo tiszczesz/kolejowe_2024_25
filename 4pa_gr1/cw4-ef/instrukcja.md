@@ -52,3 +52,18 @@ namespace cw4_ef.Controllers
 8. W Views tworzymy _ViewImports.cshtml i _ViewStart.cshtml
 9. W Views/Shop dodajemy widok List.cshtml
 10. W Models tworzymy klasę Product.cs i ShopDbContext.cs 
+11. Dodanie do Program.cs obsługi EF dla Mysql 
+12. Dodanie connectionString appsettings.json
+13. dodanie narzędzia do EF dotnet-ef
+```console
+ dotnet new tool-manifest //tworzenie manifestu podobnie jak w node npm init -y
+ dotnet tool install --local dotnet-ef //dodanie pakietu dotnet-ef lokalnie
+```
+14. Generowanie migracji
+```console
+dotnet dotnet-ef migrations add NazwaMigracji
+```
+15. Generowanie bazy danych z migracji
+```console
+dotnet dotnet-ef database update
+```
