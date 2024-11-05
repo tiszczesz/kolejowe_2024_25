@@ -9,7 +9,7 @@
     <title>Dodawanie filmów</title>
 </head>
 <body>
-    <h1>Dodaj nowy film</h1>
+    <h1>Edytuj film</h1>
     <form asp-page="EditMovie" method="post">
         <div class="row m-3">
             <input type="hidden" asp-for="@Model.MyMovie.Id"/>
@@ -43,7 +43,7 @@
             </select>
         </div>
         <div class="row m-3">
-            <input type="submit" value="Zapisz" class="offset-3 col-6 btn btn-primary" />
+            <input type="submit" value="Zapisz zmiany" class="offset-3 col-6 btn btn-primary" />
         </div>
     </form>
     <div>
