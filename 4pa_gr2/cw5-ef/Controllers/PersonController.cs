@@ -41,6 +41,7 @@ namespace cw5_ef.Controllers
                 if (person != null)
                 {
                     _context.People.Remove(person);
+                  //  _context.People.Update(person);
                     _context.SaveChanges();
                 }
             }
