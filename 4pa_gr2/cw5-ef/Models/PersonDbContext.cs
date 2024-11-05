@@ -46,5 +46,11 @@ public class PersonDbContext :DbContext
         );
 
     }
+
+    //w aplikacjach Desktopowych
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     optionsBuilder.UseMySql("server=localhost;user=root;password=1234;database=people", ServerVersion.AutoDetect("server=localhost;user=root;password=1234;database=people"));
+    // }
     
 }
