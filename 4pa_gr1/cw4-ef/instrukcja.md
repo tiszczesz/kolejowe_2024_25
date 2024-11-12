@@ -67,3 +67,18 @@ dotnet dotnet-ef migrations add NazwaMigracji
 ```console
 dotnet dotnet-ef database update
 ```
+
+## Dla Sqlite
+### Program.cs
+```cs
+builder.Services.AddDbContext<MyDbContext>(
+    options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
+);
+```
+
+### pakiety dla sqlite:
+```console
+Microsoft.EntityFrameworkCore.Sqlite
+
+Microsoft.EntityFrameworkCore.Tools 
+```
