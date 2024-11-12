@@ -37,6 +37,20 @@ namespace cw4_ef.Controllers
             }            
             return RedirectToAction("List");
         }
+        [HttpGet]
+        public IActionResult EditProduct(int? id){
+            var productToEdit = _context.Products.Find(id);
+            return View(productToEdit);
+        }
+        [HttpPost]
+        public IActionResult EditProduct(Product product){
+            if(ModelState.IsValid){
+                _context.Products.Update(product);
+                _context.SaveChanges();
+                return RedirectToAction("List");
+            }
+            return View(product);
+        }
 
     }
 }
