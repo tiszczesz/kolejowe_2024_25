@@ -10,23 +10,30 @@
             <th></th>
         </tr>
     </thead>
- <tbody>
-    @{int lp = 0;}
-    @foreach(var p in Model){
-        lp++;
-        <tr>
-            <td>@lp</td>
-            <td>@p.FirstName</td>
-            <td>@p.LastName</td>
-            <td>@p.BirthDate</td>
-            <td>@p.Place.Address</td>
-            <td><a asp-action="DeletePerson" 
-            asp-route-id="@p.Id" class="btn btn-danger">
-            Usuń
-            </a></td>
-        </tr>
-    }
- </tbody>
+    <tbody>
+        @{
+            int lp = 0;
+        }
+        @foreach (var p in Model)
+        {
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@p.FirstName</td>
+                <td>@p.LastName</td>
+                <td>@p.BirthDate</td>
+                <td>@p.Place.Address</td>
+                <td><a asp-action="DeletePerson" asp-route-id="@p.Id" class="btn btn-danger">
+                        Usuń
+                    </a>
+                    <a asp-action="EditPerson" asp-route-id="@p.Id" class="btn btn-primary">
+                        Edytuj
+                    </a>
+                    
+                    </td>
+            </tr>
+        }
+    </tbody>
 </table>
 <div>
     <a asp-action="AddPerson" class="btn btn-secondary w-50">Dodaj nowy kontakt</a>
