@@ -9,6 +9,7 @@
             <th>Opis</th>
             <th>Kategoria</th>
             <th>Data dodania</th>
+            <th> ------ </th>
         </tr>
     </thead>
     <tbody>
@@ -23,6 +24,10 @@
                 <td>@product.Description</td>                
                 <td>@product.Category</td>
                 <td>@product.DateAdded</td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeleteProduct" 
+                        asp-route-id="@product.Id">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>

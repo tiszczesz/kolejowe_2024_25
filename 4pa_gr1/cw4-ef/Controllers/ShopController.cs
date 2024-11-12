@@ -29,6 +29,14 @@ namespace cw4_ef.Controllers
             }
             return View(product);
         }
+        public IActionResult DeleteProduct(int? id){
+            var productToDelete = _context.Products.Find(id);
+            if(productToDelete != null){
+                _context.Products.Remove(productToDelete);
+                _context.SaveChanges();
+            }            
+            return RedirectToAction("List");
+        }
 
     }
 }
