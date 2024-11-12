@@ -1,5 +1,6 @@
 using cw5_ef.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace cw5_ef.Controllers
 {
@@ -14,17 +15,19 @@ namespace cw5_ef.Controllers
         // GET: PersonController
         public ActionResult List()
         {
-            var people = _context.People.ToList();
+            var people = _context.People.Include(p=>p.Place).ToList();
             return View(people);
         }
         [HttpGet]
         public ActionResult AddPerson()
         {
+            ViewBag.WorkPlaces = _context.WorkerPlaces.ToList();
             return View();
         }
         [HttpPost]
         public ActionResult AddPerson(MyPerson person)
         {
+            ViewBag.WorkPlaces = _context.WorkerPlaces.ToList();
             if (ModelState.IsValid)
             {
                 _context.People.Add(person);

@@ -22,4 +22,7 @@ public class MyPerson
     [DisplayName("Data urodzenia")]
     [Required(ErrorMessage = "Data urodzenia jest wymagana")]
     public DateOnly BirthDate { get; set; }
+
+    public int? WorkPlaceId { get; set; }
+    public WorkPlace? Place { get; set; }
 }

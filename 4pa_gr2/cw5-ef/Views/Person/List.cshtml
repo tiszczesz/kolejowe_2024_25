@@ -6,6 +6,7 @@
             <th>Imię</th>
             <th>Nazwisko</th>
             <th>Data urodzenia</th>
+            <th>Miejsce pracy</th>
             <th></th>
         </tr>
     </thead>
@@ -18,6 +19,7 @@
             <td>@p.FirstName</td>
             <td>@p.LastName</td>
             <td>@p.BirthDate</td>
+            <td>@p.Place.Address</td>
             <td><a asp-action="DeletePerson" 
             asp-route-id="@p.Id" class="btn btn-danger">
             Usuń

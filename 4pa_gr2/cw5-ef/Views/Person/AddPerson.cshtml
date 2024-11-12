@@ -21,6 +21,16 @@
         <span asp-validation-for="BirthDate" class="col-3 text-danger"></span>
     </div>
     <div class="row m-2">
+        <label asp-for="WorkPlaceId" class="col-3"></label>
+        <select asp-for="WorkPlaceId"  class="col-6">
+           
+            @foreach(var w in ViewBag.WorkPlaces){
+                <option value="@w.Id">@w.Address</option>
+            }
+        </select>
+        <span asp-validation-for="WorkPlaceId" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
         <input type="submit" value="Dodaj kontakt" class="btn btn-primary col-6 offset-3">
     </div>
 </form>
