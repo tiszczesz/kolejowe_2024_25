@@ -11,21 +11,26 @@
                 Cena
             </th>
             <th>Data realizacji</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var game in Model)
         {
             <tr>
                 <td>
-                   @item.Title
+                   @game.Title
                 </td>
                 <td>
-                   @item.Price
+                   @game.Price
                 </td>
                 <td>
-                   @item.ReleaseDate
+                   @game.ReleaseDate
                 </td>
+                <th>
+                    <a asp-action="DeleteGame" asp-route-id="@game.Id">Usuń</a>
+                    <a asp-action="EditGame" asp-route-id="@game.Id">Edytuj</a>
+                </th>
             </tr>
         }
     </tbody>
