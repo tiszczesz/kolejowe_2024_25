@@ -89,11 +89,11 @@
   },
   {
     "Id": 12,
-    "Title": "Testowy",
+    "Title": "Testowy Poprawiny",
     "Director": "Testowy",
     "ReleaseDate": "2009-12-12",
-    "Genre": "Comedy",
-    "Price": 56
+    "Genre": "Sci-Fi",
+    "Price": 99
   },
   {
     "Id": 13,
@@ -105,9 +105,9 @@
   },
   {
     "Id": 14,
-    "Title": "to jest n\u00F3wka",
+    "Title": "to jest n\u00F3wka ale stara",
     "Director": "Ssssdsdsds sdsdsds",
-    "ReleaseDate": "2012-07-08",
+    "ReleaseDate": "2010-07-08",
     "Genre": "Crime",
     "Price": 45.9
   }

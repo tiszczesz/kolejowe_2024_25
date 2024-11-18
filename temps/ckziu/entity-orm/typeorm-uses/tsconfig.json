@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "ES2017",
+      "module": "esnext",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "experimentalDecorators": true,
+      "emitDecoratorMetadata": true,
+      "moduleResolution": "node"
+    },
+    "include": ["src/**/*"]
+  } 

@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+<h1>Lista produktów</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Nazwa</th>
+            <th>Cena</th>
+            <th>Opis</th>
+            <th>Kategoria</th>
+            <th>Data dodania</th>
+            <th> ------ </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach (var product in Model)
+        {
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>                
+                <td>@product.Category</td>
+                <td>@product.DateAdded</td>
+                <td>
+                    <a class="btn btn-danger" asp-action="DeleteProduct" 
+                        asp-route-id="@product.Id">Usuń</a>
+                    <a class="btn btn-primary" asp-action="EditProduct" 
+                        asp-route-id="@product.Id">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a class="btn btn-primary" asp-action="AddProduct">Dodaj produkt</a>
+</div>

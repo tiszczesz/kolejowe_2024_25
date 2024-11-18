@@ -57,4 +57,18 @@ public class MoviesRepo
               ? Movies.FirstOrDefault(m => m.Id == id)
               : null;
     }
+
+    public void UpdateMovie(Movie movie)
+    {
+        var toUpdate = _movies?.FirstOrDefault(m => m.Id == movie.Id);
+        if(toUpdate != null)
+        {
+            toUpdate.Title = movie.Title;
+            toUpdate.Director = movie.Director;
+            toUpdate.ReleaseDate = movie.ReleaseDate;
+            toUpdate.Genre = movie.Genre;
+            toUpdate.Price = movie.Price;
+            SaveChanges();            
+        }
+    }
 }

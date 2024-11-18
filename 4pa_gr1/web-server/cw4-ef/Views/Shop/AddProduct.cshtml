@@ -1,0 +1,34 @@
+﻿@model Product
+
+<h1>Dodaj produkt</h1>
+<form asp-action="AddProduct" method="post">
+    <div class="row m-2">
+        <label class="col-3" asp-for="Name"></label>
+        <input class="col-6" asp-for="Name" type="text" />
+        <span class="col-3 text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="Price"></label>
+        <input class="col-6" asp-for="Price" type="number" step="0.01" />
+        <span class="col-3 text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="Description"></label>
+        <input class="col-6" asp-for="Description" type="text" />
+        <span class="col-3 text-danger" asp-validation-for="Description"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3" asp-for="Category"></label>
+        <input class="col-6" asp-for="Category" type="text" />
+        <span class="col-3 text-danger" asp-validation-for="Category"></span>
+    </div>
+
+    <div class="row m-2">
+        <label class="col-3" asp-for="DateAdded"></label>
+        <input class="col-6" asp-for="DateAdded" type="date" />
+        <span class="col-3 text-danger" asp-validation-for="DateAdded"></span>
+    </div>
+    <div class="row m-2">
+        <button class="col-6 offset-3 btn btn-primary">Dodaj</button>
+    </div>
+</form>

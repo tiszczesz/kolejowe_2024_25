@@ -1,0 +1,37 @@
+﻿@model MyPerson
+
+@{
+    ViewBag.Title = "edytuj kontakt";
+}
+<h1>Edytujy kontakt</h1>
+<form asp-action="EditPerson" method="post">
+    <div class="row m-2">
+        <input type="hidden" asp-for="Id">
+        <label asp-for="FirstName" class="col-3"></label>
+        <input type="text" asp-for="FirstName" class="col-6">
+        <span asp-validation-for="FirstName" class="col-3 text-danger"></span>
+    </div>
+       <div class="row m-2">
+        <label asp-for="LastName" class="col-3"></label>
+        <input type="text" asp-for="LastName" class="col-6">
+        <span asp-validation-for="LastName" class="col-3 text-danger"></span>
+    </div>
+       <div class="row m-2">
+        <label asp-for="BirthDate" class="col-3"></label>
+        <input type="date" asp-for="BirthDate" class="col-6">
+        <span asp-validation-for="BirthDate" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="WorkPlaceId" class="col-3"></label>
+        <select asp-for="WorkPlaceId"  class="col-6">
+           
+            @foreach(var w in ViewBag.WorkPlaces){
+                <option value="@w.Id">@w.Address</option>
+            }
+        </select>
+        <span asp-validation-for="WorkPlaceId" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <input type="submit" value="Zapisz kontakt" class="btn btn-primary col-6 offset-3">
+    </div>
+</form>
