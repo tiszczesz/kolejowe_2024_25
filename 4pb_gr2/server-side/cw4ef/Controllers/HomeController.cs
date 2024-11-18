@@ -59,8 +59,7 @@ public class HomeController : Controller
     }
 
     [HttpGet]
-    public IActionResult EditGame(int id)
-    {
+    public IActionResult EditGame(int id)    {
         var game = _db.Games.Find(id);
         if (game == null)
         {
@@ -70,9 +69,8 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult EditGame(Game game)
-    {
-        
+    public IActionResult EditGame(Game game)    {
+
         if (ModelState.IsValid)
         {
             _db.Games.Update(game);
