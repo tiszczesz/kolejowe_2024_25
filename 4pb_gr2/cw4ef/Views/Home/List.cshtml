@@ -1,0 +1,32 @@
+﻿@model List<Game>
+
+<h3>List gier</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Tytuł gry
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>Data realizacji</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                   @item.Title
+                </td>
+                <td>
+                   @item.Price
+                </td>
+                <td>
+                   @item.ReleaseDate
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

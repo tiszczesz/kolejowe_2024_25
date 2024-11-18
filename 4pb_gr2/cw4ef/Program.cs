@@ -1,7 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+using cw4ef.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+//pobranie connection stringa z pliku appsettings.json
+var connString = builder.Configuration.GetConnectionString("mysql");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//dodanie GameDbContext do serwisów z obsługą mysql db
+builder.Services.AddDbContext<GameDbContext>(
+    op=>op.UseMySql(connString,ServerVersion.AutoDetect(connString))
+    );
 
 var app = builder.Build();
 
