@@ -7,7 +7,8 @@
             <th>Nazwa</th>
             <th>Marka</th>
             <th>Cena</th>
-            <th>Data wyprdukowania</Datal></th>
+            <th>Data wyprdukowania</th>
+            <th>Operacje</th>
         </tr>
     </thead>
     <tbody>
@@ -18,6 +19,10 @@
                 <td>@car.CarBrand</td>
                 <td>@car.Price</td>
                 <td>@car.ProductionDate</td>
+                <td>
+                    <a asp-controller="Home" asp-action="EditCar" asp-route-id="@car.Id">Edytuj</a> |
+                    <a asp-controller="Home" asp-action="DeleteCar" asp-route-id="@car.Id">Usuń</a>
+                </td>
             </tr>
         }
     </tbody>

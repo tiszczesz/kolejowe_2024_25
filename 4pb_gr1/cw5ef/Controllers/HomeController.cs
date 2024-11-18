@@ -50,6 +50,30 @@ public class HomeController : Controller
         }
         return View(car);
     }
-
+    public IActionResult DeleteCar(int id){
+        var car = _context.Cars.Find(id);
+        if(car != null){
+            _context.Cars.Remove(car);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("List");
+    }
+    [HttpGet]
+    public IActionResult EditCar(int id){
+        var car = _context.Cars.Find(id);
+        if(car == null){
+            return RedirectToAction("List");
+        }
+        return View(car);
+    }
+    [HttpPost]
+    public IActionResult EditCar(Car car){
+        if(ModelState.IsValid){
+            _context.Cars.Update(car);
+            _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        return View(car);
+    }
 
 }
