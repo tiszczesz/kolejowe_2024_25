@@ -1,7 +1,12 @@
-var builder = WebApplication.CreateBuilder(args);
+using cw5ef.Models;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
+var connString = builder.Configuration.GetConnectionString("sqlite");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+// Add services  CarsDbContext to the container.
+builder.Services.AddDbContext<CarsDbContext>(op => op.UseSqlite(connString));
 
 var app = builder.Build();
 

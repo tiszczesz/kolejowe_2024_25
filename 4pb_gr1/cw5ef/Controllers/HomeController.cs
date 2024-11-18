@@ -7,10 +7,18 @@ namespace cw5ef.Controllers;
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
+    private readonly CarsDbContext _context;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(ILogger<HomeController> logger,
+                CarsDbContext db)
     {
         _logger = logger;
+        _context = db;
+    }
+    public IActionResult List()
+    {
+        var cars = _context.Cars.ToList();
+        return View(cars);
     }
 
     public IActionResult Index()
