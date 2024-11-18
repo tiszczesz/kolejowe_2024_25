@@ -36,4 +36,20 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
+    [HttpGet]
+    public IActionResult AddCar(){
+        return View();
+    }
+    [HttpPost]
+    public IActionResult AddCar(Car car){
+        if(ModelState.IsValid){
+            _context.Cars.Add(car);
+            _context.SaveChanges();
+            return RedirectToAction("List");
+        }
+        return View(car);
+    }
+
+
 }
