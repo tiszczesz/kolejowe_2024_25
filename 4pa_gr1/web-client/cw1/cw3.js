@@ -8,7 +8,8 @@ const words = getWords(text);
 console.log(words);
 //filtruje slowa z okreslona dlugoscia od min do max
 function filterWords(words, min, max) {
-    return words.filter((word) => word.length >= min && word.length <= max);
+    const [minLength, maxLength] = [Math.min(min, max), Math.max(min, max)];
+    return words.filter((word) => word.length >= minLength && word.length <= maxLength);
 }
 const filteredWords = filterWords(words, 2, 3);
 console.log(filteredWords);
