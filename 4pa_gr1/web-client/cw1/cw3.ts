@@ -10,7 +10,8 @@ function filterWords(words: string[], min: number, max: number): string[] {
     const [minLength, maxLength] = [Math.min(min, max), Math.max(min, max)];
     return words.filter((word) => word.length >= minLength && word.length <= maxLength);
 }
-const filteredWords = filterWords(words, 2, 3);
+const filteredWords = filterWords(words, 4, 3);
+
 console.log(filteredWords);
 console.log("12345".split('').reverse().join(''));
 function reverseString(str: string): string {
@@ -40,4 +41,4 @@ function getWordsStats(words: string[]): Map<string, number> {
     return stats;
 }
 const stats = getWordsStats(words);
-console.log(stats);
+//console.log(stats);
