@@ -24,3 +24,17 @@ export const games: Game[] = [
         date: new Date('2021-03-01')
     }
 ];
+
+export function getWords(content: string): string[] {
+    content = content.replace(/[.\-\,]/g, '');
+    return content.split(' ');
+}
+export function getMaxWord(words:string[]){
+    let maxWord = '';
+    for(const word of words){
+        if(word.length > maxWord.length){
+            maxWord = word;
+        }
+    }
+    return maxWord;
+}
