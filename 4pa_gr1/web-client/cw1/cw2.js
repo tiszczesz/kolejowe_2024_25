@@ -14,3 +14,20 @@ const generateRandomNumbers = (amount) => {
 };
 const numbers = generateRandomNumbers(100); //wygeneruje sto licb losowych 0-100000
 console.log(numbers);
+//2
+const isPrime = (num) => {
+    if (num < 2)
+        return false;
+    for (let i = 2; i * i <= num; i++) {
+        if (num % i === 0)
+            return false;
+    }
+    return true;
+};
+console.log(isPrime(5));
+console.log(isPrime(6));
+//3
+const filterPrimes = (numbers) => {
+    return numbers.filter((num) => isPrime(num));
+};
+console.log(filterPrimes(numbers));
