@@ -1,0 +1,21 @@
+﻿@model Game
+<h3>Edytuj grę</h3>
+<form asp-action="EditGame" method="post">
+    <div class="row m-2">
+        <input type="hidden" asp-for="Id">
+        <label class="col-3 text-end" asp-for="Title"></label>
+        <input type="text" asp-for="Title" class="col-6" />
+        <span asp-validation-for="Title" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Price"></label>
+        <input type="number" asp-for="Price" class="col-6" step="0.01"  />
+        <span asp-validation-for="Price" class="col-3 text-danger"></span>
+    </div>
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="ReleaseDate"></label>
+        <input type="date" asp-for="ReleaseDate" class="col-6" />
+        <span asp-validation-for="ReleaseDate" class="col-3 text-danger"></span>
+    </div>
+    <input class="col-6 offset-3 btn btn-primary" type="submit" value="Zapisz">
+</form>

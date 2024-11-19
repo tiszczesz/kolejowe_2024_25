@@ -1,0 +1,29 @@
+﻿@model List<Car>
+
+<h3>Lista samochodów</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nazwa</th>
+            <th>Marka</th>
+            <th>Cena</th>
+            <th>Data wyprdukowania</th>
+            <th>Operacje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in Model)
+        {
+            <tr>
+                <td>@car.CarModel</td>
+                <td>@car.CarBrand</td>
+                <td>@car.Price</td>
+                <td>@car.ProductionDate</td>
+                <td>
+                    <a asp-controller="Home" asp-action="EditCar" asp-route-id="@car.Id">Edytuj</a> |
+                    <a asp-controller="Home" asp-action="DeleteCar" asp-route-id="@car.Id">Usuń</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

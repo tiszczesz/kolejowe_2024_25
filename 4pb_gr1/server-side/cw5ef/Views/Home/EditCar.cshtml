@@ -1,0 +1,29 @@
+﻿@model Car
+
+<h3>Edytuj samochód</h3>
+<form method="post" asp-action="EditCar">
+    <div class="row m-2">
+        <input type="hidden" asp-for="Id" />
+        <label asp-for="CarModel" class="col-3 text-end"></label>
+        <input asp-for="CarModel" class="col-6" />
+        <span class="col-3 text-danger" asp-validation-for="CarModel"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="CarBrand" class="col-3 text-end"></label>
+        <input asp-for="CarBrand" class="col-6" />
+        <span class="col-3 text-danger" asp-validation-for="CarBrand"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="Price" class="col-3 text-end"></label>
+        <input type="number" asp-for="Price" class="col-6" />
+        <span class="col-3 text-danger" asp-validation-for="Price"></span>
+    </div>
+    <div class="row m-2">
+        <label asp-for="ProductionDate" class="col-3 text-end"></label>
+        <input type="date" asp-for="ProductionDate" class="col-6" />
+        <span class="col-3 text-danger" asp-validation-for="ProductionDate"></span>
+    </div>
+    <div class="row m-2">
+        <input type="submit" class="btn btn-primary col-6 offset-3" value="Zapisz">
+    </div>
+</form>>

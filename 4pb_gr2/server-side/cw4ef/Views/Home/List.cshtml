@@ -1,0 +1,37 @@
+﻿@model List<Game>
+
+<h3>List gier</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                Tytuł gry
+            </th>
+            <th>
+                Cena
+            </th>
+            <th>Data realizacji</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in Model)
+        {
+            <tr>
+                <td>
+                   @game.Title
+                </td>
+                <td>
+                   @game.Price
+                </td>
+                <td>
+                   @game.ReleaseDate
+                </td>
+                <th>
+                    <a asp-action="DeleteGame" asp-route-id="@game.Id">Usuń</a>
+                    <a asp-action="EditGame" asp-route-id="@game.Id">Edytuj</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>

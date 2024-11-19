@@ -9,4 +9,5 @@ const t2 = ['a', 'b', 'c', 5]; //ok
 t1.push('d'); //ok
 // t1.push(true);//error
 t2.forEach((elem) => console.log(elem));
+//t2.forEach((elem)=>console.log(elem.toUpperCase()));//error
 t1.forEach((elem) => console.log(elem.toUpperCase()));
