@@ -1,10 +1,10 @@
-type Game = {
+export type Game = {
     id: number;
     name: string;
     price: number;
     date: Date
 }
-const games: Game[] = [
+export const games: Game[] = [
     {
         id: 1,
         name: 'GTA V',
