@@ -29,5 +29,15 @@ function sumNumbers(numbers: number[]): number {
 }
 //1. napisac funkcje ktora zwraca sume liczb parzystych lub niepoarzystych z tablicy
 function sumEvenNumbers(numbers: number[], isEven: boolean = true): number {
-    return 0;
+    let totoal = 0;
+    for (const elem of numbers) {
+        if (isEven && elem % 2 === 0) {
+            totoal += elem;
+        } else if (!isEven && elem % 2 !== 0) {
+            totoal += elem;
+        }
+    }
+    return totoal;
 }
+console.log(sumEvenNumbers([1, 2, 3]));
+console.log(sumEvenNumbers([1, 2, 3], false));
