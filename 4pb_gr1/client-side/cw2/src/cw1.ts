@@ -23,4 +23,11 @@ function printNumbers(numbers: number[]): void { //widoczna w całym pliku
     numbers.forEach(number => console.log(number));
 }
 // document.querySelector("#btn1")?.addEventListener((event) =>{})
-//napisac funkcje ktora zwraca sume liczb z tablicy
+//1. napisac funkcje ktora zwraca sume liczb z tablicy
+function sumNumbers(numbers: number[]): number {
+    return numbers.reduce((acc, number) => acc + number, 0);
+}
+//1. napisac funkcje ktora zwraca sume liczb parzystych lub niepoarzystych z tablicy
+function sumEvenNumbers(numbers: number[], isEven: boolean = true): number {
+    return 0;
+}
