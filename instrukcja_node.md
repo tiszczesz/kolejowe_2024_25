@@ -20,4 +20,29 @@
    - **Zastosowania**: Tworzenie aplikacji mobilnych na iOS i Android.
    - **Instalacja**: Można zainstalować React Native za pomocą npm (`npm install -g react-native-cli`).
 
-Każde z tych środowisk ma swoje specyficzne zastosowania i zalety, w zależności od potrzeb projektu.
+
+6. Rhino
+Opis: Interpreter JavaScript napisany w Javie, często używany do uruchamiania skryptów wewnątrz aplikacji Java.
+
+Zastosowanie: Integracja JavaScript z aplikacjami Java.
+
+Przykład użycia:
+
+```js
+import org.mozilla.javascript.Context;
+import org.mozilla.javascript.Scriptable;
+
+public class RhinoExample {
+  public static void main(String[] args) {
+    Context cx = Context.enter();
+    try {
+      Scriptable scope = cx.initStandardObjects();
+      Object result = cx.evaluateString(scope, "1 + 2", "MyScript", 1, null);
+      System.out.println(Context.toString(result));
+    } finally {
+      Context.exit();
+    }
+  }
+}
+```
+Każde z tych środowisk oferuje unikalne możliwości i narzędzia, które można dostosować do różnych potrzeb projektowych. Czy chciałbyś dowiedzieć się więcej o którymś z tych środowisk?
