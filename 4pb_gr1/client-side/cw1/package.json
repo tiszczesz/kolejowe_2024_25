@@ -14,7 +14,7 @@
   ],
   "author": "noname",
   "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^5.3.3"
+  "devDependencies": {
+    "typescript": "^5.7.2"
   }
 }
