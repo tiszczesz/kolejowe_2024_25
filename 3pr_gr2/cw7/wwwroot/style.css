@@ -1,0 +1,17 @@
+h1{
+    border-bottom: 1px solid #803131;
+}
+.container{
+    margin: 20px;
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+nav a{
+    text-decoration: none;
+    color: #803131;
+}
