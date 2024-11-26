@@ -24,5 +24,6 @@ export const books: Book[] = [
         title: "The Da Vinci Code",
         ISBN: "9780307474278",
         author: "Dan Brown",
-        price: 12.99}
-    ];
+        price: 12.99
+    }
+];
