@@ -14,7 +14,11 @@ public class Primes
     // zwraca ilosc podana liczb pierwszych
     public static List<int> GetPrimes(int count){
         List<int> primes = new();
-        //todo: implement
+        int actual = 2;
+        while(primes.Count < count){
+            if(IsPrime(actual)) primes.Add(actual);
+            actual++;
+        }
         return primes;
     }
 }

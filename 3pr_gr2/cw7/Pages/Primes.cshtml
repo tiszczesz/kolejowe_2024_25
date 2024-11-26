@@ -11,3 +11,15 @@
     <input type="number" id="count" asp-for="Count">
     <button type="submit">Generuj</button>    
 </form>
+
+@if(ViewData["Primes"] != null)
+{
+    <h2>Wygenerowane liczby pierwsze:</h2>
+    
+        @* @foreach (var prime in ViewData["Primes"] as List<int>)
+        {
+            @prime<text> </text>
+        } *@
+        @Html.Raw(ViewData["Primes"])
+    
+}
