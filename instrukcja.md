@@ -8,6 +8,7 @@ npm init -y //tworzy domyslny
 ## Instalacja LOKALNA TypeScript
 ```console
 npm install typescript --save-dev //instaluje lokanie TypeScript do pracy dla dev
+npm install @types/node -D //instaluje typy TypeScript do pracy z node
 
 ```
 
@@ -26,6 +27,8 @@ npx tsc -init //generowanie pliku tsconfig.json
 
 ```console 
 npx tsc //wszystkie pliki
+//lub
+npx tsc --watch
 ```
 ## Uruchamianie w nodejs
 ```console
