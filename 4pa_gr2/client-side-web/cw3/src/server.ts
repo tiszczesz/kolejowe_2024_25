@@ -1,15 +1,7 @@
 import http, { IncomingMessage, ServerResponse } from 'http';
+import { routes } from './routes.js';
 
-const server = http.createServer((req: IncomingMessage, res: ServerResponse) => {
-    if (req.url === '/') {
-        res.end('<h1>Hello World</h1>');
-    } else if (req.url === '/about') {
-        res.end('<h1>About Page</h1>');
-    } else {
-        res.end('<h1>Page Not Found</h1>');
-    }
-
-});
+const server = http.createServer(routes);
 
 
 
