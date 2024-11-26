@@ -4,7 +4,7 @@
 
         1.1 w katalogu public stworzyć 3 strony Home.html About.html Form.html
 
-        1.2 Strona Home powinna zawierać jakiś obrazek siedziby fimrm
+        1.2 Strona Home powinna zawierać jakiś obrazek siedziby firmy
 
         1.3 About zawiera listę numerowaną krajów i miast gdzie są siedziby firmy użyć css        
         dla ambitnych
