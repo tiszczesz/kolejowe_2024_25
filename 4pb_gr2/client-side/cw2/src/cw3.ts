@@ -12,4 +12,18 @@ async function main() {
     console.log(`Hello, ${name}! age: ${age} length: ${length}`);
     rl.close();
 }
-main();
+//main();
+async function toNWD(){
+    const a = parseInt(await rl.question('Podaj a: '));
+    const b = parseInt(await rl.question('Podaj b: '));
+    rl.close();
+    console.log(`NWD(${a},${b}): ${nwd(a,b)}`);
+}
+toNWD();
+function nwd(a: number, b: number): number {
+    if (b == 0) {
+        return a;
+    } else {
+        return nwd(b, a % b);
+    }
+}
