@@ -21,7 +21,13 @@ export const ShowWithForIn = (data: string[]) => {
     }
 }
 
-const getLines = (filename: string):string[] => {
-    const result = fs.readFileSync(filename,"utf8").replace("\r","").split('\n');
+const getLines = (filename: string): string[] => {
+    const result = fs.readFileSync(filename, "utf8").replace("\r", "").split('\n');
     return result;
 };
+Object.keys(student).forEach(key => {
+    console.log(key);
+});
+Object.values(student).forEach(value => {
+    console.log(value);
+});
