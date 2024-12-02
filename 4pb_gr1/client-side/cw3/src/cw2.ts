@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { colors, getLines, howManyLetters, saveInfo } from './data.js';
 
 const input = fs.readFileSync('input.txt', 'utf8').replace("\r", "").split('\n');
@@ -15,5 +16,20 @@ const info = {
     letters: howManyLetters(lines),
     vovels: lines.join('').match(/[aeiouAEIOU]/gi)?.length,
 };
-console.log(info);
-saveInfo("info.json", info);
+
+//użycie promises i then
+// readFile("input.txt", "utf8").then(data => {
+//     console.log(data);
+// });
+
+//użycie async/await
+ async function  main(){
+    const result = await readFile("input.txt", "utf8"); //result  czeka na wynik
+    console.log(result);
+}
+main();
+console.log(" ========== KONIEC SKRYPTU ==========");
+
+
+// console.log(info);
+// saveInfo("info.json", info);
