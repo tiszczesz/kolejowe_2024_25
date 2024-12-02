@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "cw4-api-mysql/1.0.0": {
+        "runtime": {
+          "cw4-api-mysql.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "cw4-api-mysql/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

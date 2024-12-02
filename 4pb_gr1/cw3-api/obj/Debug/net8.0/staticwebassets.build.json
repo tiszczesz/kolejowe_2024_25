@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Yi3R6P0yJ/B0ey2tZrwZZ7vC+rOZHUzxBcfcu43mopc=",
+  "Source": "cw3-api",
+  "BasePath": "_content/cw3-api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
