@@ -1,7 +1,7 @@
 
 const generTab = (count: number): number[] => {
     
-    console.log(this); //to global object
+   // console.log(this); //to global object
     
     const tab = [];
     for (let i = 0; i < count; i++) {
