@@ -17,7 +17,7 @@ async function toNWD(){
     const a = parseInt(await rl.question('Podaj a: '));
     const b = parseInt(await rl.question('Podaj b: '));
     rl.close();
-    console.log(`NWD(${a},${b}): ${nwd(a,b)}`);
+    console.log(`NWD(${a}, ${b}): ${nwd(a,b)}`);
 }
 toNWD();
 function nwd(a: number, b: number): number {
