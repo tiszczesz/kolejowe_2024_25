@@ -36,3 +36,6 @@ export const games: Game[] = [
         price: 49.99
     }
 ];
+export const colors = ["red", "green", "blue",
+    "yellow", "black", "white", "purple", "pink",
+    "orange", "brown"];
