@@ -1,0 +1,5 @@
+nazwaPliku
+ilosc linii: 12
+ilosc znakow: 45
+ilosc liter: 32
+ilosc wyrazow: 21

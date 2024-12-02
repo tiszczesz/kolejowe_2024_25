@@ -39,5 +39,7 @@ function sumEvenNumbers(numbers: number[], isEven: boolean = true): number {
     }
     return totoal;
 }
+console.log(" =======================================");
+
 console.log(sumEvenNumbers([1, 2, 3]));
 console.log(sumEvenNumbers([1, 2, 3], false));
