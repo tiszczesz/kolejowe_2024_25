@@ -8,10 +8,10 @@ console.log(input);
 // fs.appendFileSync("output.txt", "\n nowa linijka do pliku", 'utf8');
 const lines = getLines("info2.txt");
 console.log(lines);
-const info ={
-    count: lines.length, 
-    chars:lines.join('').length, 
-    words:lines.join(' ').split(' ').length,
+const info = {
+    count: lines.length,
+    chars: lines.join('').length,
+    words: lines.join(' ').split(' ').length,
     letters: howManyLetters(lines),
     vovels: lines.join('').match(/[aeiouAEIOU]/gi)?.length,
 };
