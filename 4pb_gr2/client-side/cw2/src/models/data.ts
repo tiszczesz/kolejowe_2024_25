@@ -2,7 +2,7 @@ export type Game = {
     id: number;
     name: string;
     description: string;
-    price: number;   
+    price: number;
 }
 export const games: Game[] = [
     {
@@ -27,7 +27,7 @@ export const games: Game[] = [
         id: 4,
         name: 'Splatoon 2',
         description: 'Ink-splatting action is back and fresher than ever',
-        price: 59.99
+        price: 159.99
     },
     {
         id: 5,
