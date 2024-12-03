@@ -12,7 +12,7 @@
         1.4 strona form zawiera formularz  w którym możemy wysłać informację dla usera o treści
 
 ```js   
-    const user{
+    const user = {
         name:"Adam",
         content:"Treść informacji"
     }
