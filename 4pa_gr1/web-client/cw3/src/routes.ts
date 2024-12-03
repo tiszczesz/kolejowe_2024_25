@@ -5,7 +5,12 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
+type User = {
+    firstname: string;
+    lastname: string;
+    age: string;
+    data: string;
+}
 //const __dirname = path.dirname(new URL(import.meta.url).pathname);
 export const routes = (req: IncomingMessage, res: ServerResponse) => {
     if (req.url === '/') {
@@ -33,33 +38,48 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
     if (req.url === '/result' && req.method === 'POST') {
         const body: any[] = [];
         req.on('data', (chunk: any) => {
-           // console.log(chunk.toString());
+            // console.log(chunk.toString());
             body.push(chunk);
         });
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
-           // console.log(parsedBody);
+            // console.log(parsedBody);
             // const name = parsedBody.split('=')[1];
             // console.log(name);
             const result = parsedBody.split('&').map((item) => {
                 return item.split('=')[1];
             });
-            console.log(parsedBody);    
-            console.log(result); 
-            if(result.length<4 || result[0] === '' || result[1] === '' || result[2] === ''){
+            console.log(parsedBody);
+            console.log(result);
+            if (result.length < 4 || result[0] === '' || result[1] === '' || result[2] === '') {
                 res.writeHead(302, { 'Location': '/form' });
                 return res.end();
             }
-            const user = {
+            const user: User = {
                 firstname: result[0],
                 lastname: result[1],
                 age: result[2],
-                data:result[3]
-            } 
-            fs.appendFileSync('./data.txt', JSON.stringify(user)+'\n');      
+                data: result[3]
+            }
+            fs.appendFileSync('./data.txt', JSON.stringify(user) + '\n');
             res.writeHead(302, { 'Location': '/form' });
             return res.end();
         });
+    }
+    if (req.url === '/getinfo') {
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        const data = fs.readFileSync('./data.txt', 'utf8');
+        // console.log(data.split('\n'));
+
+        const result = data.split('\n');
+        const users: User[] = [];
+        result.forEach((item) => {
+            if (item !== '') {
+                users.push(JSON.parse(item));
+            }
+        });
+        console.log(users);
+        return res.end(JSON.stringify(users));
     }
     if (req.url?.startsWith('/public/')) {
         const filePath = path.join(__dirname, '..', req.url);
@@ -75,7 +95,7 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
                 break;
             case '.jpeg':
                 contentType = 'image/jpeg';
-                break;    
+                break;
             case '.jpg':
                 contentType = 'image/jpeg';
                 break;

@@ -1,2 +1,5 @@
 {"firstname":"Tomasz","lastname":"Fryc","age":"33","data":"2008-12-12"}
 {"firstname":"Franek","lastname":"Dzbanek","age":"44","data":"2012-09-09"}
+{"firstname":"Lechu","lastname":"Bechu","age":"66","data":"2009-03-17"}
+{"firstname":"dffgdfg","lastname":"fdgfdgf","age":"3434","data":"2024-12-06"}
+{"firstname":"Eryk","lastname":"Meryk","age":"55","data":"2001-09-04"}
