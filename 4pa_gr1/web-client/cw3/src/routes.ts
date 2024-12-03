@@ -43,15 +43,15 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
             if (err) {
                 res.writeHead(404, { 'Content-Type': 'text/html' });
                 return res.end('<h2>File Not Found</h2>');
-            } else {
-                res.writeHead(200, { 'Content-Type': contentType });
-                return res.end(content);
             }
+            res.writeHead(200, { 'Content-Type': contentType });
+            return res.end(content);
+
         });
     }
     else {
         res.writeHead(404, { 'Content-Type': 'text/html' });
-       return  res.end(`<h2>Page Not Found</h2>`);
+        return res.end(`<h2>Page Not Found</h2>`);
     }
 
 }
