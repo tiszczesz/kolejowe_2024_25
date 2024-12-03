@@ -82,10 +82,13 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
         return res.end(JSON.stringify(users));
     }
     if (req.url?.startsWith('/public/')) {
+        //utwórz ścieżkę do pliku
         const filePath = path.join(__dirname, '..', req.url);
+        console.log(filePath);
+        //pobrac rozszerzenie pliku        
         const ext = path.extname(filePath);
         let contentType = 'text/plain';
-
+        //ustaw odpowiedni typ zawartości na podstawie rozszerzenia
         switch (ext) {
             case '.css':
                 contentType = 'text/css';
@@ -104,14 +107,15 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
                 break;
             // Dodaj inne typy plików, jeśli potrzebujesz
         }
+        //odczytaj plik
         fs.readFile(filePath, (err, content) => {
             if (err) {
                 res.writeHead(404, { 'Content-Type': 'text/html' });
                 return res.end('<h2>File Not Found</h2>');
             }
+            //jeśli plik został odczytany pomyślnie, wyślij go do klienta
             res.writeHead(200, { 'Content-Type': contentType });
             return res.end(content);
-
         });
     }
     else {
