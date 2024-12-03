@@ -1,0 +1,2 @@
+{"firstname":"Tomasz","lastname":"Fryc","age":"33","data":"2008-12-12"}
+{"firstname":"Franek","lastname":"Dzbanek","age":"44","data":"2012-09-09"}
