@@ -43,7 +43,7 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
         });
         return req.on('end', () => {
             const parsedBody = Buffer.concat(body).toString();
-            // console.log(parsedBody);
+             console.log(parsedBody);
             // const name = parsedBody.split('=')[1];
             // console.log(name);
             const result = parsedBody.split('&').map((item) => {
