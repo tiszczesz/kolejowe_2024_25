@@ -73,6 +73,15 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
             case '.png':
                 contentType = 'image/png';
                 break;
+            case '.jpeg':
+                contentType = 'image/jpeg';
+                break;    
+            case '.jpg':
+                contentType = 'image/jpeg';
+                break;
+            case '.js':
+                contentType = 'text/javascript';
+                break;
             // Dodaj inne typy plików, jeśli potrzebujesz
         }
         fs.readFile(filePath, (err, content) => {
