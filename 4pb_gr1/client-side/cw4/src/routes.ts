@@ -3,6 +3,7 @@ import fs from "fs";
 import { Book, books } from "./data.js";
 import path from "path";
 import { fileURLToPath } from "url";
+import { url } from "inspector";
 
 const _filename = fileURLToPath(import.meta.url);
 const _dirname = path.dirname(_filename);
@@ -29,6 +30,22 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
     if (req.url === '/api/books/1') {
         res.writeHead(200, { 'Content-Type': 'application/json' });
         return res.end(JSON.stringify(books[0]));
+    }
+    if(req.url === '/form'){
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        const html = fs.readFileSync('./public/form.html');
+        return res.end(html);
+    }
+    if(req.url === '/result' && req.method === 'POST'){
+        const body:any[] = [];
+        req.on('data',(chunk:any)=>{
+            body.push(chunk)
+        });
+        return req.on('end',()=>{
+            const parseBody = Buffer.concat(body).toString();
+            console.log(parseBody);
+            
+        });
     }
     if (req.url?.startsWith('/public/')) {
         const filePath = path.join(_dirname, '..', req.url);
