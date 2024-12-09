@@ -27,6 +27,35 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
         res.write(html);
         return res.end();
     }
+    if(req.url === '/form'){
+        const html = fs.readFileSync('./public/form.html');
+        res.writeHead(200, { 'Content-Type': 'text/html' });
+        res.write(html);
+        return res.end();
+    }if(req.url  === '/result' && req.method === 'POST'){
+        let body:any[] = [];
+        req.on('data', (chunk) => {
+            body.push(chunk);
+        });
+        return req.on('end', () => {
+            const parsedBody = Buffer.concat(body).toString();
+            const result = parsedBody.split('&').map((item) => {
+                //const [key, value] = item.split('=');
+               // return { [key]: value };
+               return item.split('=')[1];
+            } );
+            console.log(JSON.stringify(result));
+            fs.appendFileSync('./public/result.txt', JSON.stringify(result) + '\n', 'utf-8');
+            res.writeHead(302, { 'Location': '/list' });
+            return res.end();
+        });
+            
+    }if(req.url === '/list'){
+        const html = fs.readFileSync('./public/result.txt', 'utf-8');
+        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.write(html);
+        return res.end();
+    }
     if (req.url?.startsWith('/public/')) {
         useStaticFiles(req, res);
     } else {
