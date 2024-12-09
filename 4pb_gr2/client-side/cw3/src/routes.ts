@@ -1,6 +1,6 @@
 import { IncomingMessage, ServerResponse } from "http";
-import fs from "fs";
-import { fileURLToPath } from "url";
+import fs from "node:fs";
+import { fileURLToPath } from "node:url";
 import path from "path";
 import { games } from "./data.js";
 
@@ -39,10 +39,10 @@ export const routes = (req: IncomingMessage, res: ServerResponse) => {
 
 function useStaticFiles(req: IncomingMessage, res: ServerResponse) {
     const _filename = fileURLToPath(import.meta.url);
-    console.log(_filename);
+   // console.log(_filename);
     const _dirname = path.dirname(_filename);
     const _path = path.join(_dirname, '..', req.url || '');
-    console.log(_path);
+  //  console.log(_path);
     const ext = path.extname(_path);
     let contentType = 'text/plain';
     switch (ext) {
