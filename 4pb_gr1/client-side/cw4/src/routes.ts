@@ -60,7 +60,8 @@ function useStaticFiles(req: IncomingMessage, res: ServerResponse<IncomingMessag
     console.log(import.meta.url);
     console.log(_filename);
     console.log(_dirname);
-    const filePath = path.join(_dirname, '..', req.url!);
+    const file = req.url || ''
+    const filePath = path.join(_dirname, '..', file);
     console.log(filePath);
     let contentType = 'text/plain';
     let ext = path.extname(filePath); //rozszerzenia pobieranych plików statycznych
