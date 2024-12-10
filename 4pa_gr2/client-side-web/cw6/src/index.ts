@@ -1,4 +1,4 @@
-import { colors,size } from "./data.js";
+import { colors,Product,products,size } from "./data.js";
 console.log('Hello, world!');
 console.log(colors);
 const colorsToSelect = (colors: string[]) => {
@@ -23,10 +23,30 @@ const sizeToSelect = (size: number[]) => {
     }
     return select;
 }
+const productsToCards = (products:Product[]) => {
+    const cards = document.createElement('div');
+    cards.classList.add('cards');
+    for (const product of products) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.style.width = '18rem';
+        card.innerHTML = `
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text">${product.description}</p>
+                <p> Price: ${product.price}</p>                 
+            </div>
+        `;
+        cards.appendChild(card);
+    }
+    return cards;
+};
 const root = document.querySelector<HTMLDivElement>('#root');
 if(root){
     root.appendChild(colorsToSelect(colors));
     root.appendChild(sizeToSelect(size));
+    root.appendChild(productsToCards(products));
 }
 //ożywić selecta, zmiana koloru tła na wybrany kolor
 const colorsSelect = document.querySelector<HTMLSelectElement>('#colors');
