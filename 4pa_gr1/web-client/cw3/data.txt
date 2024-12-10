@@ -8,3 +8,4 @@
 {"firstname":"ggg","lastname":"tttt","age":"45","data":"2024-12-05"}
 {"firstname":"ttt","lastname":"tttt","age":"44","data":"2024-12-06"}
 {"firstname":"hhhh","lastname":"hhhgh","age":"67","data":"2024-12-02"}
+{"firstname":"qqwe","lastname":"wqewqe","age":"56","data":"2024-12-06"}
