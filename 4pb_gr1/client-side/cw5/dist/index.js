@@ -32,6 +32,13 @@ const root = document.querySelector('#root');
 const root2 = document.querySelector('#root2');
 function generSelectColors(colors) {
     const select = document.createElement('select');
+    select.addEventListener('change', () => {
+        console.log(select.value);
+        const scene = document.querySelector('#scene');
+        if (scene) {
+            scene.style.backgroundColor = select.value;
+        }
+    });
     //todo add li to select
     for (const color of colors) {
         const option = document.createElement('option');
