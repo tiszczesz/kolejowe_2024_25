@@ -1,6 +1,5 @@
-import { User, users } from "./data.js";
-
-function userTable(users:User[]):HTMLTableElement {
+import { users } from "./data.js";
+function userTable(users) {
     const table = document.createElement('table');
     table.classList.add('table');
     table.classList.add('table-striped');
@@ -15,7 +14,7 @@ function userTable(users:User[]):HTMLTableElement {
     `;
     table.appendChild(thead);
     const tbody = document.createElement('tbody');
-    for(const user of users) {
+    for (const user of users) {
         const tr = document.createElement('tr');
         tr.innerHTML = `
             <td>${user.id}</td>
@@ -28,10 +27,9 @@ function userTable(users:User[]):HTMLTableElement {
     table.appendChild(tbody);
     return table;
 }
-
 const table = userTable(users);
-const root = document.querySelector<HTMLDivElement>('#root');
-if(root) {
+const root = document.querySelector('#root');
+if (root) {
     root.appendChild(table);
 }
 console.log(users);
