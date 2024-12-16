@@ -1,4 +1,4 @@
-import { BooksTableGener } from "./BooksTable.js";
+import { BooksTableGener, lastId } from "./BooksTable.js";
 import { books } from "./mydata.js";
 
 export const formBookGener = (): HTMLFormElement => {
@@ -12,13 +12,15 @@ export const formBookGener = (): HTMLFormElement => {
         const pages = parseInt(form.pages.value);
         console.log(title, author, realizeDate, pages);
         books.push({
-            id: books.length + 1,
+            id: lastId(books) + 1,
             title,
             author,
             realizeDate,
             pages
         })
         const table = document.querySelector<HTMLTableElement>('.table');
+        console.log(books);
+        
         table?.remove();
         const root = document.querySelector<HTMLDivElement>('#root');
         root?.appendChild(BooksTableGener(books));
