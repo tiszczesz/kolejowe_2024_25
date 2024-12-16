@@ -1,4 +1,4 @@
-import { User, users } from "./data.js";
+import { colors, User, users } from "./data.js";
 
 function userTable(users:User[]):HTMLTableElement {
     const table = document.createElement('table');
@@ -31,7 +31,24 @@ function userTable(users:User[]):HTMLTableElement {
 
 const table = userTable(users);
 const root = document.querySelector<HTMLDivElement>('#root');
+const root2 = document.querySelector<HTMLDivElement>('#root2');
+
+function generSelectColors(colors:string[]):HTMLSelectElement {
+    const select = document.createElement('select');
+    //todo add li to select
+    for(const color of colors) {
+        const option = document.createElement('option');
+        option.value = color;
+        option.textContent = color;
+        select.appendChild(option);
+    }
+    return select;
+}
 if(root) {
     root.appendChild(table);
+}
+if(root2) {
+    const select = generSelectColors(colors);
+    root2.appendChild(select);
 }
 console.log(users);
