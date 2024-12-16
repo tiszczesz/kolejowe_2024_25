@@ -1,5 +1,5 @@
 export type User = {
-    id:number,
+    id: number,
     login: string,
     password: string,
     date: Date
@@ -15,4 +15,9 @@ export const users: User[] = [
     { id: 8, login: 'user8', password: 'password8', date: new Date() },
     { id: 9, login: 'user9', password: 'password9', date: new Date() },
     { id: 10, login: 'user10', password: 'password10', date: new Date() }
+];
+
+export const colors = [
+    'red', 'green', 'blue', 'yellow',
+    'orange', 'purple', 'pink', 'brown', 'gray', 'black'
 ];

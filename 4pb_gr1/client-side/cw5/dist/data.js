@@ -10,3 +10,7 @@ export const users = [
     { id: 9, login: 'user9', password: 'password9', date: new Date() },
     { id: 10, login: 'user10', password: 'password10', date: new Date() }
 ];
+export const colors = [
+    'red', 'green', 'blue', 'yellow',
+    'orange', 'purple', 'pink', 'brown', 'gray', 'black'
+];
