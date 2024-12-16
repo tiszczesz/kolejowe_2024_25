@@ -21,11 +21,14 @@ export const BooksTableGener = (data: Book[]): HTMLTableElement => {
         tr.innerHTML = `<td>${book.id}</td>
                         <td>${book.title}</td>
                         <td>${book.author}</td>
-                        <td>${book.realizeDate.toDateString()}</td>
+                        <td>${book.realizeDate.toLocaleDateString()}</td>
                         <td>${book.pages}</td>`;
         tbody.appendChild(tr);
     }
     table.appendChild(thead);
     table.appendChild(tbody);
     return table;
+}
+export const lastId = (data: Book[]): number => {
+    return [...data].sort((a, b) => b.id - a.id)[0].id;
 }
