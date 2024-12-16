@@ -6,5 +6,5 @@ if (root) {
     root.appendChild(generSelect(colors));
     root.appendChild(BooksTableGener(books));
 }
-//napisac funkcje ktora przyjmuje zbior ksiazek
+// napisac funkcje ktora przyjmuje zbior ksiazek
 //  i zwraca tablice ksiazek  w postaci HTMLTableElement
