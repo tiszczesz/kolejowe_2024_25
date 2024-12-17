@@ -1,6 +1,5 @@
 import { ListType } from "../tools";
-
-export const MyList = (type: ListType, items: string[])
+ const MyList = (type: ListType, items: string[])
     : HTMLUListElement | HTMLOListElement => {
     const list = document.createElement(type);
     for (const item of items) {
@@ -10,3 +9,4 @@ export const MyList = (type: ListType, items: string[])
     }
     return list;
 };
+export default MyList;
