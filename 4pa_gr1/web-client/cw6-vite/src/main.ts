@@ -16,7 +16,7 @@ if (app) {
   app.appendChild(MyHeader());
   app.appendChild(LoremPar());
   app.appendChild(MyList('ul', data));
-  app.appendChild(MyList('ol', data));
+//  app.appendChild(MyList('ol', data));
   app.appendChild(MySelect(names));
   app.appendChild(img);
 }
