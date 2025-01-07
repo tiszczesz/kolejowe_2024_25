@@ -19,6 +19,7 @@ if (app) {
 //  app.appendChild(MyList('ol', data));
   app.appendChild(MySelect(names));
   app.appendChild(img);
+  app.appendChild(MyList('ol',["ffdfdfdfd","tyrtyrtyry","jjjjjjj"]))
 }
 // napisac funkcje(komponent) MySelect ktora przyjmuje jako argument: items
 // i zwraca  select z opcjami z items
