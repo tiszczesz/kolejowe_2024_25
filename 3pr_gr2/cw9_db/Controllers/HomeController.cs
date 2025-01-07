@@ -9,6 +9,9 @@ namespace cw9_db.Controllers
         {
             return View();
         }
+        public IActionResult OtherName(){
+            return View("MyView");
+        }
 
     }
 }
