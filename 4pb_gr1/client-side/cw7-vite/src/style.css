@@ -1,0 +1,12 @@
+.my-nav {
+  display: flex;
+  gap: 3rem;
+  border-bottom: 1px solid rgb(136, 136, 136);
+  margin-bottom: 20px;
+}
+
+.my-nav a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}
