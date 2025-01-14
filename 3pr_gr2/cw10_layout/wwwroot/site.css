@@ -1,0 +1,13 @@
+nav{
+    display: flex;
+    gap: 4rem;
+    border-bottom: #333 1px solid;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+nav a{
+    display: inline-block;
+   
+    color: #333;
+    text-decoration: none;
+}
