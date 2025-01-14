@@ -1,1 +1,26 @@
-﻿<h1>Lista studentów</h1>
+﻿@model List<MyStudent>
+<h1>Lista studentów</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Lp</th>
+            <th>Imię</th>
+            <th>Nazwisko</th>
+            <th>Wiek</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{int lp = 0;}
+        @foreach(var student in Model)
+        {
+            lp++;
+            <tr>
+                <td>@lp</td>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Age</td>
+            </tr>
+    
+        }
+    </tbody>
+     </table>
