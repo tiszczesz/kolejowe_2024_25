@@ -26,7 +26,7 @@ public class FakeStudentRepo : IStudentRepo
 
     public List<MyStudent> GetAllStudents()
     {
-        throw new NotImplementedException();
+        return _students;
     }
 
     public MyStudent? GetStudentById(int id)
