@@ -16,8 +16,20 @@ namespace cw10_layout.Controllers
         {
             return View(_studentRepo.GetAllStudents());
         }
+
+        [HttpGet]
         public IActionResult Create()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(MyStudent student)
+        {
+            if(ModelState.IsValid){
+                _studentRepo.AddStudent(student);
+                return RedirectToAction("List");
+            }
             return View();
         }
 
