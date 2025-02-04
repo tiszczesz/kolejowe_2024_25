@@ -7,9 +7,12 @@ namespace cw10_layout.Controllers
     public class StudentsController : Controller
     {
         private readonly IStudentRepo _studentRepo;
-        public StudentsController()
+        private readonly string? _connectionString;
+        public StudentsController(IConfiguration configuration)
         {
-            _studentRepo = new FakeStudentRepo();
+            //_studentRepo = new FakeStudentRepo();
+            _connectionString = configuration.GetConnectionString("mysql");
+            _studentRepo = new MySqlStudentRepo(_connectionString);
         }
         // GET: StudentsController
         public ActionResult List()
