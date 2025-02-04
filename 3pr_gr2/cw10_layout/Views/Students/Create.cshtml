@@ -1,1 +1,20 @@
-﻿<h2>Dodawanie studenta</h2>
+﻿@model cw10_layout.Models.MyStudent
+<h2>Dodawanie studenta</h2>
+<form asp-action="Create" method="post">
+    <div class="row m-2">
+        <label class="col-3 text-end" asp-for="FirstName"></label>
+        <input type="text" asp-for="FirstName" class="col-6" />
+        <span asp-validation-for="FirstName" class="col-3 text-danger"></span>
+    </div>
+       <div class="row m-2">
+        <label class="col-3 text-end" asp-for="LastName"></label>
+        <input type="text" asp-for="LastName" class="col-6" />
+        <span asp-validation-for="LastName" class="col-3 text-danger"></span>
+    </div>
+       <div class="row m-2">
+        <label class="col-3 text-end" asp-for="Age"></label>
+        <input type="number" asp-for="Age" class="col-6" />
+        <span asp-validation-for="Age" class="col-3 text-danger"></span>
+    </div>
+    <input type="submit" value="Dodaj" class="col-6 offset-3 btn btn-primary" />
+</form>
