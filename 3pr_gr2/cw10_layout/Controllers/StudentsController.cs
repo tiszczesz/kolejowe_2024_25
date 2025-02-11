@@ -11,6 +11,7 @@ namespace cw10_layout.Controllers
         public StudentsController(IConfiguration configuration)
         {
             //_studentRepo = new FakeStudentRepo();
+            
             _connectionString = configuration.GetConnectionString("mysql");
             _studentRepo = new MySqlStudentRepo(_connectionString);
         }
@@ -34,6 +35,13 @@ namespace cw10_layout.Controllers
                 return RedirectToAction("List");
             }
             return View();
+        }
+        public IActionResult Delete(int? id){
+            if(id!=null){
+                _studentRepo.DeleteStudent(id);
+
+            }
+            return RedirectToAction("List");
         }
 
     }
