@@ -1,11 +1,15 @@
-type Props = {}
+type MessageProps = {
+  user: string,
+  division: string, 
+  schoolYear: string
+}
 
-function Message({}: Props) {
+function Message(props: MessageProps) {
   return (
     <div className="message">
-        <h3>Adam Nowak</h3>
-        <h4>Klasa 1a</h4>
-        <h5>Rok szkolny 2024/25</h5>
+        <h3>{props.user}</h3>
+        <h4>{props.division}</h4>
+        <h5>Rok szkolny {props.schoolYear}</h5>
     </div>
   )
 }
