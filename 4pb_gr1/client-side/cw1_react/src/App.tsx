@@ -7,7 +7,7 @@ function App() {
 
   return (  
     <>
-      <p>Aktualny czas: {new Date().toLocaleTimeString()}</p>  
+      <p>Aktualna data: {new Date().toLocaleDateString()}</p>  
       <p>d ad asd asd ad</p>
       <hr />
       <MyComponent1 />
