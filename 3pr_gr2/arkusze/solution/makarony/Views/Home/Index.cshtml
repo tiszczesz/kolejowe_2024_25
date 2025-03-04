@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Reservation
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +27,18 @@
         </section>
         <section id="dolny">
             <h2>Zarezerwuj stolik on-line</h2>
-            <form action=""></form>
+            <form asp-action="Result" method="post">
+                <label >Data (format rrrr-mm-dd):</label><br/>
+                <input type="text" asp-for="Date"><br/>
+                 <label >Ile osób?:</label><br/>
+                <input type="number" asp-for="Count"><br/>
+                 <label >Twój numer telefonu:</label><br/>
+                <input type="text" asp-for="Phone"><br/>
+                <input type="checkbox" id="check">Zgadzam się na przetwarzanie moich danych osobowych<br/>
+                <input type="reset" value="WYCZYŚĆ">
+                <input type="submit" value="REZERWUJ">                
+            </form>
+
         </section>
     </main>
     <footer>

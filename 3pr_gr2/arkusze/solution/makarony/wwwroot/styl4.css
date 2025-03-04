@@ -31,3 +31,10 @@ footer{
     color: khaki;
     height: 60px;
 }
+
+input[type=reset],input[type=submit]{
+    margin: 10px;
+    padding: 5px;
+    background-color:  #2F180C;
+    color: khaki;
+}

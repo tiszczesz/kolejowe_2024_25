@@ -1,3 +1,4 @@
+using makarony.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace makarony.Controllers
@@ -8,6 +9,10 @@ namespace makarony.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult Result(Reservation reservation){
+            return View(reservation);
         }
 
     }
