@@ -1,12 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
+import CarsList from './components/CarsList'
 
 function App() {
 
 
   return (
     <div className="container">
-      <h1>Hello from React and bootstrap</h1>
+      <CarsList />
     </div>
   )
 }
