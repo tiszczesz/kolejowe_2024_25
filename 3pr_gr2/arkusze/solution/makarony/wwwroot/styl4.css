@@ -1,0 +1,33 @@
+h1{
+    border-bottom: solid 1px black;
+}
+body{
+    background-color:  #F6E5DC;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#baner{
+    background-color: #2F180C;
+    text-align: center;
+    color: khaki;
+    height: 60px;
+}
+#gorny{
+    display: flex;
+}
+.lewy{
+    width: 60%;
+}
+.prawy{
+    font-size: 150%;
+    padding: 70px;
+}
+#dolny{
+    background-color: #D0B6A8;
+    padding: 30px;
+    text-align: center;
+}
+footer{
+    background-color:  #2F180C;
+    color: khaki;
+    height: 60px;
+}
