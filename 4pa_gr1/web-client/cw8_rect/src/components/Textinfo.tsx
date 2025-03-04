@@ -10,7 +10,8 @@ export default function Textinfo({ content, downLimit, upLimit }: Props) {
       style={{
         border: "2px solid black",
         padding: "10px",
-        textDecoration: content.length <= downLimit ? "line-through" : "none",
+        textDecoration: content.length <= downLimit ? "line-through" 
+                 : "none",
         color: content.length >= upLimit ? "red" : "black",
       }}
     >
