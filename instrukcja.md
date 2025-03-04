@@ -49,3 +49,18 @@ node nazwaPliku.js
 ```
 ## Wszystko o TypeScript
 https://www.typescriptlang.org/
+
+
+# React i Vite
+```console
+npm create vite@latest
+//ewetualnie zgoda na zainstalowanie aplikacji create
+//utworzenie projektu podanie nazwy wybranie React i potem Typescript
+//zgodnie z tym co jest napisane w konsoli
+cd nazwaKatalogu
+npm i
+npm run dev //uruchmienie aplikacji
+//do edycji 
+code . //uzycie VS code
+```
+

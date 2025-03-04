@@ -1,0 +1,10 @@
+p{
+  border: solid 1px red;
+  padding: 10px;
+}
+.message{
+  border: solid 1px blue;
+  padding: 10px;
+  text-align: center;
+  width: 500px;
+}
