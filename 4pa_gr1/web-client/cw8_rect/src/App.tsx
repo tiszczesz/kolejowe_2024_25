@@ -12,6 +12,7 @@ function App() {
       <First content="Ala ma kot" firstColor="black"/>
       <First content="Bolek" firstColor="#346712"/>
       <First content="może trochę ciszej" firstColor="red"/>
+      <First content="aw" firstColor="green"/>
     </>
   );
 }

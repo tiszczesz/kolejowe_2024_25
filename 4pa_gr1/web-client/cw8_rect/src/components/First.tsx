@@ -1,3 +1,5 @@
+import Textinfo from "./Textinfo";
+
 type FirstProps = {
     content: string;
     firstColor: string;
@@ -6,7 +8,8 @@ export default function First(props: FirstProps) {
     return(
         <>
             <h5 style={{color:props.firstColor}}>{props.content}</h5>
-            <p>Ala sasdasd adad</p>
+            <Textinfo content={props.content} downLimit={5} upLimit={10}/>
+            <Textinfo content={props.content} downLimit={2} upLimit={15}/>
         </>
     )
 }
