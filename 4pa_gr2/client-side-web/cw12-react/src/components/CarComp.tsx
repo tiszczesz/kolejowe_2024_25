@@ -10,14 +10,12 @@ const CarComp = ({ car }: Props) => {
       <h3>{car.model}</h3>
       <p>
         Rok: {car.year}
-        <span style={{ textDecoration: car.promo ? "underline" : "none" }}>
-          {" "}
+        <div style={{ textDecoration: car.promo ? "underline" : "none" }}>
           Cena: {car.price} PLN
-        </span>
-        <span style={{ color: car.color, fontWeight: "bold" }}>
-          {" "}
-          kolor: {car.color}
-        </span>
+        </div>
+        <div style={{ color: car.color, fontWeight: "bold" }}>
+          kolor: {car.color} 
+        </div>
       </p>
     </div>
   );
