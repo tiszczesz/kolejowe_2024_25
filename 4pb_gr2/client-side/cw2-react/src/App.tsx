@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useState } from "react";
+import ManualTimer from "./components/ManualTimer";
 
 function App() {
   const names = [
@@ -48,6 +49,8 @@ function App() {
         ))}
       </ul>
       {text} {/* brak zmiany tekstu */}
+      <hr />
+      <ManualTimer />
     </div>
   );
 }
