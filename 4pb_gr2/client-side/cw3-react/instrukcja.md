@@ -6,4 +6,4 @@
 4. klikając w użytkownika możemy go zalogować lub wylogować (zmiana pola isLogin)
 5. kolor tła dopasowywuje się do stanu isLogin
 6. dla ambitnych kliknięcie przycisku [x] usunie z listy usera (do F5)
-7. przy usuwaniu użyć metody filtr tworzącej nową tablice bez użytkownika klikniętego
+7. przy usuwaniu użyć metody filter tworzącej nową tablice bez użytkownika klikniętego
