@@ -10,7 +10,9 @@ const User = ({user,handleClick,...rest}: Props) => {
     
 
     return (
-        <div style={rest.style}  onClick={(e)=>handleClick(e,user)} className={user.isLogged ? "green" : "red"}>{user.name}</div>
+        <div style={rest.style}  
+        onClick={(e)=>handleClick(e,user)} 
+        className={user.isLogged ? "green" : "red"}>{user.name}</div>
     )
 }
 export default User
