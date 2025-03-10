@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useState } from "react";
 import ManualTimer from "./components/ManualTimer";
+import TextChanger from "./components/TextChanger";
 
 function App() {
   const names = [
@@ -51,6 +52,7 @@ function App() {
       {text} {/* brak zmiany tekstu */}
       <hr />
       <ManualTimer />
+      <TextChanger />
     </div>
   );
 }
