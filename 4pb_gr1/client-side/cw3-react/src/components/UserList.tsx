@@ -1,12 +1,12 @@
-import { JSX } from "react"
+
 import { MouseEvent } from "react"
-import { users } from "../data/users"
+import { users, UserType } from "../data/users"
 import User from "./User"
 
 
 const UserList = () => {
     const elem = users.map((user, index) => (
-        <User handleClick={userClick} key={index} user={user} />
+        <User style={{cursor:"pointer"}} handleClick={userClick} key={index} user={user} />
     ))
     // const tab2:JSX.Element[]= [];
     // users.forEach((user, index) => {
@@ -28,6 +28,9 @@ const UserList = () => {
 }
 export default UserList
 
-function userClick(e: MouseEvent<HTMLDivElement>): void {
-    console.log(e.currentTarget.innerHTML);
+
+function userClick(e: MouseEvent<HTMLDivElement>, user: UserType): void {
+    console.log("kliknięto", user.name);
+    
 }
+
