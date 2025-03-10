@@ -1,12 +1,16 @@
+import { MouseEvent } from 'react';
 import { type UserType } from '../data/users';
 
 type Props = {
     user: UserType;
+    handleClick: (e: MouseEvent<HTMLDivElement>) => void;
 }
 
-const User = (props: Props) => {
+const User = ({user,handleClick}: Props) => {
+    
+
     return (
-        <div>{props.user.name}</div>
+        <div onClick={(e)=>handleClick(e)} className={user.isLogged ? "green" : "red"}>{user.name}</div>
     )
 }
 export default User
