@@ -1,4 +1,4 @@
-import { users, type UserType } from "../data/users"
+import { users } from "../data/users"
 import User from "./User"
 
 

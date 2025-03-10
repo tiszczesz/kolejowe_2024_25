@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import UserList from './components/UserList';
 
 function App() {
   const users = [
@@ -12,14 +13,10 @@ function App() {
   ];
 
   return (
-    <>
+    <div className='container'>
      <h1>Lista użytkowników</h1>
-      <ul>
-        {users.map((user, index) => (
-          <li key={index}>{user}</li>
-        ))}  
-      </ul> 
-    </>
+     <UserList />
+    </div>
   )
 }
 

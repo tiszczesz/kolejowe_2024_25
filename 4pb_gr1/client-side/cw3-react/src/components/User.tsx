@@ -6,7 +6,7 @@ type Props = {
 
 const User = (props: Props) => {
     return (
-        <div>User</div>
+        <div>{props.user.name}</div>
     )
 }
 export default User
