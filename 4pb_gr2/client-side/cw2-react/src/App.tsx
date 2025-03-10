@@ -1,22 +1,53 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
-  const names = ["Jan", "Anna", "Maria", "Piotr", "Zofia", "Krzysztof"];
+  const names = [
+    "Jan",
+    "Anna",
+    "Maria",
+    "Piotr",
+    "Zofia",
+    "Krzysztof",
+    "Wojciech",
+    "Barbara",
+    "Karolina",
+    "Małgorzata",
+    "Wojciech",
+    "Katarzyna",
+    "Tomasz",
+    "Paweł",
+    "Michał",
+  ];
+  const [text, setText] = useState("Hello World");
   // const listNames = names.map((name, index) => <li key={index}>{name}</li>);
   // console.log(listNames);
+  //let text = "Hello World";
   return (
     <div className="container">
       <h1>Ćwiczenie 2</h1>
       <ul>
-        {/* <li>{names[0]}</li>
-        <li>{names[1]}</li>
-        <li>{names[2]}</li>
-        <li>{names[3]}</li> */}
         {names.map((name, index) => (
-          <li key={index}>{name}</li>
+          <li
+            onClick={(e) => {
+              const target = e.target as HTMLLIElement;
+              console.log(target.innerText);
+              target.style.color = "red";
+              setText(target.innerText);
+              console.log(text);
+            }}
+            style={{
+              fontWeight: name.endsWith("a") ? "bold" : "none",
+              cursor: "pointer",
+            }}
+            key={index}
+          >
+            {name}
+          </li>
         ))}
       </ul>
+      {text} {/* brak zmiany tekstu */}
     </div>
   );
 }
