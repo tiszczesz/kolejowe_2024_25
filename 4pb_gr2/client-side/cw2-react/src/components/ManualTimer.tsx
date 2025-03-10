@@ -1,16 +1,24 @@
-import  { useState } from 'react'
+import { useState } from "react";
 
 // type Props = {}
 
 const ManualTimer = () => {
-    const [currentDate, setCurrentDate] = useState<string>(new Date().toLocaleDateString())
-    const [currentTime, setCurrentTime] = useState<string>(new Date().toLocaleTimeString())
+  const [currentTime, setCurrentTime] = useState<string>(
+    new Date().toLocaleTimeString()
+  );
   return (
     <>
-    <button onClick={()=>setCurrentDate(new Date().toLocaleDateString())}>Podaj datę: {currentDate}</button><br />
-    <button onClick={()=>setCurrentTime(new Date().toLocaleTimeString())}>Podaj czas: {currentTime}</button><br />
+      <button onClick={() => setCurrentTime(new Date().toLocaleTimeString())}>
+        Podaj czas: {currentTime}
+      </button>
+      <br />
     </>
-  )
-}
+  );
+};
 
-export default ManualTimer
+export default ManualTimer;
+
+//  zdefiniuj komponent TextChanger, który będzie przepisywał tekst z inputa
+//  do diva podczas zmiany wartości inputa
+// jeśli tekst w inpucie jest dłuższy niż 20 znaków zmienia sie
+// kolor tekstu na czerwony w divie
