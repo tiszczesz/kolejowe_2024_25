@@ -20,5 +20,5 @@ function App() {
     </div>
   );
 }
-
+//polskie imiona żenśkie pogrubione
 export default App;
