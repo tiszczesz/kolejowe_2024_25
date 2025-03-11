@@ -16,7 +16,7 @@ function UserComp({ user }: Props) {
       onClick={() => {
         setCurrentUser((prevUser) => ({
           ...prevUser,
-          name: user.name,
+          name: user.name.toUpperCase(),
           isLogged: !prevUser.isLogged,
         }));
         console.log(currentUser.name);
