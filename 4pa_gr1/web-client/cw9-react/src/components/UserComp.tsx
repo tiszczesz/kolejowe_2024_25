@@ -9,7 +9,7 @@ function UserComp({ user }: Props) {
   let name = "noname";
   return (
     <div
-    onClick={(e)=>{      
+    onClick={()=>{      
      // console.log((e.target as HTMLDivElement).innerHTML);
      //console.log(user.name); 
      name = user.name;  
