@@ -1,13 +1,15 @@
-import {type User } from "../data/users";
+import { ComponentProps } from "react";
+import { type User } from "../data/users";
 
 type Props = {
   user: User;
-};
+} & ComponentProps<"div">;
 
 function UserComp({ user }: Props) {
   return (
     <div
       style={{
+        minWidth: "300px",
         padding: "10px",
         border: "1px solid #ccc",
         margin: "10px",

@@ -5,9 +5,10 @@ export default function UsersList() {
   return (
     <>
       <h3>Lista użytkowników</h3>
-      <UserComp user={users[0]} />
-      <UserComp user={users[1]} />
-      <UserComp user={users[2]} />
+      <section style={{display: 'flex', flexWrap: 'wrap'}}>
+       {users.map((elem,i)=>(<UserComp key={i} user={elem}/>))}
+      </section>
+
     </>
   );
 }
