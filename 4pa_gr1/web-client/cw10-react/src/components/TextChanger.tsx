@@ -7,7 +7,7 @@ const TextChanger = () => {
         <input 
         onChange={(e)=>setText(e.target.value)}
         type="text" 
-        value={text} /><span>tu ma być długość tekstu</span>
+        value={text} /><span>długość tekstu: {text.length}</span>
         <div>{text}</div>
     </div>
   )
