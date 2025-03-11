@@ -6,7 +6,9 @@ const TextChanger = () => {
     const [color, setColor] = useState('black')
   return (
     <div className="container">
-        <button>Wylosuj kolor</button> <br/>       
+        <button
+        onClick={()=>setColor(colors[Math.floor(Math.random()*colors.length)])}
+        >Wylosuj kolor</button> <br/>       
         <input 
         onChange={(e)=>setText(e.target.value)}
         type="text" 
