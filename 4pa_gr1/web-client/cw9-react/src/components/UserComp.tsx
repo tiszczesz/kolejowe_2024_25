@@ -6,9 +6,18 @@ type Props = {
 } & ComponentProps<"div">;
 
 function UserComp({ user }: Props) {
+  let name = "noname";
   return (
     <div
+    onClick={(e)=>{      
+     // console.log((e.target as HTMLDivElement).innerHTML);
+     //console.log(user.name); 
+     name = user.name;  
+     console.log(name);
+       
+    }}
       style={{
+        cursor: "pointer",
         minWidth: "300px",
         padding: "10px",
         border: "1px solid #ccc",
@@ -18,7 +27,7 @@ function UserComp({ user }: Props) {
       }}
     >
       <h2>User: {user.name}</h2>
-      <p>Email: {user.email}</p>
+      <p>Email: {user.email} <span style={{textDecoration:"underline"}}>{name}</span></p>
     </div>
   );
 }
