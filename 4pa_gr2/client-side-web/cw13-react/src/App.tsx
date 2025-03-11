@@ -6,10 +6,11 @@ import Image from './components/Image';
 import domek1 from './assets/domek1.jpg';
 import domek2 from './assets/domek2.jpg';
 import obrazek3 from './assets/NaStrone.png';
+import { useState } from 'react';
 
 function App() {
   console.log("App renderuje się");
-  
+  const [showImage, setShowImage] = useState(true);
 
   return (
     <>
@@ -23,10 +24,12 @@ function App() {
      <hr />
      <div>
       <button
-      onClick={()=>{console.log("Kliknięto"); //pokaz ukryj obrazek
+      onClick={()=>{
+        console.log("Kliknięto"); //pokaz ukryj obrazek
+        setShowImage(!showImage);
       }}
-       className='btn btn-info'>Pokaż/ukryj obrazek</button>
-      <Image src={obrazek3} alt='obrazek 3' width={200}  />
+       className='btn btn-info'>Pokaż/ukryj obrazek</button><br />
+      {showImage && <Image src={obrazek3} alt='obrazek 3' width={200}  />}
      </div>
     </>
   )
