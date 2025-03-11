@@ -38,3 +38,11 @@ input[type=reset],input[type=submit]{
     background-color:  #2F180C;
     color: khaki;
 }
+table{
+    border-collapse: collapse;
+    width: 80%;
+}
+td,th{
+    padding: 10px;
+    border: #2F180C solid 1px;
+}

@@ -1,0 +1,42 @@
+﻿@model List<Reservation>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/styl4.css" rel="stylesheet">
+    <title>Restauracja Wszystkie Smaki</title>
+</head>
+<body>
+    <header id="baner">
+        <h1>Witamy w restauracji „Wszystkie Smaki”</h1>
+    </header>
+    <main>
+       <table>
+        <thead>
+            <th>Lp</th>
+            <th>numer stolika</th>
+            <th>data</th>
+            <th>liczba osób</th>
+            <th>telefon</th>
+        </thead>
+        <tbody>
+            @{int lp = 0;}
+            @foreach(var r in Model){
+                lp++;
+                <tr>
+                    <td>@lp</td>
+                    <td>@r.Place</td>
+                    <td>@r.Date</td>
+                    <td>@r.Count</td>
+                    <td>@r.Phone</td>
+                </tr>
+            }
+        </tbody>
+       </table>
+    </main>
+    <footer>
+        Stronę internetową opracował <i>XXXXXXXXXX</i>
+    </footer>
+</body>
+</html>

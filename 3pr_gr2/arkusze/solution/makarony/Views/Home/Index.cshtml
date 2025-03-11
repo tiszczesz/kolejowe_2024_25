@@ -27,6 +27,9 @@
         </section>
         <section id="dolny">
             <h2>Zarezerwuj stolik on-line</h2>
+            <div>
+                <a asp-action="List">Pokaż Wszystkie rezerwacja</a>
+            </div>
             <form asp-action="Result" method="post">
                 <label >Data (format rrrr-mm-dd):</label><br/>
                 <input type="text" asp-for="Date"><br/>
