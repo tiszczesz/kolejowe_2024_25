@@ -23,7 +23,7 @@ function App() {
      <hr />
      <div>
       <button
-      onClick={()=>{console.log("Kliknięto");
+      onClick={()=>{console.log("Kliknięto"); //pokaz ukryj obrazek
       }}
        className='btn btn-info'>Pokaż/ukryj obrazek</button>
       <Image src={obrazek3} alt='obrazek 3' width={200}  />
