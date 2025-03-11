@@ -8,7 +8,7 @@ type Props = {
 
 function UserComp({ user }: Props) {
   const [currentUser, setCurrentUser] = useState(user);
-  
+
   console.log("rendering user");
 
   return (
@@ -33,8 +33,8 @@ function UserComp({ user }: Props) {
     >
       <h2>User: {currentUser.name}</h2>
       <p>
-        Email: {currentUser.email}
-        {" "}<span style={{ textDecoration: "underline" }}>{currentUser.name}</span>
+        Email: {currentUser.email}{" "}
+        <span style={{ textDecoration: "underline" }}>{currentUser.name}</span>
       </p>
     </div>
   );
