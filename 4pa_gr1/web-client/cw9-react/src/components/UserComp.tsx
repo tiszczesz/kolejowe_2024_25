@@ -1,4 +1,4 @@
-import { ComponentProps, use } from "react";
+import { ComponentProps } from "react";
 import { type User } from "../data/users";
 import { useState } from "react";
 
