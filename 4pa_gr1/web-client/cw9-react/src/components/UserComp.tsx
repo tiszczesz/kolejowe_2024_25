@@ -7,25 +7,19 @@ type Props = {
 } & ComponentProps<"div">;
 
 function UserComp({ user }: Props) {
-  const [name, setName] = useState("noname");
-  const [isLogged, setIsLogged] = useState(user.isLogged);
+  const [currentUser, setCurrentUser] = useState(user);
   
   console.log("rendering user");
 
-  //let name = "noname";
   return (
     <div
       onClick={() => {
-        // console.log((e.target as HTMLDivElement).innerHTML);
-        //console.log(user.name);
-        setName(user.name); 
-        setIsLogged((prev)=>{
-          prev = !prev;
-          user.isLogged = prev;
-          return prev;
-        });
-        user.isLogged = isLogged;
-        console.log(name);
+        setCurrentUser((prevUser) => ({
+          ...prevUser,
+          name: user.name,
+          isLogged: !prevUser.isLogged,
+        }));
+        console.log(currentUser.name);
       }}
       style={{
         cursor: "pointer",
@@ -34,13 +28,13 @@ function UserComp({ user }: Props) {
         border: "1px solid #ccc",
         margin: "10px",
         borderRadius: "5px",
-        backgroundColor: user.isLogged ? "green" : "red",
+        backgroundColor: currentUser.isLogged ? "green" : "red",
       }}
     >
-      <h2>User: {user.name}</h2>
+      <h2>User: {currentUser.name}</h2>
       <p>
-        Email: {user.email}
-        {" "}<span style={{ textDecoration: "underline" }}>{name}</span>
+        Email: {currentUser.email}
+        {" "}<span style={{ textDecoration: "underline" }}>{currentUser.name}</span>
       </p>
     </div>
   );
