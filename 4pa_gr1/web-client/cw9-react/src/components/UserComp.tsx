@@ -9,6 +9,7 @@ type Props = {
 function UserComp({ user }: Props) {
   const [name, setName] = useState("noname");
   const [isLogged, setIsLogged] = useState(user.isLogged);
+  
   console.log("rendering user");
 
   //let name = "noname";
@@ -17,13 +18,13 @@ function UserComp({ user }: Props) {
       onClick={() => {
         // console.log((e.target as HTMLDivElement).innerHTML);
         //console.log(user.name);
-        setName(user.name);
+        setName(user.name); 
         setIsLogged((prev)=>{
           prev = !prev;
           user.isLogged = prev;
           return prev;
         });
-       // user.isLogged = isLogged;
+        user.isLogged = isLogged;
         console.log(name);
       }}
       style={{
