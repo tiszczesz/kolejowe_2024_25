@@ -5,6 +5,7 @@ import BorderChanger from './components/BorderChanger';
 import Image from './components/Image';
 import domek1 from './assets/domek1.jpg';
 import domek2 from './assets/domek2.jpg';
+import obrazek3 from './assets/NaStrone.png';
 
 function App() {
   console.log("App renderuje się");
@@ -19,6 +20,14 @@ function App() {
      <Image src={domek1} alt='domek 1' width={200}  />
      <Image src={domek2} alt='domek 2' width={300}  />
      <Image src="vite.svg" alt='vite' width={200}  />
+     <hr />
+     <div>
+      <button
+      onClick={()=>{console.log("Kliknięto");
+      }}
+       className='btn btn-info'>Pokaż/ukryj obrazek</button>
+      <Image src={obrazek3} alt='obrazek 3' width={200}  />
+     </div>
     </>
   )
 }
