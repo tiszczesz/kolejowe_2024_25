@@ -3,6 +3,7 @@ import { colors } from "../data/colors";
 
 const TextChanger = () => {
     const [text, setText] = useState('')
+    const [color, setColor] = useState('black')
   return (
     <div className="container">
         <button>Wylosuj kolor</button>        
@@ -10,7 +11,7 @@ const TextChanger = () => {
         onChange={(e)=>setText(e.target.value)}
         type="text" 
         value={text} /><span>długość tekstu: {text.length}</span>
-        <div style={{fontSize:"3em"}}>{text}</div>
+        <div style={{fontSize:"3em",color:color}}>{text}</div>
     </div>
   )
 }
