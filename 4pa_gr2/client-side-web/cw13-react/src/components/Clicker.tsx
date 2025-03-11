@@ -6,7 +6,7 @@ const Clicker = () => {
   //let counter = 0;
   return (
     <>
-      <div
+      <div className="btn btn-primary"
         onClick={() => {
           //counter++;
           setCounter(counter + 1); //counter = counter + 1;
