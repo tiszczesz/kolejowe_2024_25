@@ -1,8 +1,9 @@
-export type Color = {  
+export type Color = {
     name: string
     hex: string
 }
-export const colors:Color[] = [
+export const colors: Color[] = [
+    { name: "biały", hex: "#FFFFFF" },
     { name: "czerwony", hex: "#FF0000" },
     { name: "zielony", hex: "#00FF00" },
     { name: "niebieski", hex: "#0000FF" },

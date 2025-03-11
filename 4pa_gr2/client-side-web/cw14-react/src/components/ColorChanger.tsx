@@ -1,15 +1,17 @@
-
+import {type Color,colors} from '../data/colors'
 
 
 
 const ColorChanger = () => {
   return (
     <div>
-        <select>
-
+        <select className='form-select'>
+            {colors.map((color:Color)=>(
+                <option key={color.name} value={color.hex}>{color.name}</option>
+            ))}
         </select>
-        <div>
-            
+        <div className='scene'>
+
         </div>
     </div>
   )
