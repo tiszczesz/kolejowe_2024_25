@@ -15,11 +15,11 @@ function UserComp({ user }: Props) {
     <div
       onClick={() => {
         setCurrentUser((prevUser) => ({
-          ...prevUser,
+          ...prevUser,//wcześniejsze wartości tego obiektu zostaną zachowane
           name: user.name.toUpperCase(),
           isLogged: !prevUser.isLogged,
         }));
-        console.log(currentUser.name);
+        console.log(currentUser);//to zwykle nie zadziała, bo zmiana stanu jest asynchroniczna
       }}
       style={{
         cursor: "pointer",
