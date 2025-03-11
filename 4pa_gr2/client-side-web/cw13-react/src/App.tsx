@@ -2,6 +2,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 import Clicker from './components/Clicker'
 import BorderChanger from './components/BorderChanger';
+import Image from './components/Image';
+import domek1 from './assets/domek1.jpg';
+import domek2 from './assets/domek2.jpg';
 
 function App() {
   console.log("App renderuje się");
@@ -13,6 +16,9 @@ function App() {
      <Clicker />
      <hr />
      <BorderChanger />
+     <Image src={domek1} alt='domek 1' width={200}  />
+     <Image src={domek2} alt='domek 2' width={300}  />
+     <Image src="vite.svg" alt='vite' width={200}  />
     </>
   )
 }

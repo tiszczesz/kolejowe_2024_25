@@ -1,0 +1,8 @@
+.image{
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  display: inline-block;
+  box-shadow: 10px 10px 5px #888888;
+}
