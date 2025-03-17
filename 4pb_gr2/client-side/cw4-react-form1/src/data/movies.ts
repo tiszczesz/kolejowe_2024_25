@@ -4,6 +4,9 @@ export type Movie = {
     release_year: string
     price: number
 }
+export const getLastId = (movies: Movie[]): number => {
+    return movies.length > 0 ? Math.max(...movies.map(movie => movie.id)) : 0
+}
 export const movies: Movie[] = [
     {
         id: 1,
