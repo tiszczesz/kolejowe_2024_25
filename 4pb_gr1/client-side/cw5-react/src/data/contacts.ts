@@ -4,6 +4,15 @@ export type Contact = {
     email: string
     phone: string
 }
+export const lastId = (contList: Contact[]) => {
+    let id = 0;
+    for (let elem of contList) {
+        if (elem.id > id) {
+            id = elem.id;
+        }
+    }
+    return id;
+}
 export const contacts: Contact[] = [
     {
         id: 1,
