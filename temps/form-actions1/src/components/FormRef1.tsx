@@ -16,9 +16,7 @@ function FormRef1() {
             }
             console.log(data);
         }
-
-        // console.log(e);
-        
+        // console.log(e);        
     }
 
   return (
