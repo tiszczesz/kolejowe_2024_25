@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  function handleSubmit(formData: FormData): void | Promise<void> {
+    const data = {
+      title: formData.get("title"),
+      director: formData.get("director"),
+      year: formData.get("year"),
+      //correct: formData.get("correct"),
+      correct: formData.get("correct") === "on"
+    };
+    console.log(data);
+  }
 
   return (
-    <>
+    <form action={(e) => handleSubmit(e)}>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <label htmlFor="title">Title:</label>
+        <input type="text" id="title" name="title" required />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div>
+        <label htmlFor="director">Director:</label>
+        <input type="text" id="director" name="director" required />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <div>
+        <label htmlFor="year">Year:</label>
+        <input type="number" id="year" name="year" required />
+      </div>
+      <div>
+        <label htmlFor="correct">IsCorrect:</label>
+        <input type="checkbox" id="correct" name="correct" />
+      </div>
+      <button type="submit">Zatwierdzam</button>
+    </form>
+  );
 }
 
-export default App
+export default App;
