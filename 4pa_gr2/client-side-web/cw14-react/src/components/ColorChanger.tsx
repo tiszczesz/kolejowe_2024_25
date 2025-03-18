@@ -6,7 +6,6 @@ const ColorChanger = () => {
   function handleChange(value: string): void {
     setColor(value);
   }
-
   return (
     <div>
       <select
