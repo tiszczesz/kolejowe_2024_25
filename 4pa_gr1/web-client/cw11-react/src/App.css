@@ -1,0 +1,14 @@
+.row input{
+    display: inline-block;
+    margin: 20px;
+    height: 400px;
+    vertical-align: top;
+    width: 50px;
+}
+.row img{
+    display: inline-block;
+    border: solid 1px green;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 5px #888888;
+}
