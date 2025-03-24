@@ -4,6 +4,7 @@ import { Contact, contacts, lastId } from '../data/contacts'
 type Props = {}
 
 function ContacsList({}: Props) {
+  console.log('render ContacsList');  
    //stan komponentu - lista kontaktów
    const [contactsList, setContactsList] = useState<Contact[]>(contacts)
    const [name, setName] = useState<string>('')

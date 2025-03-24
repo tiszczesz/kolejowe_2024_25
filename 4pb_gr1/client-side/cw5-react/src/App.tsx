@@ -7,7 +7,7 @@ import SelectColor from './components/SelectColor'
 function App() {
   return (
     <>
-      <ContacsList />
+      {/* <ContacsList /> */}
       <hr />
       <SelectColor />
     </>
