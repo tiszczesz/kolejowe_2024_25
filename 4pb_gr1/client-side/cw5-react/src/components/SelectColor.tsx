@@ -32,7 +32,11 @@ const SelectColor = () => {
         <div className="container">
             <div>
                 <input ref={inputRef} type="text" placeholder="dodaj kolor '#213322'" />
-                <button onClick={() => handleAddColor()}>Dodaj kolor</button><br />
+                <button onClick={() => handleAddColor()}>Dodaj kolor</button>
+                
+                {/* Renderowanie warunkowe */}
+                {isColorOK("redd") && <span>OK</span>}
+                <br />
                 <select
                     onChange={(e) => {
                         document.body.style.backgroundColor = e.target.value;
