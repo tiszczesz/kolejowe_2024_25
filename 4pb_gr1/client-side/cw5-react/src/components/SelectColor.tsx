@@ -24,6 +24,7 @@ const SelectColor = () => {
                 return;
             }
             setListColors([...listColors, color]);
+            console.log(listColors);            
         }
     }
 
@@ -49,6 +50,7 @@ const SelectColor = () => {
             }}>
 
             </div>
+            {listColors.join(', ')}
         </div>
     )
 }
