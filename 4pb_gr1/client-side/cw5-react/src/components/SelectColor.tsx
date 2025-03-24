@@ -9,7 +9,9 @@ const SelectColor = () => {
     <div>
         <div>
             <input type="text" placeholder="dodaj kolor '#213322'" />
-            <select >
+            <select 
+            onChange={(e)=>setSelectedColor(e.target.value)}
+            >
                 {listColors.map((color,index)=>(
                     <option key={index} value={color}>{color}</option>
                 ))}
