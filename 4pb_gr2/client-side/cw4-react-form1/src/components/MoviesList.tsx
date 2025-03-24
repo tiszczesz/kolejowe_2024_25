@@ -21,6 +21,11 @@ function MoviesList() {
         setPrice(0)
     }
 
+    function handleDelete(id: number): void {
+        const newMoviesList = moviesList.filter((movie) => movie.id !== id)
+        setMoviesList(newMoviesList)
+    }
+
   return (
     <div>
         <h1>Dodaj nowy film</h1>
@@ -44,13 +49,13 @@ function MoviesList() {
         <button onClick={()=>handleAdd()}>Dodaj</button>
         <hr />
         <h1>Lista filmów</h1>
-        {moviesList.map((movie,i) => (
+        {moviesList.map((movie) => (
 
             <div key={movie.id}>
                 <h2>{movie.title}</h2>
                 <p>Rok produkcji: {movie.release_year}</p>
                 <p>Cena: {movie.price} zł</p>
-                <button >USUŃ</button>
+                <button onClick={()=>handleDelete(movie.id)} >USUŃ</button>
                 <hr />
             </div>
             
