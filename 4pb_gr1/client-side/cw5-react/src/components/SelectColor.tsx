@@ -33,7 +33,9 @@ const SelectColor = () => {
                 <input ref={inputRef} type="text" placeholder="dodaj kolor '#213322'" />
                 <button onClick={() => handleAddColor()}>Dodaj kolor</button><br />
                 <select
-                    onChange={(e) => setSelectedColor(e.target.value)}
+                    onChange={(e) => {
+                        document.body.style.backgroundColor = e.target.value;
+                        return setSelectedColor(e.target.value)}}
                 >
                     {listColors.map((color, index) => (
                         <option key={index} value={color}>{color}</option>

@@ -3,6 +3,7 @@ import './App.css'
 
 import ContacsList from './components/ContacsList'
 import SelectColor from './components/SelectColor'
+import PrimeChecker from './components/PrimeChecker'
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       {/* <ContacsList /> */}
       <hr />
       <SelectColor />
+      <hr />
+      <PrimeChecker />
     </>
   )
 }
