@@ -85,6 +85,7 @@ function MoviesList() {
             USUŃ
           </button>
           <hr />
+          {year}
         </div>
       ))}
     </>
