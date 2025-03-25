@@ -2,6 +2,8 @@ import { useState } from "react";
 import { getLastId, movies, type Movie } from "../data/movies";
 
 function MoviesList() {
+  console.log("renderuje komponent MoviesList");
+  
   const [moviesList, setMoviesList] = useState<Movie[]>(movies);
   const [title, setTitle] = useState<string>("");
   const [category, setCategory] = useState<string>("");
@@ -20,6 +22,8 @@ function MoviesList() {
     }; 
     //wypakowuje tablice moviesList i dodaje do niej nowy film
     setMoviesList([...moviesList, newMovie]);
+    console.log(moviesList);
+    
   }
 
   return (

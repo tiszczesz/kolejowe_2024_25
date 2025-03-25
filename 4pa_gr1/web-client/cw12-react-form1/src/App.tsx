@@ -3,6 +3,7 @@ import './App.css'
 import MoviesList from './components/MoviesList'
 
 function App() {
+console.log("renderuje komponent App");
 
 
   return (
