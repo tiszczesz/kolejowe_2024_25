@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import ColorRange from "./ColorRange";
 type ColorState = {
     red: number;
@@ -18,8 +18,12 @@ function ColorsChanger() {
       <ColorRange colorName="red" handleChange={onChangeColor} />
       <ColorRange colorName="green" handleChange={onChangeColor} />
       <ColorRange colorName="blue" handleChange={onChangeColor} />
-      <div>
+      <div style={{
+        padding:"20px",
+        backgroundColor:`rgb(${colors.red},${colors.green},${colors.blue})`
+      }}>
         {colors.red}, {colors.green}, {colors.blue}
+        <p>{`rgb(${colors.red},${colors.green},${colors.blue})`}</p>
       </div>
     </>
   );
