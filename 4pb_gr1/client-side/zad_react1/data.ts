@@ -17,3 +17,19 @@ export const movies: Movie[] = [
     { id: 9, title: "The Lord of the Rings: The Return of the King", director: "Peter Jackson", releaseYear: 2003, genre: "Fantasy" },
     { id: 10, title: "Interstellar", director: "Christopher Nolan", releaseYear: 2014, genre: "Sci-Fi" },
 ];
+export const genres: string[] = [
+    "Action",
+    "Adventure",
+    "Animation",
+    "Biography",
+    "Comedy",
+    "Crime",
+    "Drama",
+    "Fantasy",
+    "Historical",
+    "Horror",
+    "Mystery",
+    "Romance",
+    "Sci-Fi",
+    "Thriller",
+];
