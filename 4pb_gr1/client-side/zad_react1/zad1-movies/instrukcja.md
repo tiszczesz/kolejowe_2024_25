@@ -1,12 +1,12 @@
 1. Zainstalować  json-server
    
-   ```console
+```console
    npm i json-srver
-   ```
+```
 
 2. Utworzyć plik d.json w src
    
-   ```json
+```json
 {
   "movies": [
     {
