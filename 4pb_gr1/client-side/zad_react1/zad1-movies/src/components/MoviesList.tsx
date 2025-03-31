@@ -2,9 +2,9 @@ import { useState } from "react"
 import { genres, movies } from "../data/data"
 import Movie from "./Movie"
 
-type Props = {}
 
-const MoviesList = (props: Props) => {
+
+const MoviesList = () => {
     const [selectedGenre, setSelectedGenre] = useState<string>("all")
     const [moviesList, setMoviesList] = useState<Movie[]>(movies)
     function handleDelete(id: number): void {
