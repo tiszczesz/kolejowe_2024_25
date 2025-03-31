@@ -85,5 +85,7 @@
 ```
 
 3. uruchomić server-json
+   
 ```console
-json-server --watch src/db.json --port 3200
+npx json-server --watch src/db.json --port 3200
+```
