@@ -9,7 +9,7 @@ const Basket = (props: Props) => {
     // Calculate the total cost of the books in the basket
     const totalCost = props.basketList.reduce((total, book) => total + book.price, 0);
   return (
-    <div className={props.className}>
+    <div style={{ width: "40%" }} className="bg-light m-2 p-3">
       <h2 className="header">Lista zakupów całkowity koszt: {totalCost.toFixed(2)} zł</h2>
       {props.basketList.length === 0 ? (
         <p style={{textAlign:"center"}}>Brak książek w koszyku</p>

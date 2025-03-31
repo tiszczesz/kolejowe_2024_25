@@ -8,7 +8,7 @@ const BooksList = (props:Props) => {
   //const [booksList, setBooksList] = useState(books);
   const [selectedGenre, setSelectedGenre] = useState("all");
   return (
-    <div className={props.className}>
+    <div style={{}} >
       <h2 className="header">Lista książek</h2>
       <div className="row m-2">
         <label htmlFor="selectedGenre" className="col-3 text-end">
@@ -26,10 +26,9 @@ const BooksList = (props:Props) => {
         </select>
       </div>
       <section
-        className="d-flex flex-wrap"
+        className="d-flex flex-wrap justify-content-center"
         style={{
-          gap: "10px",
-          width:"100rem"
+          gap: "10px"          
         }}
       >
         {books.map((book) => (

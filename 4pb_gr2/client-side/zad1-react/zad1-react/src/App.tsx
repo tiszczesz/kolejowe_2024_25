@@ -19,9 +19,9 @@ function App() {
   }
 
   return (
-    <main className='row m-2'>
-       <BooksList handleAdd={addToBasket} className='col-8' />
-       <Basket basketList={basketList} className='col-4' />
+    <main className='d-flex'>
+       <BooksList handleAdd={addToBasket}  />
+       <Basket basketList={basketList}  />
     </main>
   )
 }
