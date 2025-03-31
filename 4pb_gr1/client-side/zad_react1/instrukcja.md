@@ -5,3 +5,4 @@
     - komponentów Movie.tsx
     - wyświetlanie filmów tylko danej kategorii po wybraniu z select
     - usuwanie z listy po kliknięciu w przycisk komponentu Movie.tsx
+4. Można całość zrobić w jednym komponencie
