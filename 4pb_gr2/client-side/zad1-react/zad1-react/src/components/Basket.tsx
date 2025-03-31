@@ -16,8 +16,13 @@ const Basket = (props: Props) => {
       ) : (
         <ol>
           {props.basketList.map((book, id) => (
-            <li key={id}>
+            <li key={id} className="d-flex justify-content-between align-items-center" style={{
+                listStyleType: "none",
+                padding: "10px",
+                borderBottom: "1px solid #ccc",
+            }}>
               {book.title} cena: {book.price}
+              <button className="btn btn-outline-danger">x</button>
             </li>
           ))}
         </ol>
