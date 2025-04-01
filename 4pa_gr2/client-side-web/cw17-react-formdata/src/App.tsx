@@ -94,25 +94,31 @@ function App() {
         {
         productsList.length > 0 
         ?
-          productsList.map((product) => (
-            <div
-              key={product.id}
-              style={{
-                border: "1px solid black",
-                margin: "10px",
-                padding: "10px",
-              }}
-            >
-              <h5>{product.name}</h5>
-              <p>opis: {product.description}</p>
-              <p>cena: {product.price} zł</p>
-              <p>kategoria: {product.category}</p>
-            </div>
-          ))
+         showList(productsList)
         :
         <p>Brak produktów w bazie danych</p>}
       </section>
     </main>
+  );
+}
+function showList(pList: Product[]) {
+  return (
+    pList.map((product) => (
+      <div
+        key={product.id}
+        style={{
+          border: "1px solid black",
+          margin: "10px",
+          padding: "10px",
+        }}
+      >
+        <h5>{product.name}</h5>
+        <p>opis: {product.description}</p>
+        <p>cena: {product.price} zł</p>
+        <p>kategoria: {product.category}</p>
+      </div>
+    )
+  )
   );
 }
 
