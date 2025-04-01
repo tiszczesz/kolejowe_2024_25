@@ -1,14 +1,39 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { products, type Product, categories } from "./data/products";
+import { products, type Product, categories, getLastId } from "./data/products";
 import { FormEvent, useState } from "react";
 
 function App() {
   //zarządanie stanem listy produktów rendering przy zmianie stanu
   const [productsList, setProductsList] = useState<Product[]>(products);
+  const [newProduct, setNewProduct] = useState<Product | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
+    // console.log(event.currentTarget);
+    const formData = new FormData(event.currentTarget);
+    const productName = formData.get("productName") as string;
+    const price = parseFloat(formData.get("price") as string);
+    const description = formData.get("description") as string;
+    const category = formData.get("category") as string;
+    if (
+      productName === "" ||
+      isNaN(price) ||
+      description === "" ||
+      category === ""
+    ) {
+      alert("Wszystkie pola są wymagane");
+      return;
+    }
+    const product: Product = {
+      id: getLastId() + 1,
+      name: productName,
+      price: price,
+      description: description,
+      category: category,
+    };
+    setNewProduct(product);
+    setProductsList((prevProducts) => [...prevProducts, product]);
   }
 
   return (
@@ -23,9 +48,12 @@ function App() {
             placeholder="nazwa produktu"
           />
           <br />
-          <input type="number" name="price" 
-          className="form-control mb-2"
-          placeholder="cena produktu" />
+          <input
+            type="number"
+            name="price"
+            className="form-control mb-2"
+            placeholder="cena produktu"
+          />
           <br />
           <textarea
             className="form-control mb-2"
@@ -45,6 +73,21 @@ function App() {
           <br />
           <button className="btn btn-primary w-100">Zatwierdź</button>
         </form>
+        <hr />
+        {newProduct && (
+          <div
+            style={{
+              border: "1px solid black",
+              margin: "10px",
+              padding: "10px",
+            }}
+          >
+            <h5>{newProduct.name}</h5>
+            <p>opis: {newProduct.description}</p>
+            <p>cena: {newProduct.price} zł</p>
+            <p>kategoria: {newProduct.category}</p>
+          </div>
+        )}
       </section>
       <section className="col-6">
         <h2>Lista produktów</h2>
