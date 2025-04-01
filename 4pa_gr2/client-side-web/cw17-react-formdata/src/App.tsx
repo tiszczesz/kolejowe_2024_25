@@ -36,6 +36,11 @@ function App() {
     setProductsList((prevProducts) => [...prevProducts, product]);
   }
 
+  function handleDelete(id: number): void {
+    const updatedProducts = productsList.filter((product) => product.id !== id);
+    setProductsList(updatedProducts);
+  }
+
   return (
     <main className="row m-2">
       <section className="col-6">
@@ -91,35 +96,32 @@ function App() {
       </section>
       <section className="col-6">
         <h2>Lista produktów</h2>
-        {
-        productsList.length > 0 
-        ?
-         showList(productsList)
-        :
-        <p>Brak produktów w bazie danych</p>}
+        {productsList.length > 0 ? (
+          productsList.map((product) => (
+            <div
+              key={product.id}
+              style={{
+                border: "1px solid black",
+                margin: "10px",
+                padding: "10px",
+              }}
+            >
+              <h5>{product.name}</h5>
+              <p>opis: {product.description}</p>
+              <p>cena: {product.price} zł</p>
+              <p>kategoria: {product.category}</p>
+              <button 
+              onClick={()=>handleDelete(product.id)}     
+               className="btn btn-danger">Usuń</button>
+            </div>
+          ))
+        ) : (
+          <p>Brak produktów w bazie danych</p>
+        )}
       </section>
     </main>
   );
 }
-function showList(pList: Product[]) {
-  return (
-    pList.map((product) => (
-      <div
-        key={product.id}
-        style={{
-          border: "1px solid black",
-          margin: "10px",
-          padding: "10px",
-        }}
-      >
-        <h5>{product.name}</h5>
-        <p>opis: {product.description}</p>
-        <p>cena: {product.price} zł</p>
-        <p>kategoria: {product.category}</p>
-      </div>
-    )
-  )
-  );
-}
+
 
 export default App;
