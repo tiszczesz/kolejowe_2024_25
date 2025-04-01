@@ -33,6 +33,8 @@ export default function FormRef() {
         email: emailRef.current.value,
         education: educationRef.current.value,
       });
+      //nie uzywamy formResult bo nie zmienia sie w czasie rzeczywistym
+      // console.log(formResult);
       console.log({
         name: nameRef.current.value,
         email: emailRef.current.value,
