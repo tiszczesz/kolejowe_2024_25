@@ -43,7 +43,7 @@ function App() {
             ))}
           </select>
           <br />
-          <button>Zatwierdź</button>
+          <button className="btn btn-primary w-100">Zatwierdź</button>
         </form>
       </section>
       <section className="col-6">
