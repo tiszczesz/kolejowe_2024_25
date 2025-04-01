@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { educations } from "../data/educations";
 type FormResult = {
   firstname: string | null;
@@ -6,34 +6,30 @@ type FormResult = {
   email: string | null;
   education: string | null;
 };
-const FormDataComp = () => {
-  const [formResult, setFormResult] = useState<FormResult | null>(null); //dodanie useState do przechowywania wyniku formularza
-  console.log("render FormDataComp");
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-    event.preventDefault();
-    //console.log("Form submitted");
-    //console.log(event.currentTarget);//dodtep do  obiekt formularza
-    //uzycie event.currentTarget do odczytania wartosci z formularza
-    const formData = new FormData(event.currentTarget);
+const Form19Comp = () => {
+  const [formResult, setFormResult] = useState<FormResult | null>(null);
+  const handleAction = async (formData: FormData) => {
     console.log(formData);
-    console.log(formData.get("firstname")); //odczytanie wartosci z formularza
     const firstname = formData.get("firstname") as string; //przypisanie wartosci do zmiennej
     const lastname = formData.get("lastname") as string;
     const email = formData.get("email") as string;
     const education = formData.get("education") as string;
-    if (firstname === "" || lastname === "" || email === "" || education === "") {
+    if (
+      firstname === "" ||
+      lastname === "" ||
+      email === "" ||
+      education === ""
+    ) {
       alert("Wszystkie pola są wymagane");
       return;
     }
     //sprawdzenie czy pola są puste
     //wymuszenie rendering komponentu po wysłaniu formularza
-    setFormResult({ firstname, lastname, email,education }); //przypisanie wartosci do stanu
-  }
-
+    setFormResult({ firstname, lastname, email, education }); //przypisanie wartosci do stanu
+  };
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form action={handleAction}>
         <div className="row m-2">
           <label className="col-3" htmlFor="firstname">
             Podaj imię
@@ -58,7 +54,9 @@ const FormDataComp = () => {
           <input className="col-6" type="email" id="email" name="email" />
         </div>
         <div className="row m-2">
-        <label className="col-3" htmlFor="education">Wybierz wykształcenie</label>
+          <label className="col-3" htmlFor="education">
+            Wybierz wykształcenie
+          </label>
           <select className="col-6" id="education" name="education">
             {educations.map((education) => (
               <option key={education} value={education}>
@@ -83,4 +81,4 @@ const FormDataComp = () => {
   );
 };
 
-export default FormDataComp;
+export default Form19Comp;
