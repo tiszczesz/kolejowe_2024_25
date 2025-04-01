@@ -91,7 +91,9 @@ function App() {
       </section>
       <section className="col-6">
         <h2>Lista produktów</h2>
-        {productsList.length > 0 &&
+        {
+        productsList.length > 0 
+        ?
           productsList.map((product) => (
             <div
               key={product.id}
@@ -106,7 +108,9 @@ function App() {
               <p>cena: {product.price} zł</p>
               <p>kategoria: {product.category}</p>
             </div>
-          ))}
+          ))
+        :
+        <p>Brak produktów w bazie danych</p>}
       </section>
     </main>
   );
