@@ -5,6 +5,9 @@ const FormWithFormData = () => {
     function handleSubmit(event: FormEvent<HTMLFormElement>): void {
         event.preventDefault()
         console.log("Formularz z FormData");
+        console.log(event.currentTarget);        
+        const formData = new FormData(event.currentTarget);
+        console.log(formData);        
 
     }
 
@@ -22,7 +25,7 @@ const FormWithFormData = () => {
                 </div>
                 <div className="row m-2">
                     <input type="radio" className="col-3" name="gender" id="k" value="kobieta"
-                        checked={true} />
+                         />
                     <label htmlFor="k" className="col-9">Kobieta</label>
                 </div>
                 <div className="row m-2">
