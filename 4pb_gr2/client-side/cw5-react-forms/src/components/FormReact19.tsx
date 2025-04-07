@@ -1,48 +1,37 @@
-import { ComponentProps, FormEvent, useState } from "react";
+import { ComponentProps, useState } from "react";
+
+type FormReact19Props = {}&ComponentProps<"div">;
 type FormDataType = {
-  firstname: string;
-  lastname: string;
-  age: number;
-  education: string;
-  gender?: string;
-  hobby?: string[];
-};
-type FormWithFormDataProps = {}& ComponentProps<"div">;
-const FormWithFormData = (props:FormWithFormDataProps) => {
-  console.log("render FormWithFormData");
-
-  const [formResult, setFormResult] = useState<FormDataType | null>(null);
-  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-    event.preventDefault();
-    //dostęp do elementu formularz
-    const form = event.currentTarget;
-    console.log(form);
-    //tworzenie obiektu FormData na podstawie formularza
-    const formData = new FormData(form);
-    console.log(formData);
-    //wykorzystanie FormData do pobrania danych z formularza
-    const result: FormDataType = {
-      firstname: formData.get("firstname") as string,
-      lastname: formData.get("lastname") as string,
-      age: parseInt(formData.get("age") as string),
-      education: formData.get("education") as string,
-      gender: formData.get("gender")
-        ? (formData.get("gender") as string)
-        : "nie wybrano",
-        //pobranie wszystkich wartości z checkboxów
-      hobby: formData.getAll("hobby") as string[],
-    };
-    console.log(result);
-    // walidacja formularza i jesli poprawny to ustawienie stanu
-    if (ValidateForm(result)) {
-      setFormResult(result);
+    firstname: string;
+    lastname: string;
+    age: number;
+    education: string;
+    gender?: string;
+    hobby?: string[];
+  };
+const FormReact19 = (props:FormReact19Props) =>{
+    const [formResult, setFormResult] = useState<FormDataType | null>(null);
+    const handleAction = (formData:FormData)=>{
+        console.log(formData);
+        const result: FormDataType = {
+            firstname: formData.get("firstname") as string,
+            lastname: formData.get("lastname") as string,
+            age: parseInt(formData.get("age") as string),
+            education: formData.get("education") as string,
+            gender: formData.get("gender")
+              ? (formData.get("gender") as string)
+              : "nie wybrano",
+              //pobranie wszystkich wartości z checkboxów
+            hobby: formData.getAll("hobby") as string[],
+          };
+          if(ValidateForm(result)){
+            setFormResult(result);
+        }
     }
-  }
-
-  return (
-    <div style={props.style}>
-      <h4>Formularz z FormData</h4>
-      <form onSubmit={handleSubmit}>
+    return(
+        <div style={props.style}>
+            <h3>Formularz react 19</h3>
+            <form action={handleAction}>
         <input
           className="m-2"
           type="text"
@@ -88,7 +77,6 @@ const FormWithFormData = (props:FormWithFormDataProps) => {
         </div>
         <button className="btn btn-primary m-2">Zatwierdź</button>
       </form>
-      <hr />
       <h4>Wynik:</h4>
       {formResult && (
         <div style={{ border: "solid 1px black" }} className="m-2 p-1">
@@ -102,16 +90,18 @@ const FormWithFormData = (props:FormWithFormDataProps) => {
           )}
         </div>
       )}
-    </div>
-  );
-};
-export default FormWithFormData;
-function ValidateForm(result: FormDataType) {
-  return (
-    result.firstname.length > 0 &&
-    result.lastname.length > 0 &&
-    !isNaN(result.age) &&
-    result.age <= 120 &&
-    result.age > 0
-  );
+        </div>
+    )
 }
+export default FormReact19;
+
+function ValidateForm(result: FormDataType) {
+    return (
+      result.firstname.length > 0 &&
+      result.lastname.length > 0 &&
+      !isNaN(result.age) &&
+      result.age <= 120 &&
+      result.age > 0
+    );
+    
+  }
