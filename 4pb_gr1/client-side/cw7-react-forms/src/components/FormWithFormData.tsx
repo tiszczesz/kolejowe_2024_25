@@ -13,6 +13,7 @@ const FormWithFormData = () => {
     event.preventDefault();
     console.log("Formularz z FormData");
     console.log(event.currentTarget);
+    //pobieranie danych z formularza
     const formData = new FormData(event.currentTarget);
     const result: FormResult = {
       firstname: formData.get("firstname") as string,
