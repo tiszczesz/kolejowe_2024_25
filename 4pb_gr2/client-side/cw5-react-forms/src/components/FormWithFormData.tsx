@@ -28,6 +28,7 @@ const FormWithFormData = () => {
       gender: formData.get("gender")
         ? (formData.get("gender") as string)
         : "nie wybrano",
+        //pobranie wszystkich wartości z checkboxów
       hobby: formData.getAll("hobby") as string[],
     };
     console.log(result);
