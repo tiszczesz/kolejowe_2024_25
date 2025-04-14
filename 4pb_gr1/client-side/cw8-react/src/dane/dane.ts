@@ -84,7 +84,7 @@ export const courses: Course[] = [
         name: "Advanced JavaScript",
         description: "Deep dive into JavaScript concepts and frameworks.",
         price: 299.99,
-        counter: 9,
+        counter: 17,
         maxCounter: 20,
     }
 ]

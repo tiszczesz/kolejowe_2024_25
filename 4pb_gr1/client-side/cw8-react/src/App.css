@@ -1,0 +1,11 @@
+.course {
+  padding: 10px;
+  border: solid 1px #ccc;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.warring {
+  color: red;
+}
