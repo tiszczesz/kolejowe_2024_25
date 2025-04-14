@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+
+import { useState } from 'react';
 import './App.css'
-
+type Item = {
+  id: number;
+  name: string;
+  selected: boolean;
+};
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
+     const [items, setItems] = useState<Item[]>([
+      { id: 1, name: 'Item 1', selected: false },
+      { id: 2, name: 'Item 2', selected: false },
+      { id: 3, name: 'Item 3', selected: false },
+    ]);
+  const toggleItemSelection = (id: number) => {
+      setItems((prevItems) =>
+        prevItems.map((item) =>
+          item.id === id ? { ...item, selected: !item.selected } : item
+        )
+      );
+    };  
+    return (
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {items.map((item) => (
+          <div key={item.id}>
+            <span>{item.name}</span>
+            <button onClick={() => toggleItemSelection(item.id)}>
+              {item.selected ? 'Unselect' : 'Select'}
+            </button>
+          </div>
+        ))}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    );
+  
 }
 
 export default App
