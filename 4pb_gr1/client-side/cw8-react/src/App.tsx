@@ -5,9 +5,9 @@ function App() {
   
 
   return (
-    <>
-      
-    </>
+    <div className='container'>
+      <h1>Zapisy na wybrany kurs</h1>
+    </div>
   )
 }
 
