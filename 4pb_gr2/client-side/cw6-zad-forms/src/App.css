@@ -1,42 +1,42 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+label {
+  display: inline-block;
+  width: 200px;
+  text-align: right;
+  margin-right: 10px;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+form span {
+  width: 200px;
+  margin: 10px;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+label.input-label {
+  margin: 10px;
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+input[type="text"] {
+  width: 200px;
 }
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+label.radio {
+  display: inline-block;
+  width: 200px;
+  margin-left: 205px;
+  text-align: left;
+  margin-right: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+input[type="submit"] {
+  margin-top: 10px;
 }
-
-.card {
-  padding: 2em;
+input[type="submit"]:hover {
+  background-color: #ddd;
 }
-
-.read-the-docs {
-  color: #888;
+input[type="submit"]:active {
+  background-color: #ccc;
+}
+input[type="submit"]:disabled {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+input[type="submit"]:disabled:hover {
+  background-color: #f0f0f0;
 }

@@ -7,5 +7,5 @@
 - pizza nazwa
 - rodzaj zamowienia: na miejscu na wynos. jako radio 
 - dodatki w formie checkbox-ów
-- rodzaj płatności w formie select option
+- rodzaj płatności w formie select options
 - inne wg uznania
