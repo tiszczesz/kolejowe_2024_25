@@ -1,13 +1,37 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { useState } from "react";
 
+interface MyFormData {
+  firstName: string;
+  lastName: string;
+  address: string;
+  pizzaName: string;
+  orderType: string;
+  extras: string[];
+  paymentMethod: string;
+}
 function App() {
+  const [formData, setFormData] = useState<MyFormData | null>(null);
+  const handleSubmit = (data: FormData) => {
+    const fromForm = {
+      firstName: data.get("firstName") as string,
+      lastName: data.get("lastName") as string,
+      address: data.get("address") as string,
+      pizzaName: data.get("pizzaName") as string,
+      orderType: data.get("orderType") as string,
+      extras: data.getAll("extras") as string[],
+      paymentMethod: data.get("paymentMethod") as string,
+    };
+    console.log(fromForm);
+    setFormData(fromForm);
+  };
   return (
     <>
       <header></header>
       <main>
         <section>
-          <form>
+          <form action={handleSubmit}>
             <div className="form-group mb-2">
               <label htmlFor="firstName">Imię:</label>
               <input type="text" id="firstName" name="firstName" required />
@@ -66,8 +90,20 @@ function App() {
                 <option value="blik">Blik</option>
               </select>
             </div>
-            <button type="submit">Zamów</button>
+            <button
+              style={{
+                marginLeft: "205px",
+                width: "100px",
+                height: "40px",
+              }}
+              type="submit"
+            >
+              Zamów
+            </button>
           </form>
+        </section>
+        <section>
+          {formData && JSON.stringify(formData, null, 2)}
         </section>
       </main>
     </>
