@@ -5,7 +5,7 @@ export type Product = {
     price: number;
     category: string;
 };
-export const Categories = [
+export const categories = [
     'Electronics',
     'Books',
     'Clothing',
@@ -17,7 +17,7 @@ export const Categories = [
     'Health & Household',
     'Grocery & Gourmet Food'
 ];
-export const Products: Product[] = [
+export const products: Product[] = [
     {
         id: 1,
         name: 'Wireless Headphones',
@@ -89,3 +89,8 @@ export const Products: Product[] = [
         category: 'Clothing'
     }
 ]
+export const getLastId = (products: Product[]): number => {
+    const ids = products.map((product) => product.id);
+    const maxId = Math.max(...ids);
+    return maxId;
+}
