@@ -71,7 +71,7 @@ function App() {
       <section>
         <h3>Wybierz kategorię wyświetlanych produktów</h3>
         <select name="category">
-          <option value="">Wszystkie</option>
+          <option value="all">Wszystkie</option>
             {categories.map((category, index) => (
               <option value={category} key={index}>
                 {category}
