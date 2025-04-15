@@ -17,6 +17,11 @@ export const Categories = [
     'Health & Household',
     'Grocery & Gourmet Food'
 ];
+export const getLastId = (products: Product[]): number => {
+    if (products.length === 0) return 0;
+    const ids = products.map(product => product.id);
+    return Math.max(...ids);
+}
 export const Products: Product[] = [
     {
         id: 1,

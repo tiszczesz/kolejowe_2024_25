@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'
+import { Link } from 'react-router';
 
 function App() {
 
@@ -9,7 +10,10 @@ function App() {
     <>
       <header>
         <nav>
-          
+          <Link to="/">Home</Link><br />
+          <Link to="/about">About</Link><br />
+          <Link to="/contact">Contact</Link><br />
+          <Link to="/list">Lista</Link><br />
         </nav>
       </header>
       <main>
