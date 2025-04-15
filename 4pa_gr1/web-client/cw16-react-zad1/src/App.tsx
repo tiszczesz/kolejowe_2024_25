@@ -71,7 +71,7 @@ function App() {
       </section>
       <section>
         <h3>Wybierz kategorię wyświetlanych produktów</h3>
-        <select name="category">
+        <select name="category" onChange={(e) => setSelectedCategory(e.target.value)}>
           <option value={allCat}>Wszystkie</option>
             {categories.map((category, index) => (
               <option value={category} key={index}>
@@ -81,15 +81,15 @@ function App() {
           </select>
       </section>
       <section>
-        <h3>Lista produktów ilość: {productList.length}</h3>
+        <h3>Lista produktów (ilość wszystkich: {productList.length})</h3>
         {productList.length > 0 && (
           <div>
             {productList.map((product) => (
-              <div className="product" key={product.id}>
+              (selectedCategory===product.category  || selectedCategory===allCat)&& <div className="product" key={product.id}>
                 <h4>{product.name}</h4>
                 <p>{product.description}</p>
                 <p>
-                  cena: <b>{product.price} PLN</b>
+                  cena: <b>{product.price.toFixed(2)} PLN</b>
                 </p>
                 <p>
                   kategoria: <i>{product.category}</i>
