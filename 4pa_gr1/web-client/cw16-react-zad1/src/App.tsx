@@ -3,8 +3,9 @@ import "./App.css";
 import { products, categories, getLastId, type Product } from "./data/products";
 import { useState } from "react";
 function App() {
+  const allCat = "all"
   const [productList, setProductList] = useState<Product[]>(products);
-  const [selectedCategory, setSelectedCategory] = useState<string>(""); 
+  const [selectedCategory, setSelectedCategory] = useState<string>(allCat); 
   function handleDeleteProduct(id: number) {
     const newList = productList.filter((product) => product.id !== id);
     setProductList(newList);
@@ -71,7 +72,7 @@ function App() {
       <section>
         <h3>Wybierz kategorię wyświetlanych produktów</h3>
         <select name="category">
-          <option value="all">Wszystkie</option>
+          <option value={allCat}>Wszystkie</option>
             {categories.map((category, index) => (
               <option value={category} key={index}>
                 {category}
