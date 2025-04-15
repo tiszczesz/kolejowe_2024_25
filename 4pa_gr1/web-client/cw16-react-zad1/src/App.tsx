@@ -1,11 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { products, categories, getLastId, type Product } from "./data/products";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 function App() {
-  const allCat = "all"
+  const allCat = "all";
   const [productList, setProductList] = useState<Product[]>(products);
-  const [selectedCategory, setSelectedCategory] = useState<string>(allCat); 
+  const [selectedCategory, setSelectedCategory] = useState<string>(allCat);
   function handleDeleteProduct(id: number) {
     const newList = productList.filter((product) => product.id !== id);
     setProductList(newList);
@@ -24,14 +24,15 @@ function App() {
       description === "" ||
       price === "" ||
       category === ""
-    ) return;
+    )
+      return;
     const newProduct: Product = {
       id: getLastId(products) + 1,
       name: productName,
       description: description,
       price: parseFloat(price),
       category: category,
-    };    
+    };
     setProductList([...productList, newProduct]);
     form.reset();
     console.log("form", form);
@@ -71,37 +72,44 @@ function App() {
       </section>
       <section>
         <h3>Wybierz kategorię wyświetlanych produktów</h3>
-        <select name="category" onChange={(e) => setSelectedCategory(e.target.value)}>
+        <select
+          name="category"
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
           <option value={allCat}>Wszystkie</option>
-            {categories.map((category, index) => (
-              <option value={category} key={index}>
-                {category}
-              </option>
-            ))}
-          </select>
+          {categories.map((category, index) => (
+            <option value={category} key={index}>
+              {category}
+            </option>
+          ))}
+        </select>
       </section>
       <section>
         <h3>Lista produktów (ilość wszystkich: {productList.length})</h3>
         {productList.length > 0 && (
           <div>
-            {productList.map((product) => (
-              (selectedCategory===product.category  || selectedCategory===allCat)&& <div className="product" key={product.id}>
-                <h4>{product.name}</h4>
-                <p>{product.description}</p>
-                <p>
-                  cena: <b>{product.price.toFixed(2)} PLN</b>
-                </p>
-                <p>
-                  kategoria: <i>{product.category}</i>
-                </p>
-                <button
-                  onClick={() => handleDeleteProduct(product.id)}
-                  className="btn btn-outline-danger w-50"
-                >
-                  USUŃ
-                </button>
-              </div>
-            ))}
+            {productList.map(
+              (product) =>
+                (selectedCategory === product.category ||
+                  selectedCategory === allCat) && (
+                  <div className="product" key={product.id}>
+                    <h4>{product.name}</h4>
+                    <p>{product.description}</p>
+                    <p>
+                      cena: <b>{product.price.toFixed(2)} PLN</b>
+                    </p>
+                    <p>
+                      kategoria: <i>{product.category}</i>
+                    </p>
+                    <button
+                      onClick={() => handleDeleteProduct(product.id)}
+                      className="btn btn-outline-danger w-50"
+                    >
+                      USUŃ
+                    </button>
+                  </div>
+                )
+            )}
           </div>
         )}
       </section>
