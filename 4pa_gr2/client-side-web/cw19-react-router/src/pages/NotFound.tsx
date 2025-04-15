@@ -1,11 +1,13 @@
-
-
-
+import { Link } from "react-router";
 
 const NotFound = () => {
   return (
-    <div>Strona nieznaleziona</div>
-  )
-}
+    <>
+      <h3>Strona nieznaleziona</h3>
+      <Link to="/">Strona główna</Link>
+      <br />
+    </>
+  );
+};
 
-export default NotFound
+export default NotFound;

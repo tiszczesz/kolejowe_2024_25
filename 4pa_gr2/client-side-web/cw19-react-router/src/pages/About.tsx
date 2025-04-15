@@ -1,7 +1,10 @@
+import { Link } from "react-router";
+
 const About = () => {
   return (
     <>
-      <div>Strona o firmie</div>
+      <h3>Strona o firmie</h3>
+      <Link to="/">Strona główna</Link><br />
     </>
   );
 };
