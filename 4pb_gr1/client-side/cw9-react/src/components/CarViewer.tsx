@@ -1,24 +1,55 @@
 import React from "react";
 import { type Car, carsData } from "../models/carsData";
 
-
+type Props = {};
 
 const CarViewer = () => {
   const [cars, setCars] = React.useState<Car[]>(carsData);
+  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  console.log(currentIndex);
+  function handleLikes(id: number): void {
+    const updatedCars = cars.map((car) => {
+      if (car.id === id) {
+        return { ...car, likes: car.likes + 1 };
+      }
+      return car;
+    });
+    setCars(updatedCars);
+  }
+
   return (
     <div className="d-flex">
-      <button>&lt;&lt;</button>
+      <button
+        onClick={() =>
+          setCurrentIndex(
+            currentIndex - 1 < 0 ? currentIndex + cars.length-1 : currentIndex - 1
+          )
+        }
+      >
+        &lt;&lt;
+      </button>
       <div className="d-flex flex-column align-items-center m-2">
-        <h3>{cars[1].title}</h3>
+        <h3>{cars[currentIndex].title}</h3>
         <img
-          src={"images/" + cars[1].src}
-          alt={cars[1].alt}
+          src={"images/" + cars[currentIndex].src}
+          alt={cars[currentIndex].alt}
           width="300"
           height="200"
         />
-        <p>{cars[1].description}</p>
+        <p>{cars[currentIndex].description}</p>
+        <div>
+          <button
+            onClick={() => handleLikes(cars[currentIndex].id)}
+            className="btn btn-success"
+          >
+            Likes
+          </button>
+          <div>Likes: {cars[currentIndex].likes}</div>
+        </div>
       </div>
-      <button>&gt;&gt;</button>
+      <button onClick={() => setCurrentIndex((currentIndex + 1) % cars.length)}>
+        &gt;&gt;
+      </button>
     </div>
   );
 };
