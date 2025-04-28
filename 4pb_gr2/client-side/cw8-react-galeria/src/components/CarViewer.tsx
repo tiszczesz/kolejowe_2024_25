@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { type Car, carsData } from "../models/carsData";
 
 
 
 const CarViewer = () => {
-  const [cars, setCars] = React.useState<Car[]>(carsData);
-  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const [cars, setCars] = useState<Car[]>(carsData);
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
   console.log(currentIndex);
   function handleLikes(id: number): void {
     const updatedCars = cars.map((car) => {
