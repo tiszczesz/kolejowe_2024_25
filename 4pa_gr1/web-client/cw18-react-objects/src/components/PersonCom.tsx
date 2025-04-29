@@ -11,7 +11,7 @@ const PersonCom = () => {
         id: 1,
         name: 'Janina',
         age: 20,
-        image: ''
+        image: 'images/p1.jpg'
     })
   return (
     <div>PersonCom</div>
