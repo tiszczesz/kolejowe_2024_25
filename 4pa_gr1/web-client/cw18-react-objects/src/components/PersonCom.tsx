@@ -9,7 +9,7 @@ type Person = {
 const PersonCom = () => {
     const [person, setPerson] = useState<Person>({
         id: 1,
-        name: 'Jan',
+        name: 'Janina',
         age: 20,
         image: ''
     })
