@@ -50,7 +50,7 @@ const FormComp = () => {
                     <th>tytuł</th>
                     <th>rodzaj</th>
                 </tr>
-                {movies.map((elem,index)=>(
+                {movies.map((elem)=>(
                     <tr key={elem.id}>
                         <td>{elem.title}</td>
                         <td>{elem.genre}</td>                        
