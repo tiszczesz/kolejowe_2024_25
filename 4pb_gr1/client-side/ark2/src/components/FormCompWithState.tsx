@@ -7,8 +7,7 @@ const FormCompWithState = () => {
    const [title, setTitle] = useState<string>("");
    const [genre, setGenre] = useState<string>("");
       function handleSubmit(event: FormEvent<HTMLFormElement>): void {
-          event.preventDefault();
-          const form = event.currentTarget;
+          event.preventDefault();          
           const newMovie: Movie = {
                 id: getLastId(movies),
                 title,
