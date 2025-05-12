@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { getLastId, type Movie } from "../tools";
 
-
-
 const FormWithAction = () => {
     const [movies, setMovies] = useState<Movie[]>([]);
     function handleAction(formData: FormData) {
