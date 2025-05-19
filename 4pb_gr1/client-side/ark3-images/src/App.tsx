@@ -8,16 +8,17 @@ function App() {
   const [animals, setAnimals] = useState(true);
   const [cars, setCars] = useState(true);
   const [images, setImages] = useState<Item[]>(items);
+  console.log([flowers, animals, cars]);
+
   function handleClick(id: number): void {
     const newImages = images.map((elem) => {
       if (elem.id === id) {
         return { ...elem, downloads: elem.downloads + 1 };
       }
       return elem;
-    }
-    );
+    });
     setImages(newImages);
-    console.log(newImages);    
+    console.log(newImages);
   }
 
   return (
@@ -28,6 +29,7 @@ function App() {
           <input
             className="form-check-input"
             type="checkbox"
+            onChange={() => setFlowers(!flowers)}
             checked={flowers}
             id="flowersId"
           />
@@ -39,6 +41,7 @@ function App() {
           <input
             className="form-check-input"
             checked={animals}
+            onChange={() => setAnimals(!animals)}
             type="checkbox"
             id="animalsId"
           />
@@ -50,6 +53,7 @@ function App() {
           <input
             className="form-check-input"
             checked={cars}
+            onChange={() => setCars(!cars)}
             type="checkbox"
             id="carsId"
           />
@@ -58,16 +62,24 @@ function App() {
           </label>
         </span>
       </section>
-      <section style={{ display: "flex", 
-        flexWrap:"wrap",
-        gap: "10px" }}>
-        {images.map((elem, index) => (
-          <div key={index}>
-            <img src={"assets/" + elem.filename} alt={elem.alt} />
-            <div>Pobrań: {elem.downloads}</div>
-            <button onClick={()=>handleClick(elem.id)} className="btn btn-success">Pobierz</button>
-          </div>
-        ))}
+      <section style={{ display: "flex", flexWrap: "wrap", gap: "10px" }}>
+        {images.map(
+          (elem, index) =>
+            ((elem.category === 1 && flowers) ||
+            (elem.category === 2 && animals) ||
+            (elem.category === 3 && cars) ) && (
+              <div key={index}>
+                <img src={"assets/" + elem.filename} alt={elem.alt} />
+                <div>Pobrań: {elem.downloads}</div>
+                <button
+                  onClick={() => handleClick(elem.id)}
+                  className="btn btn-success"
+                >
+                  Pobierz
+                </button>
+              </div>
+            )
+        )}
       </section>
     </div>
   );
