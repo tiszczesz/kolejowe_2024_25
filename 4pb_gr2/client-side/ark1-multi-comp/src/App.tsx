@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-
+import CoursesList from './components/CoursesList'
+import CourseForm from './components/CourseForm'
+import UsersCourse from './components/UsersCourse'
+import { courses,type User } from './data'
+import { useState } from 'react'
 function App() {
-  const [count, setCount] = useState(0)
+  const [usersList, setUsersList] = useState<User[]>([])
+
+  function addUser(name: string, course: string): void {
+    const newUser: User = {
+      name,
+      course
+    }
+    setUsersList((prev) => [...prev, newUser])
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='container'>
+     <CoursesList listCourses={courses} />
+     <CourseForm handleAddUser={addUser} />
+     <UsersCourse users={usersList} />
+    </div>
   )
 }
 
