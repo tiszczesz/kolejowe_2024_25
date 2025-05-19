@@ -13,6 +13,8 @@ const FormCompWithState = () => {
                 title,
                 genre
           };
+          console.log(newMovie);
+          
           setMovies((prevMovies) =>
               [...prevMovies, newMovie])
         //   form.reset();
