@@ -1,7 +1,9 @@
 export const courses = [
     "Programowanie w C#", 
-    "Angulardla początkujących",
-    "Kurs Django"
+    "Angular dla początkujących",
+    "Kurs Django",
+    "Kurs React",
+    "Kurs Java",
 ];
 export type User = {   
     name: string;    

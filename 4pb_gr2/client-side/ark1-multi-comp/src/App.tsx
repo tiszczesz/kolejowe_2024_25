@@ -13,13 +13,15 @@ function App() {
       name,
       course
     }
+    console.log(newUser);
+    
     setUsersList((prev) => [...prev, newUser])
   }
 
   return (
     <div className='container'>
      <CoursesList listCourses={courses} />
-     <CourseForm handleAddUser={addUser} />
+     <CourseForm handleAddUser={addUser} courses={courses} />
      <UsersCourse users={usersList} />
     </div>
   )

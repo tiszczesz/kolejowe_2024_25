@@ -1,13 +1,32 @@
-import type { User } from "../data"
+import type { User } from "../data";
 
+type UsersProps = {
+  users: User[];
+};
 
-type Props = {
-    users:User[]
-}
-
-const UsersCourse = (props: Props) => {
+const UsersCourse = ({ users }: UsersProps) => {
   return (
-    <div>UsersCourse</div>
-  )
-}
-export default UsersCourse
+    <>
+      <h3>Zapisane kursy:</h3>
+      {users.length > 0 && (
+        <table className="table table-striped">
+            <thead>
+                <tr>
+                <th>Imię i nazwisko</th>
+                <th>Kurs</th>
+                </tr>
+            </thead>
+            <tbody>
+                {users.map((user, index) => (
+                <tr key={index}>
+                    <td>{user.name}</td>
+                    <td>{user.course}</td>
+                </tr>
+                ))}
+            </tbody>
+        </table>
+      )}
+    </>
+  );
+};
+export default UsersCourse;
