@@ -8,13 +8,13 @@ type Props = {
 
 const CourseForm = (props: Props) => {
   const [user, setUser] = useState("");
-  const [course, setCourse] = useState(1);
+  const [course, setCourse] = useState(0);
   function handleCourse(value: string): void {
     const courseNumber = parseInt(value);
     if (courseNumber >= 1 && courseNumber <= props.courses.length) {
       setCourse(courseNumber);
     } else {
-        setCourse(1); 
+        setCourse(0); 
     }
   }
 
@@ -46,6 +46,7 @@ const CourseForm = (props: Props) => {
           onChange={(e) => handleCourse(e.target.value)}
           value={course}
           className="form-control"
+          style={{backgroundColor: !isNaN(course) && course>0 && course<=courses.length ?"white":  "lightcoral"}}
           id="course"
         />
       </div>
