@@ -52,13 +52,38 @@ function App() {
         </div>
       </section>
       <section className="d-flex flex-wrap gap-2">
-        {items.map((item: Image) => (
-          <div>
-            <img src={"assets/" + item.filename} alt={item.alt} />
-            <h4>Pobrań: {item.downloads}</h4>
-            <button className="btn btn-success">Pobierz</button>
-          </div>
-        ))}
+        {flowers &&
+          items.map(
+            (item: Image) =>
+              item.category === 1 && (
+                <div>
+                  <img src={"assets/" + item.filename} alt={item.alt} />
+                  <h4>Pobrań: {item.downloads}</h4>
+                  <button className="btn btn-success">Pobierz</button>
+                </div>
+              )
+          )}
+
+          {animals &&  items.map(
+            (item: Image) =>
+              item.category === 2 && (
+                <div>
+                  <img src={"assets/" + item.filename} alt={item.alt} />
+                  <h4>Pobrań: {item.downloads}</h4>
+                  <button className="btn btn-success">Pobierz</button>
+                </div>
+              )
+          )} 
+          {cars &&  items.map(
+            (item: Image) =>
+              item.category === 3 && (
+                <div>
+                  <img src={"assets/" + item.filename} alt={item.alt} />
+                  <h4>Pobrań: {item.downloads}</h4>
+                  <button className="btn btn-success">Pobierz</button>
+                </div>
+              )
+          )}
       </section>
     </div>
   );
