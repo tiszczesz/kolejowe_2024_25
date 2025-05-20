@@ -1,4 +1,4 @@
-import React from 'react'
+
 import type { Movie } from '../data'
 
 type TableProps = {

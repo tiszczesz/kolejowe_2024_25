@@ -1,5 +1,5 @@
 import type { FormEvent } from "react";
-import { generId, type Movie } from "../data";
+import {  type Movie } from "../data";
 
 type FormProps = {
   genres: string[];
