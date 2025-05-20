@@ -1,35 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import { useState } from "react";
+import { type Image, images } from "./data";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [flowers, setFlowers] = useState(true);
+  const [animals, setAnimals] = useState(true);
+  const [cars, setCars] = useState(true);
+  const [items, setItems] = useState(images);
+  //ustawienie filtrowania
+  console.log(flowers, animals, cars);
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="container">
+      <h1>Kategorie zdjęć</h1>
+      <section className="d-flex gap-3">
+        <div className="form-switch">
+          <input
+            className="form-check-input"
+            checked={flowers}
+            type="checkbox"
+            onChange={() => setFlowers(!flowers)}
+            id="flowersId"
+          />
+          <label className="form-check-label" htmlFor="flowersId">
+            Kwiaty
+          </label>
+        </div>
+        <div className="form-switch">
+          <input
+            className="form-check-input"
+            checked={animals}
+            type="checkbox"
+            onChange={() => setAnimals(!animals)}
+            id="flowersId"
+          />
+          <label className="form-check-label" htmlFor="flowersId">
+            Zwierzęta
+          </label>
+        </div>
+        <div className="form-switch">
+          <input
+            className="form-check-input"
+            checked={cars}
+            type="checkbox"
+            onChange={() => setCars(!cars)}
+            id="flowersId"
+          />
+          <label className="form-check-label" htmlFor="flowersId">
+            Samochody
+          </label>
+        </div>
+      </section>
+      <section className="d-flex flex-wrap gap-2">
+        {items.map((item: Image) => (
+          <div>
+            <img src={"assets/" + item.filename} alt={item.alt} />
+            <h4>Pobrań: {item.downloads}</h4>
+            <button className="btn btn-success">Pobierz</button>
+          </div>
+        ))}
+      </section>
+    </div>
+  );
 }
 
-export default App
+export default App;
