@@ -64,7 +64,11 @@ function App() {
       </section>
       <section className="d-flex gap-2 flex-wrap">
         {images.map((img, index) => (
-          <div key={index}>
+            (flowers && img.category === 1 ||
+            animals && img.category === 2 ||
+            cars && img.category === 3)            
+            &&
+            <div key={index}>
             <img src={"assets/" + img.filename} alt="" />
             <h4>Pobrano: {img.downloads}</h4>
             <button
