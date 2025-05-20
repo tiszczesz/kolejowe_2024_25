@@ -1,9 +1,15 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { courses } from "./models/courses";
+
 import "./App.css";
 import { MouseEvent, useState } from "react";
 
-
+const courses = [
+    "Programowanie w C#",
+    "Angular dla początkujących",
+    "Kurs Django",
+    "Kurs React",
+    "Kurs JavaScript",
+]
 
 function App() {
   const [user,setUser] = useState("");
