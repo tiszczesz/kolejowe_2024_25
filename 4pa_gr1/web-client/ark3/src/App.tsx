@@ -10,6 +10,21 @@ function App() {
   const [items, setItems] = useState(images);
   //ustawienie filtrowania
   console.log(flowers, animals, cars);
+  function handleClick(id: number): void {
+    //console.log(id);
+    
+    const newItems = items.map((elem)=>{
+      if(elem.id===id){
+        return {...elem, downloads: elem.downloads + 1} //zmiana tylko jednego elementu obiektu i
+      }
+      return elem;
+    })
+    console.log(newItems);
+    
+    //dzieki temu nie zmienia się downloads i renderuje
+    setItems(newItems);
+  }
+
   return (
     <div className="container">
       <h1>Kategorie zdjęć</h1>
@@ -89,10 +104,10 @@ function App() {
             ((flowers && item.category === 1) ||
               (animals && item.category === 2) ||
               (cars && item.category === 3)) && (
-              <div>
+              <div key={item.id}>
                 <img src={"assets/" + item.filename} alt={item.alt} />
                 <h4>Pobrań: {item.downloads}</h4>
-                <button className="btn btn-success">Pobierz</button>
+                <button onClick={()=>handleClick(item.id)} className="btn btn-success">Pobierz</button>
               </div>
             )
         )}
