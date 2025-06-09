@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { useEffect } from "react";
 type Post = {
@@ -25,16 +25,24 @@ function App() {
 
   return (
     <div className="container">
+       {posts.length === 0 && <p>Loading posts...</p>}
+      {posts.length > 0 && <p>Total posts: {posts.length}</p>}
+      <button className="btn btn-secondary m-2" onClick={() => setPosts([])}>
+        Clear Posts
+      </button>
+      <button
+        className="btn btn-secondary m-2"
+        onClick={() => window.location.reload()}
+      >
+        Reload Posts
+      </button>
       {posts.map((post) => (
         <div key={post.id} className="post">
-          <h2>{post.title}</h2>
+          <h2 className="text-center">{post.title}</h2>
           <p>{post.body}</p>
         </div>
       ))}
-      {posts.length === 0 && <p>Loading posts...</p>}
-      {posts.length > 0 && <p>Total posts: {posts.length}</p>}
-      <button onClick={() => setPosts([])}>Clear Posts</button>
-      <button onClick={() => window.location.reload()}>Reload Posts</button>
+     
     </div>
   );
 }
