@@ -1,6 +1,8 @@
 class NWD:
     @staticmethod
     def oblicz(a, b):
+        a = abs(a)
+        b = abs(b)
         """Zwraca największy wspólny dzielnik (NWD) liczb a i b."""
         if a < 0 or b < 0:
             raise ValueError("Liczby muszą być nieujemne.")
