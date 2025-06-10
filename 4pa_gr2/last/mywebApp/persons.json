@@ -1,0 +1,62 @@
+[
+  {
+    "Id": 1,
+    "FirstName": "Jan",
+    "LastName": "Kowalski",
+    "DateOfBirth": "1990-05-12T00:00:00"
+  },
+  {
+    "Id": 2,
+    "FirstName": "Anna",
+    "LastName": "Nowak",
+    "DateOfBirth": "1985-11-23T00:00:00"
+  },
+  {
+    "Id": 3,
+    "FirstName": "Piotr",
+    "LastName": "Wiśniewski",
+    "DateOfBirth": "2000-02-14T00:00:00"
+  },
+  {
+    "Id": 4,
+    "FirstName": "Maria",
+    "LastName": "Wójcik",
+    "DateOfBirth": "1995-07-30T00:00:00"
+  },
+  {
+    "Id": 5,
+    "FirstName": "Tomasz",
+    "LastName": "Kaczmarek",
+    "DateOfBirth": "1988-03-18T00:00:00"
+  },
+  {
+    "Id": 6,
+    "FirstName": "Katarzyna",
+    "LastName": "Mazur",
+    "DateOfBirth": "1992-09-05T00:00:00"
+  },
+  {
+    "Id": 7,
+    "FirstName": "Michał",
+    "LastName": "Krawczyk",
+    "DateOfBirth": "1998-12-01T00:00:00"
+  },
+  {
+    "Id": 8,
+    "FirstName": "Agnieszka",
+    "LastName": "Piotrowska",
+    "DateOfBirth": "1983-06-21T00:00:00"
+  },
+  {
+    "Id": 9,
+    "FirstName": "Paweł",
+    "LastName": "Grabowski",
+    "DateOfBirth": "1991-10-10T00:00:00"
+  },
+  {
+    "Id": 10,
+    "FirstName": "Monika",
+    "LastName": "Zielińska",
+    "DateOfBirth": "1996-04-27T00:00:00"
+  }
+]
