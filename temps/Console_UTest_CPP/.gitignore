@@ -1,0 +1,43 @@
+# Pliki Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pliki kompilacji
+Debug/
+Release/
+x64/
+x86/
+ipch/
+*.obj
+*.pdb
+*.idb
+*.aps
+*.ncb
+*.opendb
+*.tlog
+*.log
+*.sdf
+*.cache
+*.ilk
+*.iobj
+*.ipdb
+
+# Pliki testów
+TestResults/
+*.tlog
+
+# Pliki systemowe
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Pliki CMake (jeœli u¿ywasz)
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
