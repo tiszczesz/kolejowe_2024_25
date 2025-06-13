@@ -31,6 +31,8 @@
             tbInput = new TextBox();
             lbOutput = new Label();
             numericUpDown1 = new NumericUpDown();
+            button1 = new Button();
+            saveFileDialog1 = new SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
@@ -62,11 +64,22 @@
             numericUpDown1.ValueChanged += numericUpDown1_ValueChanged;
             numericUpDown1.KeyUp += tbInput_KeyUp;
             // 
+            // button1
+            // 
+            button1.Location = new Point(250, 381);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button1);
             Controls.Add(numericUpDown1);
             Controls.Add(lbOutput);
             Controls.Add(tbInput);
@@ -82,5 +95,7 @@
         private TextBox tbInput;
         private Label lbOutput;
         private NumericUpDown numericUpDown1;
+        private Button button1;
+        private SaveFileDialog saveFileDialog1;
     }
 }
