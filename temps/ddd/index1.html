@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="sizeForm" action="result.php" method="POST">
+        <input type="hidden" name="width" id="widthInput">
+        <input type="hidden" name="height" id="heightInput">
+        <button type="submit">Wyślij</button>
+    </form>
+    
+    <div id="myDiv" style="width: 200px; height: 150px; background-color: lightblue; cursor: pointer;">
+        Kliknij mnie
+    </div>
+    
+    <script>
+    document.getElementById("myDiv").addEventListener("click", function() {
+        let div = this;
+        document.getElementById("widthInput").value = div.offsetWidth;
+        document.getElementById("heightInput").value = div.offsetHeight;
+    
+        document.getElementById("sizeForm").submit();
+    });
+    </script>
+    
+</body>
+</html>
