@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cezar.Domain", "Cezar.Domai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cezar.Tests", "Cezar.Tests\Cezar.Tests.csproj", "{F99E60E4-454D-4E95-B49B-109D30CBDF8B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cezar.WinForms", "Cezar.WinForms\Cezar.WinForms.csproj", "{9AFFDD25-65E8-4C59-88A1-DA2AACA16D28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F99E60E4-454D-4E95-B49B-109D30CBDF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F99E60E4-454D-4E95-B49B-109D30CBDF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F99E60E4-454D-4E95-B49B-109D30CBDF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AFFDD25-65E8-4C59-88A1-DA2AACA16D28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AFFDD25-65E8-4C59-88A1-DA2AACA16D28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AFFDD25-65E8-4C59-88A1-DA2AACA16D28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AFFDD25-65E8-4C59-88A1-DA2AACA16D28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
