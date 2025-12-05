@@ -14,9 +14,6 @@ echo "1. Polimorfizm poprzez dziedziczenie klas\n";
 echo "2. Polimorfizm poprzez interfejsy\n";
 echo "3. Praktyczny przykład - system płatności\n\n";
 
-echo "Naciśnij Enter, aby rozpocząć demonstrację...\n";
-// fgets(STDIN); // Odkomentuj jeśli chcesz pauzy
-
 echo "\n";
 echo str_repeat("=", 70) . "\n";
 echo "PRZYKŁAD 1: POLIMORFIZM POPRZEZ DZIEDZICZENIE KLAS\n";

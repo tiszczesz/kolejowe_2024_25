@@ -29,10 +29,6 @@ class PlatnoscKarta implements MetodaPlatnosci {
         echo "Przetwarzanie płatności kartą...\n";
         echo "Karta: ****" . substr($this->numerKarty, -4) . "\n";
         echo "Kwota: " . number_format($kwota, 2) . " PLN\n";
-        
-        // Symulacja przetwarzania
-        sleep(1);
-        
         echo "✓ Płatność kartą zakończona pomyślnie\n";
         return true;
     }
@@ -58,10 +54,6 @@ class PlatnoscBlik implements MetodaPlatnosci {
         echo "Przetwarzanie płatności BLIK...\n";
         echo "Kod BLIK: " . $this->kodBlik . "\n";
         echo "Kwota: " . number_format($kwota, 2) . " PLN\n";
-        
-        // Symulacja przetwarzania
-        sleep(1);
-        
         echo "✓ Płatność BLIK zakończona pomyślnie\n";
         return true;
     }
@@ -87,10 +79,6 @@ class PlatnoscPrzelew implements MetodaPlatnosci {
         echo "Przetwarzanie przelewu bankowego...\n";
         echo "Konto: " . $this->numerKonta . "\n";
         echo "Kwota: " . number_format($kwota, 2) . " PLN\n";
-        
-        // Symulacja przetwarzania
-        sleep(1);
-        
         echo "✓ Przelew zainicjowany pomyślnie\n";
         return true;
     }
@@ -116,10 +104,6 @@ class PlatnoscPayPal implements MetodaPlatnosci {
         echo "Przetwarzanie płatności PayPal...\n";
         echo "Email PayPal: " . $this->email . "\n";
         echo "Kwota: " . number_format($kwota, 2) . " PLN\n";
-        
-        // Symulacja przetwarzania
-        sleep(1);
-        
         echo "✓ Płatność PayPal zakończona pomyślnie\n";
         return true;
     }

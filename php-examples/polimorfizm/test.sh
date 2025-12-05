@@ -1,5 +1,6 @@
 #!/bin/bash
 # Test script for PHP polymorphism examples
+# This script is executable - run with: ./test.sh
 
 echo "Testing PHP polymorphism examples..."
 echo ""
